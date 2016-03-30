@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.app.dabbawalashop">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
+
+    <!-- GCM Maifest Permission -->
+    <!-- Keeps the processor from sleeping when a message is received. -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- Creates a custom permission so only this app can receive its messages. -->
+    <permission
+        android:name="com.app.dabbawalashop.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <!-- This app has permission to register and receive data message. -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <!-- Network State Permissions to detect Internet status -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- end GCM Maifest Permission -->
+    <application
+        android:name=".ShopKeeperApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".activity.SplashActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.HomeActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".activity.ContactUsActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".activity.AddDeliveryPersonActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".activity.AddProductActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".activity.AssociateAProductActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".activity.AssociateDeliveryPersonActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".activity.AssociatedProductActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".activity.ShopKeeperProfileActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".activity.SellerHUBProfileActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".activity.ShopOperationTimeActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".activity.UpdateOrderDetailActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".activity.UpdateProductAssociatedActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".activity.ViewOrderDetailActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+        <activity
+            android:name=".activity.AssociatedDeliveryLocationsActivity"
+            android:label="@string/title_activity_associated_delivery_locations"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" />
+
+        <!-- receiver for gcm -->
+        <receiver
+            android:name=".notification.TestGcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category android:name="com.app.shopkeeper" />
+            </intent-filter>
+        </receiver>
+        <!-- service for gcm -->
+        <service android:name=".notification.GcmIntentService" />
+
+        <activity
+            android:name=".activity.AssociateADeliveryLocationActivity"
+            android:label="@string/title_activity_add_delivery_location"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.UpdateDeliveryDetailsActivity"
+            android:label="@string/title_activity_update_delivery_details"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.UploadProductImageActivity"
+            android:label="@string/title_activity_upload_product_image"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.ChangePasswordActivity"
+            android:label="@string/title_activity_change_password"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.DeliveryPersonProfileActivity"
+            android:label="@string/title_activity_delivery_person"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.AssociatedShopsActivity"
+            android:label="@string/title_activity_associated_shops"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.ViewShopProfileActivity"
+            android:label="@string/title_activity_view_shop_profile"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.AddADeliveryLocationActivity"
+            android:label="@string/title_activity_add_adelivery_location"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.AddAShopActivity"
+            android:label="@string/title_activity_add_ashop"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.AssociateADeliveryPersonActivity"
+            android:label="@string/title_activity_associate_adelivery_person"
+            android:theme="@style/AppTheme"></activity>
+    </application>
+
+</manifest>
