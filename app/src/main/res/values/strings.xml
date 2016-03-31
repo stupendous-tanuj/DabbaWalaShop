@@ -9,6 +9,7 @@
     <string name="enter_opt_number">Enter OTP number</string>
     <string name="enter_opt_number_validate">Entered OTP number is not correct.</string>
     <string name="profile">Profile</string>
+    <string name="menu_shop">Shop</string>
     <string name="my_profile">My Profile</string>
     <string name="shop">Shop</string>
     <string name="favorate_shop">Favorite Shop</string>
@@ -72,5 +73,7 @@
     <string name="title_activity_add_adelivery_location">Add A Delivery Location</string>
     <string name="title_activity_add_ashop">AddAShopActivity</string>
     <string name="title_activity_associate_adelivery_person">AssociateADeliveryPersonActivity
+    </string>
+    <string name="title_activity_view_shop_operational_time">ViewShopOperationalTimeActivity
     </string>
 </resources>

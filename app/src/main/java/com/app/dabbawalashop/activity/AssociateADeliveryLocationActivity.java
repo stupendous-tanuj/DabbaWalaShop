@@ -29,6 +29,7 @@ public class AssociateADeliveryLocationActivity extends BaseActivity {
 
     private Spinner spinner_available_delivery_locations;
     private TextView  tv_add_delivery_location;
+    private TextView tv_available_delivery_locations;
     String deliveryLocation = "";
     private Spinner spinner_shopId;
     LinearLayout ll_shopId;
@@ -69,7 +70,7 @@ public class AssociateADeliveryLocationActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_add_delivery_location:
-                addDeliveryLocationAPI();
+                associateADeliveryLocationAPI();
                 break;
         }
     }
@@ -77,12 +78,15 @@ public class AssociateADeliveryLocationActivity extends BaseActivity {
     private void setUI() {
         tv_add_delivery_location = (TextView) findViewById(R.id.tv_add_delivery_location);
         spinner_available_delivery_locations = (Spinner) findViewById(R.id.spinner_available_delivery_locations);
+        tv_available_delivery_locations = (TextView) findViewById(R.id.tv_available_delivery_locations);
         findViewById(R.id.tv_add_delivery_location).setOnClickListener(this);
         spinner_shopId = (Spinner) findViewById(R.id.spinner_shopId);
         ll_shopId = (LinearLayout) findViewById(R.id.ll_shopId);
-
+        tv_available_delivery_locations.setVisibility(View.GONE);
+        spinner_available_delivery_locations.setVisibility(View.GONE);
         if((USER_TYPE.equals(AppConstant.UserType.DELIVERY_PERSON_TYPE)) || (USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE))) {
             ll_shopId.setVisibility(View.GONE);
+            fetchAvailableDeliveryLocationsApi();
         }
         else {
             ll_shopId.setVisibility(View.VISIBLE);
@@ -104,6 +108,9 @@ public class AssociateADeliveryLocationActivity extends BaseActivity {
         spinner_shopId.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 shopIdValue = shopId.get(pos);
+                if(!shopIdValue.equals(getString(R.string.please_select)))
+                    tv_available_delivery_locations.setVisibility(View.VISIBLE);
+                spinner_available_delivery_locations.setVisibility(View.VISIBLE);
                 fetchAvailableDeliveryLocationsApi();
             }
 
@@ -151,11 +158,14 @@ public class AssociateADeliveryLocationActivity extends BaseActivity {
         AppRestClient.getClient().sendRequest(this, request, TAG);
     }
 
-    private void addDeliveryLocationAPI() {
+    private void associateADeliveryLocationAPI() {
 
+        if(USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE)) {
+            shopIdValue = PreferenceKeeper.getInstance().getUserId();
+        }
 
         showProgressBar();
-        AppHttpRequest request = AppRequestBuilder.addDeliveryLocationAPI(deliveryLocation, new AppResponseListener<CommonResponse>(CommonResponse.class, this) {
+        AppHttpRequest request = AppRequestBuilder.associateADeliveryLocationAPI(shopIdValue, deliveryLocation, new AppResponseListener<CommonResponse>(CommonResponse.class, this) {
             @Override
             public void onSuccess(CommonResponse result) {
                 hideProgressBar();

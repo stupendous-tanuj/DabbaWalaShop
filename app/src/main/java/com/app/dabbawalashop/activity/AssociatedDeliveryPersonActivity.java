@@ -26,7 +26,7 @@ import com.app.dabbawalashop.utils.PreferenceKeeper;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AssociateDeliveryPersonActivity extends BaseActivity {
+public class AssociatedDeliveryPersonActivity extends BaseActivity {
 
 
     private RecyclerView recycleView;
@@ -55,6 +55,7 @@ public class AssociateDeliveryPersonActivity extends BaseActivity {
         ll_shopId = (LinearLayout) findViewById(R.id.ll_shopId);
         if((USER_TYPE.equals(AppConstant.UserType.DELIVERY_PERSON_TYPE)) || (USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE))) {
             ll_shopId.setVisibility(View.GONE);
+            associateDeliveryPersonAPI();
         }
         else {
             ll_shopId.setVisibility(View.VISIBLE);

@@ -65,7 +65,6 @@ public class AddProductActivity extends BaseActivity {
         setUI();
         fetchAllShopCategoryApi();
         fetchOrderUnitApi();
-        //TODO Show SKUID after adding the product.
     }
 
     private void fetchAllShopCategoryApi() {
@@ -282,7 +281,7 @@ public class AddProductActivity extends BaseActivity {
             public void onSuccess(CommonResponse result) {
                 hideProgressBar(findViewById(R.id.tv_add_product));
                 showToast(result.getSuccessMessage());
-                DialogUtils.showDialogNetwork(AddProductActivity.this, getString(R.string.upload_product_image), new IDialogListener() {
+                DialogUtils.showDialogNetwork(AddProductActivity.this, result.getSuccessMessage(), new IDialogListener() {
                     @Override
                     public void onClickOk() {
                         launchActivity(UploadProductImageActivity.class);

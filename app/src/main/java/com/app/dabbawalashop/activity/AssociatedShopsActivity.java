@@ -3,6 +3,8 @@ package com.app.dabbawalashop.activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.app.dabbawalashop.R;
 import com.app.dabbawalashop.adapter.AssociatedShopAdapter;
@@ -21,6 +23,7 @@ public class AssociatedShopsActivity extends BaseActivity {
 
     private RecyclerView recycleView;
     private String shopIdORSellerHubId;
+    private ImageView iv_addAShop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +33,21 @@ public class AssociatedShopsActivity extends BaseActivity {
         setUI();
         setRecycler();
         associateShopsAPI();
-        //TODO Add a Shop button
     }
 
     private void setUI() {
         recycleView = (RecyclerView) findViewById(R.id.recycle_view_associated_shops);
+        iv_addAShop  = (ImageView) findViewById(R.id.iv_addAShop);
+        findViewById(R.id.iv_addAShop).setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.iv_addAShop:
+                launchActivity(AddAShopActivity.class);
+                break;
+        }
     }
 
     private void setRecycler() {

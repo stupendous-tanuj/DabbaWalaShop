@@ -175,6 +175,16 @@ public class DialogUtils {
         return true;
     }
 
+    public static boolean isSpinnerDefaultValue(BaseActivity activity, String spinnerValue, String labelName) {
+
+        if(spinnerValue.equals(activity.getString(R.string.please_select))){
+            DialogUtils.showDialog(activity, "Please select "+labelName);
+            return false;
+        }
+        return true;
+    }
+
+
     public static boolean isChangePasswordVerification(BaseActivity activity, String oldPassword, String newPassword, String confNewPassword) {
 
         boolean cOldPassword = TextUtils.isEmpty(oldPassword);

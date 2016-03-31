@@ -21,6 +21,7 @@ import com.app.dabbawalashop.network.AppHttpRequest;
 import com.app.dabbawalashop.network.AppRequestBuilder;
 import com.app.dabbawalashop.network.AppResponseListener;
 import com.app.dabbawalashop.network.AppRestClient;
+import com.app.dabbawalashop.utils.DialogUtils;
 import com.app.dabbawalashop.utils.PreferenceKeeper;
 
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class AssociatedDeliveryLocationsActivity extends BaseActivity {
     private String shopIdORSellerHubId;
     private Spinner spinner_shopId;
     LinearLayout ll_shopId;
-    String shopIdValue = "ALL";
+    String shopIdValue = "";
     String USER_TYPE = "";
 
     @Override
@@ -55,7 +56,7 @@ public class AssociatedDeliveryLocationsActivity extends BaseActivity {
         ll_shopId = (LinearLayout) findViewById(R.id.ll_shopId);
         if((USER_TYPE.equals(AppConstant.UserType.DELIVERY_PERSON_TYPE)) || (USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE))) {
             ll_shopId.setVisibility(View.GONE);
-
+            associateDeliveryLocationAPI();
         }
         else {
             ll_shopId.setVisibility(View.VISIBLE);
@@ -81,7 +82,7 @@ public class AssociatedDeliveryLocationsActivity extends BaseActivity {
     private void setShopIdSpinner(List<AssociatedShopId> associatedShopId)
     {
         final List<String> shopId = new ArrayList<>();
-        shopId.add("ALL");
+        shopId.add(getString(R.string.please_select));
         for (int i = 0; i < associatedShopId.size(); i++)
             shopId.add(associatedShopId.get(i).getShopID());
 
@@ -91,6 +92,7 @@ public class AssociatedDeliveryLocationsActivity extends BaseActivity {
         spinner_shopId.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 shopIdValue = shopId.get(pos);
+                if(!shopIdValue.equals(getString(R.string.please_select)))
                 associateDeliveryLocationAPI();
             }
 
@@ -124,6 +126,9 @@ public class AssociatedDeliveryLocationsActivity extends BaseActivity {
             shopIdValue = PreferenceKeeper.getInstance().getUserId();
         }
 
+        if (!DialogUtils.isSpinnerDefaultValue(this, shopIdValue, "Shop ID")) {
+            return;
+        }
 
         showProgressBar();
         AppHttpRequest request = AppRequestBuilder.associatedDeliveryLocationAPI( shopIdValue, new AppResponseListener<DeliveryLocationResponse>(DeliveryLocationResponse.class, this) {

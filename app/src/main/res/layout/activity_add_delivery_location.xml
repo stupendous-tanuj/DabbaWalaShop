@@ -56,6 +56,7 @@
 
 
             <TextView
+                android:id="@+id/tv_available_delivery_locations"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_5"

@@ -28,4 +28,14 @@
         android:indeterminate="false"
         android:visibility="gone" />
 
+    <ImageView
+        android:id="@+id/iv_addAShop"
+        android:layout_width="@dimen/dp_45"
+        android:layout_height="@dimen/dp_45"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/dp_20"
+        android:src="@drawable/add_address" />
+
+
 </RelativeLayout>

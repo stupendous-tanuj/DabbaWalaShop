@@ -434,12 +434,12 @@ public class AppRequestBuilder {
 
 
     // http://stupendoustanuj.co.nf/Dabbawala/Add_A_Product.php
-    public static AppHttpRequest addDeliveryLocationAPI(String deliveryLocation,
-                                                AppResponseListener<CommonResponse> appResponseListener) {
+    public static AppHttpRequest associateADeliveryLocationAPI(String shopId,String deliveryLocation,
+                                                               AppResponseListener<CommonResponse> appResponseListener) {
         AppHttpRequest request = AppHttpRequest.getPostRequest(BASE_URL + "/Associate_A_DeliveryLocation.php", appResponseListener);
         Map<String, String> map = new LinkedHashMap<>();
         setUserHeader(map);
-        map.put("shopId", USER_ID);
+        map.put("shopId", shopId);
         map.put("deliveryLocation", deliveryLocation);
         request.addParam("input", setRequestBody(map));
         return request;
@@ -492,6 +492,17 @@ public class AppRequestBuilder {
         map.put("deliveryLocation", "ALL");
         map.put("onlyShopId", "Y");
         map.put("userType", USER_TYPE);
+        request.addParam("input", setRequestBody(map));
+        return request;
+    }
+
+    // http://stupendoustanuj.co.nf/Dabbawala/Fetch_Shop_DeliveryLocations.php
+    public static AppHttpRequest addADeliveryLocationAPI(String deliveryLocation, String city,AppResponseListener<CommonResponse> appResponseListener) {
+        AppHttpRequest request = AppHttpRequest.getPostRequest(BASE_URL + "/Add_A_DeliveryLocation.php", appResponseListener);
+        Map<String, String> map = new LinkedHashMap<>();
+        setUserHeader(map);
+        map.put("deliveryLocation", deliveryLocation);
+        map.put("city", city);
         request.addParam("input", setRequestBody(map));
         return request;
     }

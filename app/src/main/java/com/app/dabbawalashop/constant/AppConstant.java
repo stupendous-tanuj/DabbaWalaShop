@@ -66,6 +66,13 @@ public class AppConstant {
         String CUSTOMER_TYPE = "Customer";
     }
 
+    public interface CITY {
+        String CITY_PUNE = "Pune";
+        String CITY_MUMBAI = "Mumbai";
+        String CITY_HYD = "Hyderabad";
+        String CITY_BLR = "Banglore";
+    }
+
     public interface STATUS {
         String STATUS_ALL = "ALL";
         String STATUS_APPROVED = "Approved";

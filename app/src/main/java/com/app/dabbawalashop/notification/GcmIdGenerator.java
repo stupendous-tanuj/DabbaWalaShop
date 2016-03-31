@@ -29,7 +29,6 @@ public class GcmIdGenerator {
     public GcmIdGenerator(BaseActivity context) {
         this.context = context;
         prefs = PreferenceKeeper.getInstance();
-        //TODO Update GCM Id
     }
 
     /**

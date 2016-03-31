@@ -2,11 +2,9 @@ package com.app.dabbawalashop.activity;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.widget.DrawerLayout;
@@ -84,6 +82,8 @@ public class HomeActivity extends BaseActivity {
     LinearLayout linear_bar_deliveryLocation = null;
     LinearLayout linear_bar_deliveryPerson = null;
     LinearLayout linear_bar_product = null;
+    LinearLayout linear_home_addADeliveryLocation = null;
+    LinearLayout linear_home_addAShop = null;
     private TextView tv_orderStatus;
     private TextView tv_shopId;
     private Spinner spinner_orderStatus;
@@ -286,7 +286,8 @@ public class HomeActivity extends BaseActivity {
         linear_change_password = (LinearLayout) findViewById(R.id.linear_change_password);
         linear_home_my_orders = (LinearLayout) findViewById(R.id.linear_home_my_orders);
         linear_home_associated_shops  = (LinearLayout) findViewById(R.id.linear_home_associated_shops);
-
+        linear_home_addAShop = (LinearLayout) findViewById(R.id.linear_home_addAShop);
+        linear_home_addADeliveryLocation = (LinearLayout) findViewById(R.id.linear_home_addADeliveryLocation);
         //Bars
         linear_bar_deliveryLocation = (LinearLayout) findViewById(R.id.linear_bar_deliveryLocation);
         linear_bar_deliveryPerson = (LinearLayout) findViewById(R.id.linear_bar_deliveryPerson);
@@ -294,6 +295,8 @@ public class HomeActivity extends BaseActivity {
 
         if(USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE)) {
             linear_home_associated_shops.setVisibility(View.GONE);
+            linear_home_addAShop.setVisibility(View.GONE);
+            linear_home_addADeliveryLocation.setVisibility(View.GONE);
         }
         else if(USER_TYPE.equals(AppConstant.UserType.SELLER_HUB_TYPE)) {
             linear_home_seller_hub_profile.setVisibility(View.GONE);
@@ -425,13 +428,20 @@ public class HomeActivity extends BaseActivity {
         linear_change_password.setOnClickListener(this);
         linear_home_my_orders.setOnClickListener(this);
         linear_home_associated_shops.setOnClickListener(this);
-
+        linear_home_addAShop.setOnClickListener(this);
+        linear_home_addADeliveryLocation.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         drawer_home_root.closeDrawer(nav_home_left_drawer);
         switch (view.getId()) {
+            case R.id.linear_home_addAShop:
+                launchActivity(AddAShopActivity.class);
+                break;
+            case R.id.linear_home_addADeliveryLocation:
+                launchActivity(AddADeliveryLocationActivity.class);
+                break;
             case R.id.linear_home_my_orders:
                 launchActivity(HomeActivity.class);
                 break;
@@ -456,7 +466,7 @@ public class HomeActivity extends BaseActivity {
                 launchActivity(AssociatedDeliveryLocationsActivity.class);
                 break;
             case R.id.linear_home_associated_delivery_person:
-                launchActivity(AssociateDeliveryPersonActivity.class);
+                launchActivity(AssociatedDeliveryPersonActivity.class);
                 break;
             case R.id.linear_home_add_delivery_person:
                 launchActivity(AddDeliveryPersonActivity.class);
