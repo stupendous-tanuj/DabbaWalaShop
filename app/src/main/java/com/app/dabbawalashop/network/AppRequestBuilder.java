@@ -16,6 +16,7 @@ import com.app.dabbawalashop.api.output.ProductResponse;
 import com.app.dabbawalashop.api.output.RecentOrderResponse;
 import com.app.dabbawalashop.api.output.SellerHubProfileResponse;
 import com.app.dabbawalashop.api.output.ShopCategoryResponse;
+import com.app.dabbawalashop.api.output.ShopOperationalTimeResponse;
 import com.app.dabbawalashop.api.output.ShopProfileResponse;
 import com.app.dabbawalashop.api.output.SupportedIdTypeResponse;
 import com.app.dabbawalashop.api.output.ViewAvailableProductResponse;
@@ -464,6 +465,19 @@ public class AppRequestBuilder {
         Map<String, String> map = new LinkedHashMap<>();
         setUserHeader(map);
         map.put("shopId", shopId);
+        request.addParam("input", setRequestBody(map));
+        return request;
+    }
+
+
+    // http://stupendoustanuj.co.nf/Dabbawala/Fetch_Shop_DeliveryLocations.php
+    public static AppHttpRequest fetchShopOperationalTimeAPI(String shopId,String closingDate,
+                                                               AppResponseListener<ShopOperationalTimeResponse> appResponseListener) {
+        AppHttpRequest request = AppHttpRequest.getPostRequest(BASE_URL + "/Fetch_Shop_Timings.php", appResponseListener);
+        Map<String, String> map = new LinkedHashMap<>();
+        setUserHeader(map);
+        map.put("shopId", shopId);
+        map.put("closingDate", closingDate);
         request.addParam("input", setRequestBody(map));
         return request;
     }

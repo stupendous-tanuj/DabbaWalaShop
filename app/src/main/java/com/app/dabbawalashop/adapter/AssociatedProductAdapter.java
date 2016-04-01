@@ -127,6 +127,7 @@ public class AssociatedProductAdapter extends BaseAdapter {
 
     private void deassociatedProductAPI(String productSKU, final int pos) {
         activity.showProgressBar();
+        //TODO Remove this hardcoding
         String shopId = "SP1002";
         AppHttpRequest request = AppRequestBuilder.deassociatedProductAPI(shopId, productSKU, new AppResponseListener<CommonResponse>(CommonResponse.class, activity) {
             @Override

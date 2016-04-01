@@ -472,7 +472,7 @@ public class HomeActivity extends BaseActivity {
                 launchActivity(AddDeliveryPersonActivity.class);
                 break;
             case R.id.linear_home_shop_operation_time:
-                launchActivity(ShopOperationTimeActivity.class);
+                launchActivity(ViewShopOperationalTimeActivity.class);
                 break;
             case R.id.linear_home_contactus:
                 launchActivity(ContactUsActivity.class);
