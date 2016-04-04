@@ -12,8 +12,16 @@ import com.app.dabbawalashop.R;
 import com.app.dabbawalashop.activity.BaseActivity;
 import com.app.dabbawalashop.activity.HomeActivity;
 import com.app.dabbawalashop.activity.ViewShopProfileActivity;
+import com.app.dabbawalashop.api.output.CommonResponse;
+import com.app.dabbawalashop.api.output.ErrorObject;
 import com.app.dabbawalashop.api.output.ShopOperationalTime;
 import com.app.dabbawalashop.constant.AppConstant;
+import com.app.dabbawalashop.listner.IDialogListener;
+import com.app.dabbawalashop.network.AppHttpRequest;
+import com.app.dabbawalashop.network.AppRequestBuilder;
+import com.app.dabbawalashop.network.AppResponseListener;
+import com.app.dabbawalashop.network.AppRestClient;
+import com.app.dabbawalashop.utils.DialogUtils;
 
 import java.util.List;
 
@@ -49,8 +57,49 @@ public class ShopOperationalTimeAdapter extends RecyclerView.Adapter<RecyclerVie
         holder.tv_shopCategory.setText(data.getShopCategoryName());
         holder.tv_closingDate.setText(data.getClosingDate());
         holder.tv_productCategory.setText(data.getProductCategoryName());
+
+        holder.tv_remove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                DialogUtils.showDialogYesNo(activity, activity.getString(R.string.remove_shop_closing_record), activity.getString(R.string.yes), activity.getString(R.string.no), new IDialogListener() {
+                    @Override
+                    public void onClickOk() {
+                        removeShopOperationalTimeAPI(shopId, data.getClosingDate(),data.getShopCategoryName(),data.getProductCategoryName(), pos);
+                    }
+
+                    @Override
+                    public void onCancel() {
+
+                    }
+                });
+            }
+        });
+
+
     }
 
+
+    private void removeShopOperationalTimeAPI(String shopId, String closingDate, String shopCategory, String productCategory,final int pos) {
+        activity.showProgressBar();
+
+        AppHttpRequest request = AppRequestBuilder.removeShopOperationalTimeAPI(shopId, closingDate, shopCategory, productCategory, new AppResponseListener<CommonResponse>(CommonResponse.class, activity) {
+            @Override
+            public void onSuccess(CommonResponse result) {
+                activity.hideProgressBar();
+                activity.showToast(result.getSuccessMessage());
+                shopOperationalTime.remove(pos);
+                notifyDataSetChanged();
+            }
+
+            @Override
+            public void onError(ErrorObject error) {
+                activity.hideProgressBar();
+
+            }
+        });
+        AppRestClient.getClient().sendRequest(activity, request, activity.TAG);
+    }
 
     private ShopOperationalTime getItem(int position) {
         return shopOperationalTime.get(position);
@@ -66,10 +115,11 @@ public class ShopOperationalTimeAdapter extends RecyclerView.Adapter<RecyclerVie
         private final TextView tv_shopCategory;
         private final TextView tv_productCategory;
         private final TextView tv_closingDate;
+        private final TextView tv_remove;
 
         public ShopOperationalTimeHolder(View view) {
             super(view);
-
+            tv_remove = (TextView) view.findViewById(R.id.tv_remove);
             tv_closingDate = (TextView) view.findViewById(R.id.tv_closingDate);
             tv_productCategory = (TextView) view.findViewById(R.id.tv_productCategory);
             tv_shopCategory = (TextView) view.findViewById(R.id.tv_shopCategory);

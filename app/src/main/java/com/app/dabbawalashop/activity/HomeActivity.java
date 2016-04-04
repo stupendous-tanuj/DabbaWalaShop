@@ -36,6 +36,7 @@ import com.app.dabbawalashop.network.AppResponseListener;
 import com.app.dabbawalashop.network.AppRestClient;
 import com.app.dabbawalashop.notification.GcmIdGenerator;
 import com.app.dabbawalashop.utils.AppUtil;
+import com.app.dabbawalashop.utils.DialogUtils;
 import com.app.dabbawalashop.utils.Logger;
 import com.app.dabbawalashop.utils.PreferenceKeeper;
 
@@ -52,10 +53,6 @@ public class HomeActivity extends BaseActivity {
     private ActionBarDrawerToggle mDrawerToggle;
     private RelativeLayout ll_home_layout;
     private LinearLayout nav_home_left_drawer;
-    private TextView homeTitle;
-    private TextView tv_home_left_mobile;
-    private TextView tv_home_address;
-    private TextView tv_home_left_name;
     private RecyclerView recycleView;
     private TextView no_data_available;
     private TextView tv_userId;
@@ -84,13 +81,14 @@ public class HomeActivity extends BaseActivity {
     LinearLayout linear_bar_product = null;
     LinearLayout linear_home_addADeliveryLocation = null;
     LinearLayout linear_home_addAShop = null;
+    LinearLayout linear_home_all_delivery_person = null;
     private TextView tv_orderStatus;
     private TextView tv_shopId;
     private Spinner spinner_orderStatus;
     private Spinner spinner_shopId;
     LinearLayout ll_shopId;
     LinearLayout ll_orderStatus;
-    String shopIdValue = "ALL";
+    String shopIdValue = "";
     String orderStatusValue = "ALL";
     String from = "";
     String to = "";
@@ -120,6 +118,7 @@ public class HomeActivity extends BaseActivity {
         tv_to_dte_home.setText(toDate);
         from = tv_from_dte_home.getText().toString();
         to = tv_to_dte_home.getText().toString();
+        if(!shopIdValue.equals(getString(R.string.please_select)))
         fetchMyOrderDetailApi(from, to);
     }
 
@@ -144,6 +143,11 @@ public class HomeActivity extends BaseActivity {
             showToast(getString(R.string.from_date_greater));
             return;
         }
+
+        if (!DialogUtils.isSpinnerDefaultValue(this, shopIdValue, "Shop ID") || (shopIdValue.equals(""))) {
+            return;
+        }
+
         showProgressBar();
         AppHttpRequest request = AppRequestBuilder.fetchMyOrderDetailAPI(fromDate, toDate, shopIdValue, orderStatusValue, new AppResponseListener<MyOrderDetailResponse>(MyOrderDetailResponse.class, this) {
             @Override
@@ -172,6 +176,7 @@ public class HomeActivity extends BaseActivity {
                     tv.setText(year + "-" + getData(++month) + "-" + getData(day));
                     from = tv_from_dte_home.getText().toString();
                     to = tv_to_dte_home.getText().toString();
+                    if(!shopIdValue.equals(getString(R.string.please_select)))
                     fetchMyOrderDetailApi(from, to);
                 }
             }
@@ -227,7 +232,7 @@ public class HomeActivity extends BaseActivity {
             public void onSuccess(CommonResponse result) {
                 hideProgressBar();
                 setOrderStatusSpinner();
-                if(USER_TYPE.equals(AppConstant.UserType.SELLER_HUB_TYPE)) {
+                if(USER_TYPE.equals(AppConstant.UserType.SELLER_HUB_TYPE) || USER_TYPE.equals(AppConstant.UserType.DELIVERY_PERSON_TYPE)) {
                     associateShopIdAPI();
                 }
             }
@@ -256,7 +261,7 @@ public class HomeActivity extends BaseActivity {
         spinner_shopId = (Spinner) findViewById(R.id.spinner_shopId);
         ll_shopId = (LinearLayout) findViewById(R.id.ll_shopId);
         ll_orderStatus = (LinearLayout) findViewById(R.id.ll_orderStatus);
-        if((USER_TYPE.equals(AppConstant.UserType.DELIVERY_PERSON_TYPE)) || (USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE))) {
+        if((USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE))) {
             ll_shopId.setVisibility(View.GONE);
         }
         else {
@@ -288,6 +293,7 @@ public class HomeActivity extends BaseActivity {
         linear_home_associated_shops  = (LinearLayout) findViewById(R.id.linear_home_associated_shops);
         linear_home_addAShop = (LinearLayout) findViewById(R.id.linear_home_addAShop);
         linear_home_addADeliveryLocation = (LinearLayout) findViewById(R.id.linear_home_addADeliveryLocation);
+        linear_home_all_delivery_person = (LinearLayout) findViewById(R.id.linear_home_all_delivery_person);
         //Bars
         linear_bar_deliveryLocation = (LinearLayout) findViewById(R.id.linear_bar_deliveryLocation);
         linear_bar_deliveryPerson = (LinearLayout) findViewById(R.id.linear_bar_deliveryPerson);
@@ -297,6 +303,7 @@ public class HomeActivity extends BaseActivity {
             linear_home_associated_shops.setVisibility(View.GONE);
             linear_home_addAShop.setVisibility(View.GONE);
             linear_home_addADeliveryLocation.setVisibility(View.GONE);
+            linear_home_all_delivery_person.setVisibility(View.GONE);
         }
         else if(USER_TYPE.equals(AppConstant.UserType.SELLER_HUB_TYPE)) {
             linear_home_seller_hub_profile.setVisibility(View.GONE);
@@ -309,7 +316,9 @@ public class HomeActivity extends BaseActivity {
             linear_home_associated_delivery_person.setVisibility(View.GONE);
             linear_home_add_delivery_person.setVisibility(View.GONE);
             linear_home_delivery_location.setVisibility(View.GONE);
-
+            linear_home_addAShop.setVisibility(View.GONE);
+            linear_home_addADeliveryLocation.setVisibility(View.GONE);
+            linear_home_all_delivery_person.setVisibility(View.GONE);
             //Bars
             linear_bar_deliveryLocation.setVisibility(View.GONE);
             linear_bar_deliveryPerson.setVisibility(View.GONE);
@@ -337,10 +346,12 @@ public class HomeActivity extends BaseActivity {
         spinner_orderStatus.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 orderStatusValue = orderStatus.get(pos);
+                if(!shopIdValue.equals(getString(R.string.please_select)))
                 fetchMyOrderDetailApi(from, to);
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
+                if(!shopIdValue.equals(getString(R.string.please_select)))
                 fetchMyOrderDetailApi(from, to);
             }
         });
@@ -349,7 +360,7 @@ public class HomeActivity extends BaseActivity {
     private void setShopIdSpinner(List<AssociatedShopId> associatedShopId)
     {
         final List<String> shopId = new ArrayList<>();
-        shopId.add("ALL");
+        shopId.add(getString(R.string.please_select));
         for (int i = 0; i < associatedShopId.size(); i++)
             shopId.add(associatedShopId.get(i).getShopID());
 
@@ -359,6 +370,7 @@ public class HomeActivity extends BaseActivity {
         spinner_shopId.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 shopIdValue = shopId.get(pos);
+                if(!shopIdValue.equals(getString(R.string.please_select)))
                 fetchMyOrderDetailApi(from, to);
             }
 
@@ -430,6 +442,7 @@ public class HomeActivity extends BaseActivity {
         linear_home_associated_shops.setOnClickListener(this);
         linear_home_addAShop.setOnClickListener(this);
         linear_home_addADeliveryLocation.setOnClickListener(this);
+        linear_home_all_delivery_person.setOnClickListener(this);
     }
 
     @Override
@@ -495,6 +508,9 @@ public class HomeActivity extends BaseActivity {
                 break;
             case R.id.linear_home_associated_shops:
                 launchActivity(AssociatedShopsActivity.class);
+                break;
+            case R.id.linear_home_all_delivery_person:
+                launchActivity(AllDeliveryPersonsActivity.class);
                 break;
 
         }

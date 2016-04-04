@@ -21,6 +21,7 @@ import com.app.dabbawalashop.network.AppHttpRequest;
 import com.app.dabbawalashop.network.AppRequestBuilder;
 import com.app.dabbawalashop.network.AppResponseListener;
 import com.app.dabbawalashop.network.AppRestClient;
+import com.app.dabbawalashop.utils.DialogUtils;
 import com.app.dabbawalashop.utils.PreferenceKeeper;
 
 import java.util.ArrayList;
@@ -67,7 +68,7 @@ public class AssociatedDeliveryPersonActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_add_ass_deleivery_person:
-                launchActivity(AddDeliveryPersonActivity.class);
+                launchActivity(AssociateADeliveryPersonActivity.class);
                 break;
         }
     }
@@ -82,7 +83,7 @@ public class AssociatedDeliveryPersonActivity extends BaseActivity {
     private void setShopIdSpinner(List<AssociatedShopId> associatedShopId)
     {
         final List<String> shopId = new ArrayList<>();
-        shopId.add(AppConstant.STATUS.STATUS_ALL);
+        shopId.add(getString(R.string.please_select));
         for (int i = 0; i < associatedShopId.size(); i++)
             shopId.add(associatedShopId.get(i).getShopID());
 
@@ -92,6 +93,7 @@ public class AssociatedDeliveryPersonActivity extends BaseActivity {
         spinner_shopId.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 shopIdValue = shopId.get(pos);
+                if(!shopIdValue.equals(getString(R.string.please_select)))
                 associateDeliveryPersonAPI();
             }
 
@@ -126,8 +128,12 @@ public class AssociatedDeliveryPersonActivity extends BaseActivity {
             shopIdValue = PreferenceKeeper.getInstance().getUserId();
         }
 
+        if (!DialogUtils.isSpinnerDefaultValue(this, shopIdValue, "Shop ID") || (shopIdValue.equals(""))) {
+            return;
+        }
+
         showProgressBar();
-        AppHttpRequest request = AppRequestBuilder.associateDeliveryPersonAPI(shopIdValue, new AppResponseListener<DeliveryPersonResponse>(DeliveryPersonResponse.class, this) {
+        AppHttpRequest request = AppRequestBuilder.associatedDeliveryPersonAPI(shopIdValue, "0", new AppResponseListener<DeliveryPersonResponse>(DeliveryPersonResponse.class, this) {
             @Override
             public void onSuccess(DeliveryPersonResponse result) {
                 hideProgressBar();

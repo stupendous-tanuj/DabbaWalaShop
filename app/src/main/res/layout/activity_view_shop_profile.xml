@@ -584,18 +584,6 @@
         </LinearLayout>
     </ScrollView>
 
-    <TextView
-        android:id="@+id/tv_update_profile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@color/color_base"
-        android:gravity="center"
-        android:padding="@dimen/dp_10"
-        android:text="Update Profile"
-        android:textColor="@color/white"
-        android:textSize="@dimen/sp_16" />
-
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"

@@ -213,6 +213,42 @@ public class DialogUtils {
         return true;
     }
 
+    public static boolean isResetPasswordVerification(BaseActivity activity, String name,String emailId,String mobileNumber,String idNumber,String userId) {
+
+        boolean cname = TextUtils.isEmpty(name);
+        boolean cemailId = TextUtils.isEmpty(emailId);
+        boolean cmobileNumber = TextUtils.isEmpty(mobileNumber);
+        boolean cidNumber = TextUtils.isEmpty(idNumber);
+        boolean cuserId = TextUtils.isEmpty(userId);
+
+        if (cname) {
+            DialogUtils.showDialog(activity, activity.getString(R.string.enter_name));
+            return false;
+        }
+
+        if (cemailId) {
+            DialogUtils.showDialog(activity, activity.getString(R.string.enter_emailId));
+            return false;
+        }
+
+        if (cmobileNumber) {
+            DialogUtils.showDialog(activity, activity.getString(R.string.enter_mobile_number));
+            return false;
+        }
+
+        if (cidNumber) {
+            DialogUtils.showDialog(activity, activity.getString(R.string.enter_idNumber));
+            return false;
+        }
+
+        if (cuserId) {
+            DialogUtils.showDialog(activity, activity.getString(R.string.enter_userId));
+            return false;
+        }
+
+        return true;
+    }
+
     public static boolean isUpdateDeliveryDetailsVerification(BaseActivity activity, String toDeliveryStatusValue) {
 
         boolean ctoDeliveryStatusValue = TextUtils.isEmpty(toDeliveryStatusValue);

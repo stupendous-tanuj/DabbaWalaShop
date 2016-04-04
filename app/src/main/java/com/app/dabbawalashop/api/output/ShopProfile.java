@@ -7,6 +7,7 @@ public class ShopProfile {
     private String shopName;
     private String shopRegistrationStatus;
     private String shopOwnerName;
+    private String shopDescription;
     private String shopAddress;
     private String shopAddressAreaSector;
     private String shopAddressCity;
@@ -27,6 +28,14 @@ public class ShopProfile {
     private String shopPaymentMethodSupported;
     private String shopRating;
 
+
+    public String getShopDescription() {
+        return shopDescription;
+    }
+
+    public void setShopDescription(String shopDescription) {
+        this.shopDescription = shopDescription;
+    }
 
     /**
      *

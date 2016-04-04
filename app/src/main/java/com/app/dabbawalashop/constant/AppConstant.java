@@ -9,6 +9,7 @@ public class AppConstant {
     public static final String APPLICATION_ID = "ANDSH1002";
     public static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     public static final String GCM_ID = "389845974615";
+    public static final String COUNTRY = "India";
 
 
     public interface BUNDLE_KEY {

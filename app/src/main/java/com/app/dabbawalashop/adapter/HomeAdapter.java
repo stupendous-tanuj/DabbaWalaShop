@@ -45,8 +45,22 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     }
 
     private void setData(OrderDetailHolder holder, final OrderDetail orderDetail, final int pos) {
+        /*
+        holder.orderPlacedTo.setVisibility(View.GONE);
+        holder.orderQuotedAmount.setVisibility(View.GONE);
+        holder.orderDeliveryType.setVisibility(View.GONE);
+        holder.orderPaymentMethod.setVisibility(View.GONE);
+        holder.orderPaymentStatus.setVisibility(View.GONE);
+        holder.tv_orderSubscriptionType.setVisibility(View.GONE);
+        holder.tv_amountAdjustmentDone.setVisibility(View.GONE);
+        holder.tv_orderBalanceAmount.setVisibility(View.GONE);
+        holder.tv_orderInvoiceAmount.setVisibility(View.GONE);
+        holder.tv_orderCancellationReason.setVisibility(View.GONE);
+        holder.tv_my_order_order_time.setVisibility(View.GONE);
+        */
         String orderStatus = orderDetail.getOrderStatus();
         String amountAdjusted = orderDetail.getAmountAdjustmentDone();
+        String deliveryDates = orderDetail.getDeliveryDates();
         holder.orderId.setText(orderDetail.getOrderId());
         holder.orderPlacedBy.setText(orderDetail.getOrderPlacedBy());
         holder.orderPlacedTo.setText(orderDetail.getOrderPlacedTo());
@@ -56,13 +70,15 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         holder.orderStatus.setText(orderStatus);
         holder.orderPaymentStatus.setText(orderDetail.getPaymentStatus());
         holder.orderDeliveryAddressIdentifier.setText(orderDetail.getOrderDeliveryAddressIdentifier());
-        holder.tv_deliveryDates.setText(orderDetail.getDeliveryDates());
+        holder.tv_deliveryDates.setText(deliveryDates.substring(0, deliveryDates.length()-2));
         holder.tv_orderSubscriptionType.setText(orderDetail.getOrderSubscriptionType());
         holder.tv_amountAdjustmentDone.setText(amountAdjusted.equals("1") ? "Yes" : "No" );
         holder.tv_orderBalanceAmount.setText(orderDetail.getOrderBalanceAmount());
         holder.tv_orderInvoiceAmount.setText(orderDetail.getOrderInvoiceAmount());
         holder.tv_orderCancellationReason.setText(orderDetail.getOrderCancellationReason());
         holder.tv_my_order_order_time.setText(orderDetail.getOrderCreationTimestamp());
+
+        /*
         if(orderStatus.equals("Cancelled")){
             holder.ll_orderInvoiceAmount.setVisibility(View.VISIBLE);
             holder.ll_balanceAmount.setVisibility(View.VISIBLE);
@@ -74,7 +90,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             holder.ll_balanceAmount.setVisibility(View.VISIBLE);
             holder.ll_amountAdjusted.setVisibility(View.VISIBLE);
         }
-
+        */
 
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,6 +150,13 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         public LinearLayout ll_orderInvoiceAmount;
         public LinearLayout ll_amountAdjusted;
         public LinearLayout ll_balanceAmount;
+        public LinearLayout ll_my_order_place_to;
+        public LinearLayout ll_my_order_quoted_ammont;
+        public LinearLayout ll_my_order_delievry_type;
+        public LinearLayout ll_my_order_payment_method;
+        public LinearLayout ll_my_payment_status;
+        public LinearLayout ll_my_order_order_time;
+        public LinearLayout ll_orderSubscriptionType;
         public OrderDetailHolder(View convertView) {
             super(convertView);
             orderId = (TextView) convertView.findViewById(R.id.tv_my_order_id);
@@ -155,12 +178,27 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             linearLayout = (LinearLayout) convertView.findViewById(R.id.linearLayout);
             ll_orderInvoiceAmount = (LinearLayout) convertView.findViewById(R.id.ll_orderInvoiceAmount);
             ll_orderCancellationReason = (LinearLayout) convertView.findViewById(R.id.ll_orderCancellationReason);
-            ll_amountAdjusted = (LinearLayout) convertView.findViewById(R.id.ll_amountAdjusted);
-            ll_balanceAmount = (LinearLayout) convertView.findViewById(R.id.ll_balanceAmount);
+            ll_amountAdjusted = (LinearLayout) convertView.findViewById(R.id.ll_amountAdjustmentDone);
+            ll_balanceAmount = (LinearLayout) convertView.findViewById(R.id.ll_orderBalanceAmount);
+            ll_my_order_place_to = (LinearLayout) convertView.findViewById(R.id.ll_my_order_place_to);
+            ll_my_order_quoted_ammont = (LinearLayout) convertView.findViewById(R.id.ll_my_order_quoted_ammont);
+            ll_my_order_delievry_type = (LinearLayout) convertView.findViewById(R.id.ll_my_order_delievry_type);
+            ll_my_order_payment_method = (LinearLayout) convertView.findViewById(R.id.ll_my_order_payment_method);
+            ll_my_payment_status = (LinearLayout) convertView.findViewById(R.id.ll_my_payment_status);
+            ll_my_order_order_time = (LinearLayout) convertView.findViewById(R.id.ll_my_order_order_time);
+            ll_orderSubscriptionType = (LinearLayout) convertView.findViewById(R.id.ll_orderSubscriptionType);
             ll_orderCancellationReason.setVisibility(View.GONE);
             ll_orderInvoiceAmount.setVisibility(View.GONE);
             ll_balanceAmount.setVisibility(View.GONE);
             ll_amountAdjusted.setVisibility(View.GONE);
+            //Hide Additional Fields
+            ll_my_order_place_to.setVisibility(View.GONE);
+            ll_my_order_quoted_ammont.setVisibility(View.GONE);
+            ll_my_order_delievry_type.setVisibility(View.GONE);
+            ll_my_order_payment_method.setVisibility(View.GONE);
+            ll_my_payment_status.setVisibility(View.GONE);
+            ll_my_order_order_time.setVisibility(View.GONE);
+            ll_orderSubscriptionType.setVisibility(View.GONE);
         }
     }
 }

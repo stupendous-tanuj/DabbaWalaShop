@@ -29,11 +29,14 @@ public class AssociatedProductAdapter extends BaseAdapter {
     private final LayoutInflater inflater;
     private BaseActivity activity;
     private List<Product> product;
+    private String shopId;
 
-    public AssociatedProductAdapter(BaseActivity activity, List<Product> product) {
+
+    public AssociatedProductAdapter(BaseActivity activity, List<Product> product, String shopId) {
         this.activity = activity;
         inflater = LayoutInflater.from(activity);
         this.product = product;
+        this.shopId = shopId;
     }
 
 
@@ -94,7 +97,7 @@ public class AssociatedProductAdapter extends BaseAdapter {
                 DialogUtils.showDialogYesNo(activity, activity.getString(R.string.deassociated_product), activity.getString(R.string.yes), activity.getString(R.string.no), new IDialogListener() {
                     @Override
                     public void onClickOk() {
-                        deassociatedProductAPI(product.getProductSKUID(), pos);
+                        deassociatedProductAPI(product.getProductSKUID(), shopId, pos);
                     }
 
                     @Override
@@ -125,10 +128,9 @@ public class AssociatedProductAdapter extends BaseAdapter {
         });
     }
 
-    private void deassociatedProductAPI(String productSKU, final int pos) {
+    private void deassociatedProductAPI(String productSKU, String shopId, final int pos) {
         activity.showProgressBar();
-        //TODO Remove this hardcoding
-        String shopId = "SP1002";
+
         AppHttpRequest request = AppRequestBuilder.deassociatedProductAPI(shopId, productSKU, new AppResponseListener<CommonResponse>(CommonResponse.class, activity) {
             @Override
             public void onSuccess(CommonResponse result) {

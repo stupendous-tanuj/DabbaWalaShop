@@ -43,8 +43,7 @@ public class AssociateADeliveryLocationActivity extends BaseActivity {
         setHeader("Associate A Delivery Location", "");
         USER_TYPE = PreferenceKeeper.getInstance().getUserType();
         setUI();
-
-
+        fetchAvailableDeliveryLocationsApi();
     }
 
 
@@ -86,10 +85,12 @@ public class AssociateADeliveryLocationActivity extends BaseActivity {
         spinner_available_delivery_locations.setVisibility(View.GONE);
         if((USER_TYPE.equals(AppConstant.UserType.DELIVERY_PERSON_TYPE)) || (USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE))) {
             ll_shopId.setVisibility(View.GONE);
+            spinner_available_delivery_locations.setVisibility(View.VISIBLE);
             fetchAvailableDeliveryLocationsApi();
         }
         else {
             ll_shopId.setVisibility(View.VISIBLE);
+            spinner_available_delivery_locations.setVisibility(View.VISIBLE);
             fetchShopIdAPI();
         }
 

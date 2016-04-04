@@ -25,6 +25,7 @@
     <string name="shop_detail">Shop Detail</string>
     <string name="other">Other</string>
     <string name="deassociated_product">Are you sure to De-Associate this product.</string>
+    <string name="remove_shop_closing_record">Are you sure to Remove this record.</string>
     <string name="deassociated_location">Are you sure to De-Associate this location.</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
@@ -45,7 +46,10 @@
     <string name="enter_term_condition">Please accept Term and Condition.</string>
     <string name="enter_password">Enter Password.</string>
     <string name="from_date_greater">From Date cannot be greater than To Date.</string>
-    <string name="enter_oldPassword">Enter Old Password.</string>
+    <string name="enter_mobileNumber">Enter Mobile Number.</string>
+    <string name="enter_emailId">Enter Email Id.</string>
+    <string name="enter_idNumber">Enter ID Number.</string>
+    <string name="enter_userId">Enter User ID.</string>
     <string name="blank_deliveryStatus">Delivery Status is blank.</string>
     <string name="blank_orderStatus">Order Status is blank.</string>
     <string name="blank_invoiceAmount">Invoice Amount is blank.</string>
@@ -53,6 +57,7 @@
     <string name="NA_deliveryStatus">Delivery Status cannot be N.</string>
     <string name="NA_orderStatus">Order Status cannot be NA.</string>
     <string name="enter_newPassword">Enter New Password.</string>
+    <string name="enter_oldPassword">Enter Old Password.</string>
     <string name="enter_confNewPassword">Enter Confirm New Password.</string>
     <string name="enter_confNewPassword_not_match">New Password and Confirm New Password Does Not Match.</string>
     <string name="enter_shop_id">Enter shop Id.</string>
@@ -76,4 +81,7 @@
     </string>
     <string name="title_activity_view_shop_operational_time">ViewShopOperationalTimeActivity
     </string>
+    <string name="title_activity_all_delivery_persons">AllDeliveryPersonsActivity</string>
+    <string name="title_activity_forget_password">ForgetPasswordActivity</string>
+    <string name="title_activity_view_delivery_person">ViewDeliveryPersonActivity</string>
 </resources>

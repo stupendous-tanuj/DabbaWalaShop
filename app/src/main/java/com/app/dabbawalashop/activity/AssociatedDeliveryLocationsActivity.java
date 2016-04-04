@@ -147,7 +147,7 @@ public class AssociatedDeliveryLocationsActivity extends BaseActivity {
     }
 
     private void setAdapterData(List<DeliveryLocation> deliveryLocation) {
-        AssociatedDeliveryLocationAdapter adapter = new AssociatedDeliveryLocationAdapter(this, deliveryLocation, shopIdORSellerHubId);
+        AssociatedDeliveryLocationAdapter adapter = new AssociatedDeliveryLocationAdapter(this, deliveryLocation, shopIdValue);
         recycleView.setAdapter(adapter);
 
     }

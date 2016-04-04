@@ -47,12 +47,14 @@ public class SellerHUBProfileActivity extends BaseActivity {
     private LinearLayout ll_ownerIdNumber;
     private ScrollView scrollview_seller_hub;
     private TextView tv_seller_hub_business_type;
+    String USER_TYPE = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seller_hub);
         setHeader("Seller Hub Profile", "");
+        USER_TYPE = PreferenceKeeper.getInstance().getUserType();
         setUI();
         setUIListener();
         fetchSellerHubApi();
@@ -85,7 +87,7 @@ public class SellerHUBProfileActivity extends BaseActivity {
         et_emailId = (EditText) findViewById(R.id.et_emailId);
         et_mobileNumber = (EditText) findViewById(R.id.et_mobileNumber);
         et_supportContactNumber = (EditText) findViewById(R.id.et_supportContactNumber);
-        if(PreferenceKeeper.getInstance().getUserType().equals(AppConstant.UserType.SHOP_TYPE)) {
+        if(USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE) || USER_TYPE.equals(AppConstant.UserType.DELIVERY_PERSON_TYPE)) {
             ll_orderIdPrefix.setVisibility(View.GONE);
             ll_registrationStatus.setVisibility(View.GONE);
             ll_applicationStatus.setVisibility(View.GONE);
@@ -95,8 +97,10 @@ public class SellerHUBProfileActivity extends BaseActivity {
             et_emailId.setVisibility(View.GONE);
             et_mobileNumber.setVisibility(View.GONE);
             et_supportContactNumber.setVisibility(View.GONE);
+            tv_update_profile.setVisibility(View.GONE);
+
         }
-        else if(PreferenceKeeper.getInstance().getUserType().equals(AppConstant.UserType.SELLER_HUB_TYPE)) {
+        else if(USER_TYPE.equals(AppConstant.UserType.SELLER_HUB_TYPE)) {
             ll_orderIdPrefix.setVisibility(View.VISIBLE);
             ll_registrationStatus.setVisibility(View.VISIBLE);
             ll_applicationStatus.setVisibility(View.VISIBLE);
@@ -109,6 +113,7 @@ public class SellerHUBProfileActivity extends BaseActivity {
             tv_seller_hub_mobile.setVisibility(View.GONE);
             tv_seller_hub_support_cont.setVisibility(View.GONE);
             tv_emailId.setVisibility(View.GONE);
+            tv_update_profile.setVisibility(View.VISIBLE);
         }
     }
 

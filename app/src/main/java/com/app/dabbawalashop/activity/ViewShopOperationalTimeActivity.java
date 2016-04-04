@@ -45,13 +45,13 @@ public class ViewShopOperationalTimeActivity extends BaseActivity {
 
 
     private RecyclerView recycleView;
-    private String shopId;
     private Spinner spinner_shopId;
     private TextView tv_closingDate;
     private LinearLayout linear_closingDate;
     LinearLayout ll_shopId;
     String shopIdValue = "";
     String USER_TYPE = "";
+    String closingDate = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,8 +98,8 @@ public class ViewShopOperationalTimeActivity extends BaseActivity {
     private void getCurrentTime() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Calendar cal = Calendar.getInstance();
-        String fromDate = dateFormat.format(cal.getTime());
-        tv_closingDate.setText(fromDate);
+        closingDate = dateFormat.format(cal.getTime());
+        tv_closingDate.setText(closingDate);
         fetchShopOperationalTimeAPI();
     }
 
@@ -179,6 +179,7 @@ public class ViewShopOperationalTimeActivity extends BaseActivity {
                 if (datePicker.isShown()) {
                     Logger.INFO(TAG, "listner ");
                     tv.setText(year + "-" + getData(++month) + "-" + getData(day));
+                    closingDate = year + "-" + getData(++month) + "-" + getData(day);
                     fetchShopOperationalTimeAPI();
                 }
             }
@@ -187,13 +188,13 @@ public class ViewShopOperationalTimeActivity extends BaseActivity {
 
     public void fetchShopOperationalTimeAPI()
                 {
-        String closingDate = tv_closingDate.getText().toString();
+        closingDate = tv_closingDate.getText().toString();
 
         if(USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE)) {
             shopIdValue = PreferenceKeeper.getInstance().getUserId();
         }
 
-        if (!DialogUtils.isSpinnerDefaultValue(this, shopIdValue, "Shop ID") || (shopIdValue.equals(""))) {
+        if (!DialogUtils.isSpinnerDefaultValue(this, shopIdValue, "Shop ID") || (shopIdValue.equals("")) ||(closingDate.equals(""))) {
             return;
         }
 
@@ -214,7 +215,7 @@ public class ViewShopOperationalTimeActivity extends BaseActivity {
     }
 
     private void setAdapterData(List<ShopOperationalTime> shopOperationalTime) {
-        ShopOperationalTimeAdapter adapter = new ShopOperationalTimeAdapter(this, shopOperationalTime, shopId);
+        ShopOperationalTimeAdapter adapter = new ShopOperationalTimeAdapter(this, shopOperationalTime, shopIdValue);
         recycleView.setAdapter(adapter);
 
     }

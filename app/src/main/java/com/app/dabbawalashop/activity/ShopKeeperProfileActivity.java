@@ -30,7 +30,7 @@ import java.util.List;
 public class ShopKeeperProfileActivity extends BaseActivity {
 
     private TextView tv_profile_shop_id;
-    private EditText et_profile_shop_name;
+    private TextView et_profile_shop_name;
     private TextView tv_profile_registartion_status;
     private TextView tv_profile_owner_name;
     private EditText et_profile_shop_address;
@@ -86,7 +86,7 @@ public class ShopKeeperProfileActivity extends BaseActivity {
         scrollview_shop_keeper = (ScrollView) findViewById(R.id.scrollview_shop_keeper);
         scrollview_shop_keeper.setVisibility(View.INVISIBLE);
         tv_profile_shop_id = (TextView) findViewById(R.id.tv_profile_shop_id);
-        et_profile_shop_name = (EditText) findViewById(R.id.et_profile_shop_name);
+        et_profile_shop_name = (TextView) findViewById(R.id.et_profile_shop_name);
         tv_profile_registartion_status = (TextView) findViewById(R.id.tv_profile_registartion_status);
         tv_profile_owner_name = (TextView) findViewById(R.id.tv_profile_owner_name);
         et_profile_shop_address = (EditText) findViewById(R.id.et_profile_shop_address);
@@ -134,7 +134,6 @@ public class ShopKeeperProfileActivity extends BaseActivity {
     }
 
     private void fetchShopKeeperProfileApi() {
-
 
         showProgressBar(findViewById(R.id.tv_update_profile));
         AppHttpRequest request = AppRequestBuilder.fetchShopKeeperProfileApi( new AppResponseListener<ShopProfileResponse>(ShopProfileResponse.class, this) {

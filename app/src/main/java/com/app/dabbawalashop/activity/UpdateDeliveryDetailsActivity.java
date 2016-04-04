@@ -194,7 +194,7 @@ String shopId = "";
 
     private void fetchDeliveryPersonAPI() {
         showProgressBar();
-        AppHttpRequest request = AppRequestBuilder.associateDeliveryPersonAPI(shopId, new AppResponseListener<DeliveryPersonResponse>(DeliveryPersonResponse.class, this) {
+        AppHttpRequest request = AppRequestBuilder.associatedDeliveryPersonAPI(shopId, "0", new AppResponseListener<DeliveryPersonResponse>(DeliveryPersonResponse.class, this) {
             @Override
             public void onSuccess(DeliveryPersonResponse result) {
                 hideProgressBar();

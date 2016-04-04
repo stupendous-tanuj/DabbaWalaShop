@@ -14,7 +14,6 @@ import com.app.dabbawalashop.adapter.AssociatedProductAdapter;
 import com.app.dabbawalashop.api.output.AssociatedProductResponse;
 import com.app.dabbawalashop.api.output.AssociatedShopId;
 import com.app.dabbawalashop.api.output.AssociatedShopIdResponse;
-import com.app.dabbawalashop.api.output.AssociatedShopsResponse;
 import com.app.dabbawalashop.api.output.ErrorObject;
 import com.app.dabbawalashop.api.output.Product;
 import com.app.dabbawalashop.constant.AppConstant;
@@ -22,6 +21,7 @@ import com.app.dabbawalashop.network.AppHttpRequest;
 import com.app.dabbawalashop.network.AppRequestBuilder;
 import com.app.dabbawalashop.network.AppResponseListener;
 import com.app.dabbawalashop.network.AppRestClient;
+import com.app.dabbawalashop.utils.DialogUtils;
 import com.app.dabbawalashop.utils.PreferenceKeeper;
 
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class AssociatedProductActivity extends BaseActivity {
     private Spinner spinner_registrationStatus;
     private Spinner spinner_shopId;
     String USER_TYPE = "";
-    String shopIdValue = "ALL";
+    String shopIdValue = "";
     String productStatusValue = "ALL";
     LinearLayout ll_shopId;
     LinearLayout ll_registrationStatus;
@@ -45,7 +45,7 @@ public class AssociatedProductActivity extends BaseActivity {
         setContentView(R.layout.activity_associated_product);
         setUI();
         USER_TYPE = PreferenceKeeper.getInstance().getUserType();
-        setHeader("My Products - "+USER_TYPE, "");
+        setHeader("Products - "+USER_TYPE, "");
         if(USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE)) {
             fetchAssociatedProductListApi();
         }
@@ -106,7 +106,7 @@ public class AssociatedProductActivity extends BaseActivity {
     private void setShopIdSpinner(List<AssociatedShopId> associatedShopId)
     {
         final List<String> shopId = new ArrayList<>();
-        shopId.add("ALL");
+        shopId.add(getString(R.string.please_select));
         for (int i = 0; i < associatedShopId.size(); i++)
             shopId.add(associatedShopId.get(i).getShopID());
 
@@ -116,6 +116,7 @@ public class AssociatedProductActivity extends BaseActivity {
         spinner_shopId.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 shopIdValue = shopId.get(pos);
+                if(!shopIdValue.equals(getString(R.string.please_select)))
                 fetchAssociatedProductListApi();
             }
 
@@ -164,12 +165,21 @@ public class AssociatedProductActivity extends BaseActivity {
 
 
     private void fetchAssociatedProductListApi() {
+
+        if(USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE)) {
+            shopIdValue = PreferenceKeeper.getInstance().getUserId();
+        }
+
+        if (!DialogUtils.isSpinnerDefaultValue(this, shopIdValue, "Shop ID") || (shopIdValue.equals(""))) {
+            return;
+        }
+
         showProgressBar();
         AppHttpRequest request = AppRequestBuilder.fetchAssociatedProductListAPI(shopIdValue,productStatusValue, new AppResponseListener<AssociatedProductResponse>(AssociatedProductResponse.class, this) {
             @Override
             public void onSuccess(AssociatedProductResponse result) {
                 hideProgressBar();
-                setAssciatedProductAdapter(result.getProducts());
+                setAssociatedProductAdapter(result.getProducts());
             }
 
             @Override
@@ -180,8 +190,8 @@ public class AssociatedProductActivity extends BaseActivity {
         AppRestClient.getClient().sendRequest(this, request, TAG);
     }
 
-    private void setAssciatedProductAdapter(List<Product> associatedProducts) {
-        AssociatedProductAdapter associatedProductAdapter = new AssociatedProductAdapter(this, associatedProducts);
+    private void setAssociatedProductAdapter(List<Product> associatedProducts) {
+        AssociatedProductAdapter associatedProductAdapter = new AssociatedProductAdapter(this, associatedProducts, shopIdValue);
         lv_associated_product.setAdapter(associatedProductAdapter);
     }
 
