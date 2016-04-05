@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import com.app.dabbawalashop.R;
-import com.app.dabbawalashop.adapter.AssociateDeliveryPersonAdapter;
+import com.app.dabbawalashop.adapter.AssociatedDeliveryPersonAdapter;
 import com.app.dabbawalashop.api.output.AssociatedShopId;
 import com.app.dabbawalashop.api.output.AssociatedShopIdResponse;
 import com.app.dabbawalashop.api.output.DeliveryPerson;
@@ -149,7 +149,7 @@ public class AssociatedDeliveryPersonActivity extends BaseActivity {
     }
 
     private void setAdapterData(List<DeliveryPerson> deliveryPerson) {
-        AssociateDeliveryPersonAdapter adapter = new AssociateDeliveryPersonAdapter(this, deliveryPerson, shopIdORSellerHubId);
+        AssociatedDeliveryPersonAdapter adapter = new AssociatedDeliveryPersonAdapter(this, deliveryPerson, shopIdORSellerHubId);
         recycleView.setAdapter(adapter);
     }
 }

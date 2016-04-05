@@ -1,17 +1,21 @@
 package com.app.dabbawalashop.adapter;
 
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.app.dabbawalashop.R;
 import com.app.dabbawalashop.activity.BaseActivity;
+import com.app.dabbawalashop.activity.DeliveryPersonProfileActivity;
 import com.app.dabbawalashop.activity.HomeActivity;
 import com.app.dabbawalashop.api.output.CommonResponse;
 import com.app.dabbawalashop.api.output.DeliveryPerson;
 import com.app.dabbawalashop.api.output.ErrorObject;
+import com.app.dabbawalashop.constant.AppConstant;
 import com.app.dabbawalashop.listner.IDialogListener;
 import com.app.dabbawalashop.network.AppHttpRequest;
 import com.app.dabbawalashop.network.AppRequestBuilder;
@@ -21,14 +25,14 @@ import com.app.dabbawalashop.utils.DialogUtils;
 
 import java.util.List;
 
-public class AssociateDeliveryPersonAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class AssociatedDeliveryPersonAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public static final String TAG = HomeActivity.class.getSimpleName();
     private List<DeliveryPerson> deliveryPerson;
     private BaseActivity activity;
     private String shopIdORSellerHubId;
 
-    public AssociateDeliveryPersonAdapter(BaseActivity activity, List<DeliveryPerson> deliveryPerson, String shopIdORSellerHubId) {
+    public AssociatedDeliveryPersonAdapter(BaseActivity activity, List<DeliveryPerson> deliveryPerson, String shopIdORSellerHubId) {
         this.deliveryPerson = deliveryPerson;
         this.shopIdORSellerHubId = shopIdORSellerHubId;
         this.activity = activity;
@@ -52,6 +56,15 @@ public class AssociateDeliveryPersonAdapter extends RecyclerView.Adapter<Recycle
     private void setData(DeliverPersonHolder holder, final DeliveryPerson data, final int pos) {
         holder.name.setText(data.getDeliveryPersonName());
         holder.mobileNumber.setText(data.getDeliveryPersonMobileNumber());
+
+        holder.ll_deliveryPersons.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString(AppConstant.BUNDLE_KEY.DELIVERY_PERSON_MOBILE, data.getDeliveryPersonMobileNumber());
+                activity.launchActivity(DeliveryPersonProfileActivity.class, bundle);
+            }
+        });
 
         holder.tv_ass_delivery_person_deassociate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,12 +119,14 @@ public class AssociateDeliveryPersonAdapter extends RecyclerView.Adapter<Recycle
         private final TextView name;
         private final TextView mobileNumber;
         private final TextView tv_ass_delivery_person_deassociate;
+        private final LinearLayout ll_deliveryPersons;
 
         public DeliverPersonHolder(View view) {
             super(view);
             name = (TextView) view.findViewById(R.id.tv_ass_delivery_mobile_number);
             mobileNumber = (TextView) view.findViewById(R.id.tv_ass_delivery_mobile_number);
             tv_ass_delivery_person_deassociate = (TextView) view.findViewById(R.id.tv_ass_delivery_person_deassociate);
+            ll_deliveryPersons = (LinearLayout) view.findViewById(R.id.ll_deliveryPersons);
         }
     }
 }

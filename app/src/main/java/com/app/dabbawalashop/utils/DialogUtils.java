@@ -213,18 +213,12 @@ public class DialogUtils {
         return true;
     }
 
-    public static boolean isResetPasswordVerification(BaseActivity activity, String name,String emailId,String mobileNumber,String idNumber,String userId) {
+    public static boolean isResetPasswordVerification(BaseActivity activity, String emailId,String mobileNumber,String userId) {
 
-        boolean cname = TextUtils.isEmpty(name);
+
         boolean cemailId = TextUtils.isEmpty(emailId);
         boolean cmobileNumber = TextUtils.isEmpty(mobileNumber);
-        boolean cidNumber = TextUtils.isEmpty(idNumber);
         boolean cuserId = TextUtils.isEmpty(userId);
-
-        if (cname) {
-            DialogUtils.showDialog(activity, activity.getString(R.string.enter_name));
-            return false;
-        }
 
         if (cemailId) {
             DialogUtils.showDialog(activity, activity.getString(R.string.enter_emailId));
@@ -233,11 +227,6 @@ public class DialogUtils {
 
         if (cmobileNumber) {
             DialogUtils.showDialog(activity, activity.getString(R.string.enter_mobile_number));
-            return false;
-        }
-
-        if (cidNumber) {
-            DialogUtils.showDialog(activity, activity.getString(R.string.enter_idNumber));
             return false;
         }
 
@@ -370,31 +359,36 @@ public class DialogUtils {
 
     }
 
-    public static boolean showDialogDeliveryPerson(BaseActivity activity, String name, String mobileNumber, String address, String idType, String idNumber) {
+    public static boolean showDialogDeliveryPerson(BaseActivity activity, String name, String mobileNumber, String address, String idType, String idNumber, String emailId) {
         boolean ceName = TextUtils.isEmpty(name);
         boolean cmobileNumber = TextUtils.isEmpty(mobileNumber);
         boolean caddress = TextUtils.isEmpty(address);
         boolean cidType = TextUtils.isEmpty(idType);
         boolean cidNumber = TextUtils.isEmpty(idNumber);
+        boolean cemailId = TextUtils.isEmpty(emailId);
 
         if (ceName) {
-            DialogUtils.showDialog(activity, "Delivery Person name is not empty");
+            DialogUtils.showDialog(activity, "Please enter Delivery Person name.");
+            return false;
+        }
+        if (cemailId) {
+            DialogUtils.showDialog(activity, "Please enter Email ID.");
             return false;
         }
         if (cmobileNumber) {
-            DialogUtils.showDialog(activity, "Mobile number is not empty");
+            DialogUtils.showDialog(activity, "Please enter Mobile number.");
             return false;
         }
         if (caddress) {
-            DialogUtils.showDialog(activity, "Residential Address is not empty");
+            DialogUtils.showDialog(activity, "Please enter Residential Address.");
             return false;
         }
         if (cidType) {
-            DialogUtils.showDialog(activity, "ID Type is not empty");
+            DialogUtils.showDialog(activity, "Please select ID Type.");
             return false;
         }
         if (cidNumber) {
-            DialogUtils.showDialog(activity, "ID Number is not empty");
+            DialogUtils.showDialog(activity, "Please enter ID Number.");
             return false;
         }
 

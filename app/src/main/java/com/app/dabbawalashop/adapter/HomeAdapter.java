@@ -12,8 +12,17 @@ import com.app.dabbawalashop.R;
 import com.app.dabbawalashop.activity.BaseActivity;
 import com.app.dabbawalashop.activity.HomeActivity;
 import com.app.dabbawalashop.activity.UpdateOrderDetailActivity;
+import com.app.dabbawalashop.api.output.CommonResponse;
+import com.app.dabbawalashop.api.output.ErrorObject;
 import com.app.dabbawalashop.api.output.OrderDetail;
 import com.app.dabbawalashop.constant.AppConstant;
+import com.app.dabbawalashop.listner.IDialogListener;
+import com.app.dabbawalashop.network.AppHttpRequest;
+import com.app.dabbawalashop.network.AppRequestBuilder;
+import com.app.dabbawalashop.network.AppResponseListener;
+import com.app.dabbawalashop.network.AppRestClient;
+import com.app.dabbawalashop.utils.DialogUtils;
+import com.app.dabbawalashop.utils.Logger;
 
 import java.util.List;
 
@@ -58,9 +67,10 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         holder.tv_orderCancellationReason.setVisibility(View.GONE);
         holder.tv_my_order_order_time.setVisibility(View.GONE);
         */
-        String orderStatus = orderDetail.getOrderStatus();
+        final String orderStatus = orderDetail.getOrderStatus();
         String amountAdjusted = orderDetail.getAmountAdjustmentDone();
         String deliveryDates = orderDetail.getDeliveryDates();
+        final String orderId = orderDetail.getOrderId();
         holder.orderId.setText(orderDetail.getOrderId());
         holder.orderPlacedBy.setText(orderDetail.getOrderPlacedBy());
         holder.orderPlacedTo.setText(orderDetail.getOrderPlacedTo());
@@ -70,7 +80,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         holder.orderStatus.setText(orderStatus);
         holder.orderPaymentStatus.setText(orderDetail.getPaymentStatus());
         holder.orderDeliveryAddressIdentifier.setText(orderDetail.getOrderDeliveryAddressIdentifier());
-        holder.tv_deliveryDates.setText(deliveryDates.substring(0, deliveryDates.length()-2));
+        holder.tv_deliveryDates.setText(deliveryDates.substring(0, deliveryDates.length() - 2));
         holder.tv_orderSubscriptionType.setText(orderDetail.getOrderSubscriptionType());
         holder.tv_amountAdjustmentDone.setText(amountAdjusted.equals("1") ? "Yes" : "No" );
         holder.tv_orderBalanceAmount.setText(orderDetail.getOrderBalanceAmount());
@@ -78,6 +88,8 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         holder.tv_orderCancellationReason.setText(orderDetail.getOrderCancellationReason());
         holder.tv_my_order_order_time.setText(orderDetail.getOrderCreationTimestamp());
 
+        if(!orderStatus.equals(AppConstant.STATUS.STATUS_ORDERED))
+            holder.tv_confirm.setVisibility(View.GONE);
         /*
         if(orderStatus.equals("Cancelled")){
             holder.ll_orderInvoiceAmount.setVisibility(View.VISIBLE);
@@ -91,6 +103,26 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             holder.ll_amountAdjusted.setVisibility(View.VISIBLE);
         }
         */
+
+        holder.tv_confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                DialogUtils.showDialogYesNo(activity, activity.getString(R.string.order_confirmation), activity.getString(R.string.yes), activity.getString(R.string.no), new IDialogListener() {
+                    @Override
+                    public void onClickOk() {
+                        updateOrderStatusApi(orderId, AppConstant.STATUS.STATUS_ORDERED, AppConstant.STATUS.STATUS_CONFIRMED);
+                    }
+
+                    @Override
+                    public void onCancel() {
+
+                    }
+                });
+            }
+        });
+
+
 
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,6 +154,26 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         return carts.get(position);
     }
 
+    private void updateOrderStatusApi(String orderIdValue, String orderStatusValue,String toOrderStatusValue) {
+
+        String additionalFieldValue = "";
+
+        AppHttpRequest request = AppRequestBuilder.updateOrderStatusAPI(orderIdValue, orderStatusValue, toOrderStatusValue, additionalFieldValue, new AppResponseListener<CommonResponse>(CommonResponse.class, activity) {
+            @Override
+            public void onSuccess(CommonResponse result) {
+                activity.showToast(result.getSuccessMessage());
+            }
+
+            @Override
+            public void onError(ErrorObject error) {
+
+            }
+        });
+        AppRestClient.getClient().sendRequest(activity, request, activity.TAG);
+    }
+
+
+
     @Override
     public int getItemCount() {
         return carts != null ? carts.size() : 0;
@@ -146,6 +198,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         public TextView tv_orderBalanceAmount;
         public TextView tv_orderInvoiceAmount;
         public TextView tv_orderCancellationReason;
+        public TextView tv_confirm;
         public LinearLayout ll_orderCancellationReason;
         public LinearLayout ll_orderInvoiceAmount;
         public LinearLayout ll_amountAdjusted;
@@ -175,6 +228,7 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             tv_orderInvoiceAmount = (TextView) convertView.findViewById(R.id.tv_orderInvoiceAmount);
             tv_orderCancellationReason = (TextView) convertView.findViewById(R.id.tv_orderCancellationReason);
             tv_my_order_order_time = (TextView) convertView.findViewById(R.id.tv_my_order_order_time);
+            tv_confirm = (TextView) convertView.findViewById(R.id.tv_confirm);
             linearLayout = (LinearLayout) convertView.findViewById(R.id.linearLayout);
             ll_orderInvoiceAmount = (LinearLayout) convertView.findViewById(R.id.ll_orderInvoiceAmount);
             ll_orderCancellationReason = (LinearLayout) convertView.findViewById(R.id.ll_orderCancellationReason);

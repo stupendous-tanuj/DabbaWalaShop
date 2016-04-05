@@ -50,9 +50,15 @@ public class AppRequestBuilder {
 
     private static void setUserHeader(Map<String, String> map) {
         map.put("applicationId", AppConstant.APPLICATION_ID);
-        map.put("userId", PreferenceKeeper.getInstance().getUserId());
-        USER_TYPE = PreferenceKeeper.getInstance().getUserType();
         USER_ID = PreferenceKeeper.getInstance().getUserId();
+        if((USER_ID.equals("")) || (USER_ID == null) || (USER_ID.equals("Admin"))) {
+            map.put("userId", "Admin");
+        }
+        else {
+            map.put("userId", USER_ID);
+        }
+        USER_TYPE = PreferenceKeeper.getInstance().getUserType();
+
 
     }
 
@@ -107,17 +113,14 @@ public class AppRequestBuilder {
 
 
     // http://stupendoustanuj.co.nf/Dabbawala/User_Login.php\
-    public static AppHttpRequest resetPasswordAPI(String name,String emailId,String mobileNumber,String idType,String idNumber, String userId, String userType, AppResponseListener<CommonResponse> appResponseListener) {
+    public static AppHttpRequest resetPasswordAPI(String emailId,String mobileNumber, String userId, String userType, AppResponseListener<CommonResponse> appResponseListener) {
         AppHttpRequest request = AppHttpRequest.getPostRequest(BASE_URL + "/Forget_Password.php", appResponseListener);
         Map<String, String> map = new LinkedHashMap<String, String>();
         map.put("applicationId", AppConstant.APPLICATION_ID);
         map.put("userId", userId);
         map.put("userType", userType);
-        map.put("name", name);
         map.put("emailId", emailId);
         map.put("mobileNumber", mobileNumber);
-        map.put("idType", idType);
-        map.put("idNumber", idNumber);
         request.addParam("input", setRequestBody(map));
         return request;
     }
@@ -674,12 +677,14 @@ public class AppRequestBuilder {
                                                                String deliveryPersonResidentialAddress,
                                                                String deliveryPersonIDType,
                                                                String deliveryPersonIDNumber,
+                                                               String emailId,
                                                                AppResponseListener<CommonResponse> appResponseListener) {
         AppHttpRequest request = AppHttpRequest.getPostRequest(BASE_URL + "/Add_A_DeliveryPerson.php", appResponseListener);
         Map<String, String> map = new LinkedHashMap<>();
         setUserHeader(map);
         map.put("deliveryPersonName", deliveryPersonName);
         map.put("deliveryPersonMobileNumber", deliveryPersonMobileNumber);
+        map.put("deliveryPersonEmailId", emailId);
         map.put("deliveryPersonResidentialAddress", deliveryPersonResidentialAddress);
         map.put("deliveryPersonIDType", deliveryPersonIDType);
         map.put("deliveryPersonIDNumber", deliveryPersonIDNumber);
@@ -689,12 +694,12 @@ public class AppRequestBuilder {
     }
 
     // http://stupendoustanuj.co.nf/Dabbawala/Contact_us.php
-    public static AppHttpRequest fetchDeliveryPersonProfileAPI(AppResponseListener<DeliveryPersonResponse> appResponseListener) {
+    public static AppHttpRequest fetchDeliveryPersonProfileAPI(String deliveryPersonMobileNumber,AppResponseListener<DeliveryPersonResponse> appResponseListener) {
         AppHttpRequest request = AppHttpRequest.getPostRequest(BASE_URL + "/Fetch_DeliveryPerson_Profile.php", appResponseListener);
 
         Map<String, String> map = new LinkedHashMap<String, String>();
         setUserHeader(map);
-        map.put("deliveryPersonMobileNumber", USER_ID);
+        map.put("deliveryPersonMobileNumber", deliveryPersonMobileNumber);
         request.addParam("input", setRequestBody(map));
         return request;
     }

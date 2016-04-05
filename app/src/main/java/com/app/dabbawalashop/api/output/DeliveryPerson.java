@@ -5,6 +5,25 @@ public class DeliveryPerson {
     private String deliveryPersonName;
     private String deliveryPersonMobileNumber;
 
+    public String getDeliveryPersonEmailId() {
+        return deliveryPersonEmailId;
+    }
+
+    public void setDeliveryPersonEmailId(String deliveryPersonEmailId) {
+        this.deliveryPersonEmailId = deliveryPersonEmailId;
+    }
+
+    public String getDeliveryPersonImageURL() {
+        return deliveryPersonImageURL;
+    }
+
+    public void setDeliveryPersonImageURL(String deliveryPersonImageURL) {
+        this.deliveryPersonImageURL = deliveryPersonImageURL;
+    }
+
+    private String deliveryPersonEmailId;
+    private String deliveryPersonImageURL;
+
     public String getDeliveryPersonRegistrationStatus() {
         return deliveryPersonRegistrationStatus;
     }

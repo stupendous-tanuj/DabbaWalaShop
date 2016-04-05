@@ -26,6 +26,7 @@
     <string name="other">Other</string>
     <string name="deassociated_product">Are you sure to De-Associate this product.</string>
     <string name="remove_shop_closing_record">Are you sure to Remove this record.</string>
+    <string name="order_confirmation">Do you want to confirm the order.</string>
     <string name="deassociated_location">Are you sure to De-Associate this location.</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
@@ -82,6 +83,7 @@
     <string name="title_activity_view_shop_operational_time">ViewShopOperationalTimeActivity
     </string>
     <string name="title_activity_all_delivery_persons">AllDeliveryPersonsActivity</string>
-    <string name="title_activity_forget_password">ForgetPasswordActivity</string>
+    <string name="title_activity_forget_password">Forget Password Activity</string>
+    <string name="forget_Password"><u>Forget Password</u></string>
     <string name="title_activity_view_delivery_person">ViewDeliveryPersonActivity</string>
 </resources>

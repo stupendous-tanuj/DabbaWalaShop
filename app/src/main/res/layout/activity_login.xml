@@ -77,10 +77,21 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/sp_13" />
 
+            <TextView
+                android:id="@+id/tv_forgetPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_5"
+                android:text="@string/forget_Password"
+                android:layout_below="@+id/et_login_password"
+                android:textColor="@color/color_base"
+                android:textSize="@dimen/sp_12" />
+
         </LinearLayout>
 
 
     </ScrollView>
+
 
     <TextView
         android:id="@+id/tv_login_login"

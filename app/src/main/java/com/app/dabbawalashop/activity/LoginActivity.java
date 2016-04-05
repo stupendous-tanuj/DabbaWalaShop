@@ -63,6 +63,7 @@ public class LoginActivity extends BaseActivity {
 
     private void setUIListener() {
         findViewById(R.id.tv_login_login).setOnClickListener(this);
+        findViewById(R.id.tv_forgetPassword).setOnClickListener(this);
     }
 
     @Override
@@ -71,11 +72,11 @@ public class LoginActivity extends BaseActivity {
             case R.id.tv_login_login:
                 loginAPI();
                 break;
+            case R.id.tv_forgetPassword:
+                launchActivity(ForgetPasswordActivity.class);
+                break;
         }
     }
-
-
-
 
     private void loginAPI() {
         final String userId = et_login_shopid.getText().toString().trim();

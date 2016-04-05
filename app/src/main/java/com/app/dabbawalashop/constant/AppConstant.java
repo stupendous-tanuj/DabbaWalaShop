@@ -32,6 +32,7 @@ public class AppConstant {
         String IS_ADD_ASSOCIATE_PRODUCT_HOME = "IS_ADD_ASSOCIATE_PRODUCT_HOME";
         String SKU_ID = "skuid";
         String SHOP_ID = "shopid";
+        String DELIVERY_PERSON_MOBILE = "shopid";
         String ENGLISH_NAME = "english_name";
         String MARATHI_NAME = "MARATHI_NAME";
         String DES = "DES";
