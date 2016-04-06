@@ -42,8 +42,6 @@ public class AssociateADeliveryPersonActivity extends BaseActivity {
         fetchAllDeliveryPersonAPI();
         fetchShopIdAPI();
 
-        //TODO Associate A Delivery Person activity
-
     }
 
     private void setUI() {

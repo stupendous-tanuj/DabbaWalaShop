@@ -1,16 +1,16 @@
 package com.app.dabbawalashop.activity;
 
-import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TimePicker;
 
 import com.app.dabbawalashop.R;
 import com.app.dabbawalashop.api.output.AssociatedShopId;
@@ -26,16 +26,19 @@ import com.app.dabbawalashop.network.AppHttpRequest;
 import com.app.dabbawalashop.network.AppRequestBuilder;
 import com.app.dabbawalashop.network.AppResponseListener;
 import com.app.dabbawalashop.network.AppRestClient;
+import com.app.dabbawalashop.utils.DialogUtils;
 import com.app.dabbawalashop.utils.PreferenceKeeper;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public class ShopOperationalTimeActivity extends BaseActivity {
+public class AssociateAProductCategoryActivity extends BaseActivity {
 
-    private EditText et_shop_time_closing_date;
-
+    private EditText et_fromDeliveryTime;
+    private EditText et_toDeliveryTime;
+    TimePicker tp_fromTime;
+    TimePicker tp_toTime;
     private Spinner spinner_add_product_category;
     private Spinner spinner_add_product_shop_category;
     private String shopCN;
@@ -48,21 +51,26 @@ public class ShopOperationalTimeActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_shop_operational_time);
-        setHeader("Shop Operational Time", "");
+        setContentView(R.layout.activity_associate_aproduct_category);
+        setHeader(" Associate A Product Category", "");
         USER_TYPE = PreferenceKeeper.getInstance().getUserType();
         setUI();
     }
 
     private void setUI() {
-        et_shop_time_closing_date = (EditText) findViewById(R.id.et_shop_time_closing_date);
+        et_fromDeliveryTime = (EditText) findViewById(R.id.et_fromDeliveryTime);
+        et_toDeliveryTime = (EditText) findViewById(R.id.et_toDeliveryTime);
+        tp_fromTime = (TimePicker) findViewById(R.id.tp_fromTime);
+        tp_toTime = (TimePicker) findViewById(R.id.tp_toTime);
         spinner_add_product_category = (Spinner) findViewById(R.id.spinner_add_product_category);
         spinner_add_product_shop_category = (Spinner) findViewById(R.id.spinner_add_product_shop_category);
-        findViewById(R.id.tv_shop_time_add).setOnClickListener(this);
-        findViewById(R.id.et_shop_time_closing_date).setOnClickListener(this);
+        findViewById(R.id.tv_updateDeliveryTime).setOnClickListener(this);
+        et_fromDeliveryTime.setOnClickListener(this);
+        et_toDeliveryTime.setOnClickListener(this);
         spinner_shopId = (Spinner) findViewById(R.id.spinner_shopId);
         ll_shopId = (LinearLayout) findViewById(R.id.ll_shopId);
-        fetchAllShopCategoryApi();
+        tp_fromTime.setVisibility(View.GONE);
+        tp_toTime.setVisibility(View.GONE);
         if((USER_TYPE.equals(AppConstant.UserType.DELIVERY_PERSON_TYPE)) || (USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE))) {
             ll_shopId.setVisibility(View.GONE);
         }
@@ -70,6 +78,7 @@ public class ShopOperationalTimeActivity extends BaseActivity {
             ll_shopId.setVisibility(View.VISIBLE);
             fetchShopIdAPI();
         }
+        fetchAllShopCategoryApi();
     }
 
 
@@ -80,7 +89,7 @@ public class ShopOperationalTimeActivity extends BaseActivity {
             @Override
             public void onSuccess(ShopCategoryResponse result) {
                 hideProgressBar();
-                setSpinnerShopCtegory(result.getShopCategories());
+                setSpinnerShopCategory(result.getShopCategories());
             }
 
             @Override
@@ -91,7 +100,7 @@ public class ShopOperationalTimeActivity extends BaseActivity {
         AppRestClient.getClient().sendRequest(this, request, TAG);
     }
 
-    private void setSpinnerShopCtegory(List<ShopCategory> shopC) {
+    private void setSpinnerShopCategory(List<ShopCategory> shopC) {
         final List<String> categories = new ArrayList<>();
         categories.add("ALL");
         for (ShopCategory method : shopC) {
@@ -117,7 +126,7 @@ public class ShopOperationalTimeActivity extends BaseActivity {
             @Override
             public void onSuccess(ProductCategoryResponse result) {
                 hideProgressBar();
-                setSpinnerProductCtegory(shopCN, result.getProductCategories());
+                setSpinnerProductCategory(result.getProductCategories());
             }
 
             @Override
@@ -129,7 +138,7 @@ public class ShopOperationalTimeActivity extends BaseActivity {
     }
 
 
-    private void setSpinnerProductCtegory(final String shopCN, List<ProductCategory> productC) {
+    private void setSpinnerProductCategory(List<ProductCategory> productC) {
 
         final List<String> categories = new ArrayList<>();
         categories.add("ALL");
@@ -194,11 +203,14 @@ public class ShopOperationalTimeActivity extends BaseActivity {
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.et_shop_time_closing_date:
-                setDte(et_shop_time_closing_date);
+            case R.id.et_fromDeliveryTime:
+                setTime(et_fromDeliveryTime);
                 break;
-            case R.id.tv_shop_time_add:
-                addShopTimeAPI();
+            case R.id.et_toDeliveryTime:
+                setTime(et_toDeliveryTime);
+                break;
+            case R.id.tv_updateDeliveryTime:
+                updateDeliveryTimeAPI();
                 break;
 
 
@@ -206,61 +218,63 @@ public class ShopOperationalTimeActivity extends BaseActivity {
     }
 
 
-    private void setDte(final EditText tv) {
-        showDatePickerDialog();
-        mDateListner = new DatePickerDialog.OnDateSetListener() {
-            //         "fromDate": "2016-02-14",
+    private void setTime(final EditText tv) {
+        showFromTimePickerDialog();
+        mTimeListner = new TimePickerDialog.OnTimeSetListener() {
             @Override
-            public void onDateSet(final DatePicker datePicker, int year, int month, int day) {
+            public void onTimeSet(final TimePicker datePicker, int year, int month) {
                 if (datePicker.isShown()) {
-                    tv.setText(year + "-" + getData(++month) + "-" + getData(day));
+                    tv.setText(year + ":" + getData(month));
                 }
             }
         };
     }
 
-    private static DatePickerDialog.OnDateSetListener mDateListner;
+    private static TimePickerDialog.OnTimeSetListener mTimeListner;
 
-    public void showDatePickerDialog() {
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "datePicker");
+    public void showFromTimePickerDialog() {
+        DialogFragment newFragment = new TimePickerFragment();
+        newFragment.show(getSupportFragmentManager(), "tp_fromTime");
     }
 
-    public static class DatePickerFragment extends DialogFragment {
+    public static class TimePickerFragment extends DialogFragment {
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Use the current date as the default date in the picker
             final Calendar c = Calendar.getInstance();
             int year = c.get(Calendar.YEAR);
             int month = c.get(Calendar.MONTH);
-            int day = c.get(Calendar.DAY_OF_MONTH);
-            return new DatePickerDialog(getActivity(), mDateListner, year, month, day);
+            return new TimePickerDialog(getActivity(), mTimeListner, year, month, false);
         }
     }
 
-    private void addShopTimeAPI() {
+    private void updateDeliveryTimeAPI() {
 
-        String closingDate = et_shop_time_closing_date.getText().toString().trim();
+        String fromTime = et_fromDeliveryTime.getText().toString().trim();
+        String toTime = et_toDeliveryTime.getText().toString().trim();
         String shopCategory = shopCN;
         String pCategory = productCN;
+
+        if (!DialogUtils.isSpinnerDefaultValue(this, shopIdValue, "Shop ID")) {
+            return;
+        }
 
         if(USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE)) {
             shopIdValue = PreferenceKeeper.getInstance().getUserId();
         }
 
-        showProgressBar(findViewById(R.id.tv_shop_time_add));
-        AppHttpRequest request = AppRequestBuilder.addShopTimeAPI(shopIdValue,closingDate, shopCategory, pCategory, new AppResponseListener<CommonResponse>(CommonResponse.class, this) {
+        showProgressBar(findViewById(R.id.tv_updateDeliveryTime));
+        AppHttpRequest request = AppRequestBuilder.associateAProductCategoryAPI(shopIdValue, fromTime, toTime, shopCategory, pCategory, new AppResponseListener<CommonResponse>(CommonResponse.class, this) {
             @Override
             public void onSuccess(CommonResponse result) {
-                hideProgressBar(findViewById(R.id.tv_shop_time_add));
+                hideProgressBar(findViewById(R.id.tv_updateDeliveryTime));
                 showToast(result.getSuccessMessage());
                 finish();
             }
 
             @Override
             public void onError(ErrorObject error) {
-                hideProgressBar(findViewById(R.id.tv_shop_time_add));
+                hideProgressBar(findViewById(R.id.tv_updateDeliveryTime));
             }
         });
         AppRestClient.getClient().sendRequest(this, request, TAG);

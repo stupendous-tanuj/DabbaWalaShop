@@ -82,6 +82,7 @@ public class HomeActivity extends BaseActivity {
     LinearLayout linear_home_addADeliveryLocation = null;
     LinearLayout linear_home_addAShop = null;
     LinearLayout linear_home_all_delivery_person = null;
+    LinearLayout linear_home_associateAProductCategory = null;
     private TextView tv_orderStatus;
     private TextView tv_shopId;
     private Spinner spinner_orderStatus;
@@ -294,6 +295,7 @@ public class HomeActivity extends BaseActivity {
         linear_home_addAShop = (LinearLayout) findViewById(R.id.linear_home_addAShop);
         linear_home_addADeliveryLocation = (LinearLayout) findViewById(R.id.linear_home_addADeliveryLocation);
         linear_home_all_delivery_person = (LinearLayout) findViewById(R.id.linear_home_all_delivery_person);
+        linear_home_associateAProductCategory = (LinearLayout) findViewById(R.id.linear_home_associateAProductCategory);
         //Bars
         linear_bar_deliveryLocation = (LinearLayout) findViewById(R.id.linear_bar_deliveryLocation);
         linear_bar_deliveryPerson = (LinearLayout) findViewById(R.id.linear_bar_deliveryPerson);
@@ -443,6 +445,7 @@ public class HomeActivity extends BaseActivity {
         linear_home_addAShop.setOnClickListener(this);
         linear_home_addADeliveryLocation.setOnClickListener(this);
         linear_home_all_delivery_person.setOnClickListener(this);
+        linear_home_associateAProductCategory.setOnClickListener(this);
     }
 
     @Override
@@ -511,6 +514,9 @@ public class HomeActivity extends BaseActivity {
                 break;
             case R.id.linear_home_all_delivery_person:
                 launchActivity(AllDeliveryPersonsActivity.class);
+                break;
+            case R.id.linear_home_associateAProductCategory:
+                launchActivity(AssociateAProductCategoryActivity.class);
                 break;
 
         }

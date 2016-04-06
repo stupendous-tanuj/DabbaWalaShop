@@ -86,4 +86,10 @@
     <string name="title_activity_forget_password">Forget Password Activity</string>
     <string name="forget_Password"><u>Forget Password</u></string>
     <string name="title_activity_view_delivery_person">ViewDeliveryPersonActivity</string>
+    <string name="title_activity_todays_deliveries">TodaysDeliveriesActivity</string>
+    <string name="title_activity_associate_aproduct_category">AssociateAProductCategoryActivity
+    </string>
+    <string name="title_activity_associated_product_categories">
+        AssociatedProductCategoriesActivity
+    </string>
 </resources>

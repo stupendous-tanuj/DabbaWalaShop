@@ -732,6 +732,24 @@ public class AppRequestBuilder {
         return request;
     }
 
+
+    // http://stupendoustanuj.co.nf/Dabbawala/Update_Shop_Timings.php
+    public static AppHttpRequest associateAProductCategoryAPI(String shopId, String fromTime, String toTime,
+                                                              String shopCategory, String pCategory,
+                                                              AppResponseListener<CommonResponse> appResponseListener) {
+        AppHttpRequest request = AppHttpRequest.getPostRequest(BASE_URL + "/Associate_A_ProductCategory.php", appResponseListener);
+        Map<String, String> map = new LinkedHashMap<>();
+        setUserHeader(map);
+        map.put("shopId", shopId);
+        map.put("fromDeliveryTime", fromTime);
+        map.put("toDeliveryTime", toTime);
+        map.put("shopCategoryName", shopCategory);
+        map.put("productCategoryName", pCategory);
+        map.put("updatedBy",USER_ID);
+        request.addParam("input", setRequestBody(map));
+        return request;
+    }
+
     public static AppHttpRequest getLocationsBasedOnString(String loc, LocationResponseListener<ArrayList> appResponseListener) {
         return AppHttpRequest.getGetRequest("https://maps.googleapis.com/maps/api/place/autocomplete/" + loc, appResponseListener);
     }

@@ -38,11 +38,11 @@ public class DeliveryPersonProfileActivity extends BaseActivity {
         setContentView(R.layout.activity_delivery_person);
         setHeader("Delivery Person Profile", "");
         setUI();
-        fetchDeliveryPersonProfileAPI();
         if(PreferenceKeeper.getInstance().getUserType().equals(AppConstant.UserType.DELIVERY_PERSON_TYPE))
             deliveryPersonMobileNumber = PreferenceKeeper.getInstance().getUserId();
         else
             deliveryPersonMobileNumber = getIntent().getExtras().getString(AppConstant.BUNDLE_KEY.DELIVERY_PERSON_MOBILE);
+        fetchDeliveryPersonProfileAPI();
     }
 
     public void setUI()

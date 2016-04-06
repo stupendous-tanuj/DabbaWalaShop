@@ -50,7 +50,6 @@ public class ForgetPasswordActivity extends BaseActivity {
         setUIListener();
         setUserTypeSpinner();
         //supportedIdTypeSpinner();
-        //TODO Complete Forget Password mechanism
     }
 
     public void setUI()
