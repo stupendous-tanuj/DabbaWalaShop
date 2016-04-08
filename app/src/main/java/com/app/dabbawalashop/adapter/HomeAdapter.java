@@ -88,8 +88,6 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         holder.tv_orderCancellationReason.setText(orderDetail.getOrderCancellationReason());
         holder.tv_my_order_order_time.setText(orderDetail.getOrderCreationTimestamp());
 
-        if(!orderStatus.equals(AppConstant.STATUS.STATUS_ORDERED))
-            holder.tv_confirm.setVisibility(View.GONE);
         /*
         if(orderStatus.equals("Cancelled")){
             holder.ll_orderInvoiceAmount.setVisibility(View.VISIBLE);
@@ -107,18 +105,19 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         holder.tv_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!orderStatus.equals(AppConstant.STATUS.STATUS_CONFIRMED)) {
+                    DialogUtils.showDialogYesNo(activity, activity.getString(R.string.order_confirmation), activity.getString(R.string.yes), activity.getString(R.string.no), new IDialogListener() {
+                        @Override
+                        public void onClickOk() {
+                            updateOrderStatusApi(orderId, AppConstant.STATUS.STATUS_ORDERED, AppConstant.STATUS.STATUS_CONFIRMED);
+                        }
 
-                DialogUtils.showDialogYesNo(activity, activity.getString(R.string.order_confirmation), activity.getString(R.string.yes), activity.getString(R.string.no), new IDialogListener() {
-                    @Override
-                    public void onClickOk() {
-                        updateOrderStatusApi(orderId, AppConstant.STATUS.STATUS_ORDERED, AppConstant.STATUS.STATUS_CONFIRMED);
-                    }
+                        @Override
+                        public void onCancel() {
 
-                    @Override
-                    public void onCancel() {
-
-                    }
-                });
+                        }
+                    });
+                }
             }
         });
 

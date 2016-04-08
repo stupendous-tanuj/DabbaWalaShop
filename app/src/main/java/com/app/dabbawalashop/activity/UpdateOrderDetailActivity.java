@@ -173,6 +173,7 @@ public class UpdateOrderDetailActivity extends BaseActivity {
                     bundle.putString(AppConstant.BUNDLE_KEY.ORDER_STATUS, orderStatusValue);
                     bundle.putString(AppConstant.BUNDLE_KEY.DeliveryDates, deliveryDatesValue);
                     bundle.putString(AppConstant.BUNDLE_KEY.SHOP_ID, shopId);
+                    bundle.putString(AppConstant.BUNDLE_KEY.TODAYS_DELIVERY_DATE_FLAG, "0");
 
                     launchActivity(UpdateDeliveryDetailsActivity.class, bundle);
                 }

@@ -1,6 +1,7 @@
 package com.app.dabbawalashop.network;
 
 import com.app.dabbawalashop.activity.HomeActivity;
+import com.app.dabbawalashop.api.output.AssociatedProductCategoryResponse;
 import com.app.dabbawalashop.api.output.AssociatedProductResponse;
 import com.app.dabbawalashop.api.output.AssociatedShopIdResponse;
 import com.app.dabbawalashop.api.output.AssociatedShopsResponse;
@@ -140,6 +141,21 @@ public class AppRequestBuilder {
         request.addParam("input", setRequestBody(map));
         return request;
     }
+
+
+    public static AppHttpRequest fetchTodaysDeliveryAPI(String deliveryDate,String deliveryStatus,String shopId, AppResponseListener<DeliveryDetailResponse> appResponseListener) {
+        AppHttpRequest request = AppHttpRequest.getPostRequest(BASE_URL + "/Fetch_Todays_Delivery.php", appResponseListener);
+
+        Map<String, String> map = new LinkedHashMap<String, String>();
+        setUserHeader(map);
+        map.put("userType", USER_TYPE);
+        map.put("deliveryDate", deliveryDate);
+        map.put("deliveryStatus", deliveryStatus);
+        map.put("shopId", shopId);
+        request.addParam("input", setRequestBody(map));
+        return request;
+    }
+
 
     // http://stupendoustanuj.co.nf/Dabbawala/Fetch_All_Orders.php
 
@@ -362,6 +378,18 @@ public class AppRequestBuilder {
         return request;
     }
 
+    // http://stupendoustanuj.co.nf/Dabbawala/Deassociate_A_Product.php
+    public static AppHttpRequest removeAssociatedProductCategoryAPI(String shopId, String shopCategory, String productCategory, AppResponseListener<CommonResponse> appResponseListener) {
+        AppHttpRequest request = AppHttpRequest.getPostRequest(BASE_URL + "/Deassociate_Product_Category.php", appResponseListener);
+        Map<String, String> map = new LinkedHashMap<String, String>();
+        setUserHeader(map);
+        map.put("shopId", shopId);
+        map.put("shopCategory", shopCategory);
+        map.put("productCategory", productCategory);
+        request.addParam("input", setRequestBody(map));
+        return request;
+    }
+
 
     ///Fetch_All_Shop_Categories
     // http://stupendoustanuj.co.nf/Dabbawala/Fetch_All_Shop_Categories.php
@@ -546,6 +574,19 @@ public class AppRequestBuilder {
         setUserHeader(map);
         map.put("shopId", shopId);
         map.put("closingDate", closingDate);
+        request.addParam("input", setRequestBody(map));
+        return request;
+    }
+
+    // http://stupendoustanuj.co.nf/Dabbawala/Fetch_Shop_DeliveryLocations.php
+    public static AppHttpRequest fetchAssociatedProductCategoriesAPI(String shopId,
+                                                             AppResponseListener<AssociatedProductCategoryResponse> appResponseListener) {
+        AppHttpRequest request = AppHttpRequest.getPostRequest(BASE_URL + "/Fetch_Associated_ProductCategories.php", appResponseListener);
+        Map<String, String> map = new LinkedHashMap<>();
+        setUserHeader(map);
+        map.put("shopId", shopId);
+        map.put("productCategoryName", "ALL");
+        map.put("shopCategoryName", "ALL");
         request.addParam("input", setRequestBody(map));
         return request;
     }

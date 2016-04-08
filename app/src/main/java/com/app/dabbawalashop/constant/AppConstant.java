@@ -45,6 +45,8 @@ public class AppConstant {
         String ORDER_STATUS = "ORDER_STATUS";
         String DELIVERY_DATE = "DELIVERY_DATE";
         String PRODUCT_STATUS = "PRODUCT_STATUS";
+        String DELIVERY_STATUS = "DELIVERY_STATUS";
+        String TODAYS_DELIVERY_DATE_FLAG = "TODAYS_DELIVERY_DATE_FLAG";
     }
 
     public interface PreferenceKeeperNames {

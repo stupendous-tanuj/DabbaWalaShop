@@ -56,7 +56,8 @@ public class UpdateDeliveryDetailsActivity extends BaseActivity {
     String toDeliveryStatusValue = "";
     String deliveryStatus = "";
     private RecyclerView recycleView;
-String shopId = "";
+    String shopId = "";
+    String deliveryDatesValue = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,8 +67,7 @@ String shopId = "";
         setUI();
         setHeader("Update Delivery Detail", "");
         setUIListener();
-        deliveryDate = getIntent().getExtras().getString(AppConstant.BUNDLE_KEY.DELIVERY_DATE);
-        shopId = getIntent().getExtras().getString(AppConstant.BUNDLE_KEY.SHOP_ID).split(" ")[0];
+        getIntentData();
         setData(deliveryDate);
         setRecycler();
         if(!PreferenceKeeper.getInstance().getUserType().equals(AppConstant.UserType.DELIVERY_PERSON_TYPE))
@@ -108,6 +108,26 @@ String shopId = "";
                 updateDeliveryStatusAPI();
                 break;
         }
+    }
+
+
+    private void getIntentData() {
+        if(getIntent().getExtras().getString(AppConstant.BUNDLE_KEY.TODAYS_DELIVERY_DATE_FLAG).equals("1")) {
+            deliveryDate = getIntent().getExtras().getString(AppConstant.BUNDLE_KEY.DELIVERY_DATE);
+            shopId = getIntent().getExtras().getString(AppConstant.BUNDLE_KEY.OrderPlacedTo);
+            orderIdValue = getIntent().getExtras().getString(AppConstant.BUNDLE_KEY.ORDER_ID);
+            orderStatusValue = getIntent().getExtras().getString(AppConstant.BUNDLE_KEY.ORDER_STATUS);
+            deliveryDatesValue = deliveryDate+",";
+        }
+        else
+        {
+            deliveryDate = getIntent().getExtras().getString(AppConstant.BUNDLE_KEY.DELIVERY_DATE);
+            shopId = getIntent().getExtras().getString(AppConstant.BUNDLE_KEY.SHOP_ID).split(" ")[0];
+            orderIdValue = getIntent().getExtras().getString(AppConstant.BUNDLE_KEY.ORDER_ID);
+            orderStatusValue = getIntent().getExtras().getString(AppConstant.BUNDLE_KEY.ORDER_STATUS);
+            deliveryDatesValue = getIntent ().getExtras().getString(AppConstant.BUNDLE_KEY.DeliveryDates);
+        }
+
     }
 
     private void setRecycler() {
@@ -249,11 +269,9 @@ String shopId = "";
 
 
     public void setData(String deliveryDateValue) {
-        orderIdValue = getIntent().getExtras().getString(AppConstant.BUNDLE_KEY.ORDER_ID);
+
         tv_orderId.setText(orderIdValue);
-        orderStatusValue = getIntent().getExtras().getString(AppConstant.BUNDLE_KEY.ORDER_STATUS);
         tv_orderStatus.setText(orderStatusValue);
-        final String deliveryDatesValue = getIntent ().getExtras().getString(AppConstant.BUNDLE_KEY.DeliveryDates);
         String deliveryDates[] = deliveryDatesValue.split(",");
         final List<String> deliveryDateList = new ArrayList<>();
         int j = 0;

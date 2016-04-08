@@ -15,7 +15,24 @@ public class DeliveryDetail {
     private String amountReceivedByShop;
     private String toDeliveryStatus;
     private String amountAdjustmentDone;
+    private String orderPlacedTo;
+    private String orderPlacedBy;
 
+    public String getOrderPlacedTo() {
+        return orderPlacedTo;
+    }
+
+    public void setOrderPlacedTo(String orderPlacedTo) {
+        this.orderPlacedTo = orderPlacedTo;
+    }
+
+    public String getOrderPlacedBy() {
+        return orderPlacedBy;
+    }
+
+    public void setOrderPlacedBy(String orderPlacedBy) {
+        this.orderPlacedBy = orderPlacedBy;
+    }
 
     public String getAmountReceivedByShop() {
         return amountReceivedByShop;

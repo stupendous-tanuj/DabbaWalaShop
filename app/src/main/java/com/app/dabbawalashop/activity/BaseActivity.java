@@ -64,6 +64,35 @@ public class BaseActivity extends FragmentActivity implements View.OnClickListen
     public String getData(int i) {
         return String.valueOf((i > 9 ? i : "0" + i));
     }
+//TODO Fix it.
+    public String getMonth(int i) {
+        if(i == 1)
+            return "Jan";
+        if(i == 2)
+            return "Feb";
+        if(i == 3)
+            return "Mar";
+        if(i == 4)
+            return "April";
+        if(i == 5)
+            return "May";
+        if(i == 6)
+            return "Jun";
+        if(i == 7)
+            return "Jul";
+        if(i == 8)
+            return "Aug";
+        if(i == 9)
+            return "Sep";
+        if(i == 10)
+            return "Oct";
+        if(i == 11)
+            return "Nov";
+        if(i == 12)
+            return "Dec";
+
+        return "";
+    }
 
     public void setHeader(String center, String right) {
         ivBack = (ImageView) findViewById(R.id.iv_main_back);

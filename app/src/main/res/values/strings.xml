@@ -65,6 +65,7 @@
     <string name="no_order_found">No Order Found.</string>
     <string name="upload_image_confirmation">Do you want to upload image.</string>
     <string name="header_my_orders">My Orders</string>
+    <string name="header_my_deliveries">Deliveries</string>
     <string name="title_activity_associated_delivery_locations">Delivery Locations</string>
     <string name="title_activity_associate_a_product">Associate A Product</string>
     <string name="title_activity_update_associated__product">Update Associated Product</string>

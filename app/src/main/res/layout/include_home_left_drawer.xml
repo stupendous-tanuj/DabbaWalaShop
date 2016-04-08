@@ -240,7 +240,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/linear_home_associateAProductCategory"
+                android:id="@+id/linear_home_associatedProductCategory"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_35"
                 android:layout_marginTop="@dimen/dp_5"
@@ -257,7 +257,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="Associate A Product Category"
+                    android:text="Associated Product Category"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13" />
 
@@ -303,6 +303,31 @@
                     android:textSize="@dimen/sp_13" />
 
             </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_home_todays_delivery"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_35"
+                android:layout_marginTop="@dimen/dp_5"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:src="@drawable/invite_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:gravity="center_vertical"
+                    android:text="Todays Delivery"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp_13" />
+
+            </LinearLayout>
+
 
             <LinearLayout
                 android:id="@+id/linear_bar_product"
