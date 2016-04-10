@@ -33,6 +33,7 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        setHeader(getString(R.string.header_user_login), "");
         setHeader("Login", "");
         setUI();
         setUIListener();

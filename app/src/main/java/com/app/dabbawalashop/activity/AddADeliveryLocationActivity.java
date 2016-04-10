@@ -38,7 +38,7 @@ public class AddADeliveryLocationActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_adelivery_location);
-        setHeader("Add A Delivery Location", "");
+        setHeader(getString(R.string.header_add_a_delivery_location), "");
         USER_TYPE = PreferenceKeeper.getInstance().getUserType();
         setUI();
         setCitySpinner();

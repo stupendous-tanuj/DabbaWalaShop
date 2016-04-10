@@ -41,7 +41,7 @@ public class AssociatedDeliveryPersonActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_associate_delivery_person);
-        setHeader("Associated Delivery Person", "");
+        setHeader(getString(R.string.header_associated_delivery_person), "");
         USER_TYPE = PreferenceKeeper.getInstance().getUserType();
         setUI();
         setRecycler();

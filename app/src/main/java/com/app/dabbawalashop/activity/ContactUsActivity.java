@@ -25,8 +25,8 @@ public class ContactUsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_us);
+        setHeader(getString(R.string.header_contact_us), "");
         setUI();
-        setHeader("Contact us", "");
         setUIListener();
     }
 

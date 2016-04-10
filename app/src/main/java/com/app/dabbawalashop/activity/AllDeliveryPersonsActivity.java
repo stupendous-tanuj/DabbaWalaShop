@@ -39,7 +39,7 @@ public class AllDeliveryPersonsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_delivery_persons);
-        setHeader("All Delivery Persons", "");
+        setHeader(getString(R.string.header_all_delivery_persons), "");
         setUI();
         setRecycler();
         fetchAllDeliveryPersonAPI();

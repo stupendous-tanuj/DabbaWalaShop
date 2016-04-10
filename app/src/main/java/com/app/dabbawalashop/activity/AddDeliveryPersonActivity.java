@@ -36,7 +36,7 @@ public class AddDeliveryPersonActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_delivery_person);
-        setHeader("Add Delivery Person", "");
+        setHeader(getString(R.string.header_add_a_delivery_person), "");
         setUI();
         supportedPersonIdTypeApi();
     }
@@ -57,15 +57,17 @@ public class AddDeliveryPersonActivity extends BaseActivity {
     }
 
     private void supportedPersonIdTypeApi() {
+        showProgressBar();
         AppHttpRequest request = AppRequestBuilder.supportedPersonIdTypeApi(new AppResponseListener<SupportedIdTypeResponse>(SupportedIdTypeResponse.class, this) {
             @Override
             public void onSuccess(SupportedIdTypeResponse result) {
+                hideProgressBar();
                 setSpinnerPersonIdType(result.getSupportedIDType());
             }
 
             @Override
             public void onError(ErrorObject error) {
-
+                hideProgressBar();
             }
         });
         AppRestClient.getClient().sendRequest(this, request, TAG);

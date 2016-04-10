@@ -322,7 +322,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="Todays Delivery"
+                    android:text="Today's Delivery"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13" />
 

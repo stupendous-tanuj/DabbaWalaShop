@@ -52,7 +52,7 @@ public class AssociateAProductCategoryActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_associate_aproduct_category);
-        setHeader(" Associate A Product Category", "");
+        setHeader(getString(R.string.header_associate_a_product_category), "");
         USER_TYPE = PreferenceKeeper.getInstance().getUserType();
         setUI();
     }

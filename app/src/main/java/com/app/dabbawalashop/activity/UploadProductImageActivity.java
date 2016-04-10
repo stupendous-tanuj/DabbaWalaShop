@@ -19,7 +19,7 @@ public class UploadProductImageActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_product_image);
         setUI();
-        setHeader("Upload Product Image", "");
+        setHeader(getString(R.string.header_upload_product_image), "");
         setUIListener();
         //TODO Upload product image activity
 

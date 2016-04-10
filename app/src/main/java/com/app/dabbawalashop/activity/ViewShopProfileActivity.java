@@ -54,7 +54,7 @@ public class ViewShopProfileActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_shop_profile);
         setUI();
-        setHeader("View Shop Profile", "");
+        setHeader(getString(R.string.header_view_shop_profile), "");
         shopId = getIntent().getExtras().getString(AppConstant.BUNDLE_KEY.SHOP_ID);
         fetchShopKeeperProfileApi();
     }

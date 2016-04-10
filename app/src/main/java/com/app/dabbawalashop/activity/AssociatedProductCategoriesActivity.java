@@ -56,7 +56,7 @@ public class AssociatedProductCategoriesActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_associated_product_categories);
-        setHeader("Associated Product Categories", "");
+        setHeader(getString(R.string.header_associated_products_categories), "");
         USER_TYPE = PreferenceKeeper.getInstance().getUserType();
         setUI();
         setRecycler();

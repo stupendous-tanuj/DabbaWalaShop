@@ -36,7 +36,7 @@ public class DeliveryPersonProfileActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_delivery_person);
-        setHeader("Delivery Person Profile", "");
+        setHeader(getString(R.string.header_delivery_person_profile), "");
         setUI();
         if(PreferenceKeeper.getInstance().getUserType().equals(AppConstant.UserType.DELIVERY_PERSON_TYPE))
             deliveryPersonMobileNumber = PreferenceKeeper.getInstance().getUserId();
@@ -80,17 +80,17 @@ public class DeliveryPersonProfileActivity extends BaseActivity {
 
 
     private void fetchDeliveryPersonProfileAPI() {
-
+        showProgressBar();
         AppHttpRequest request = AppRequestBuilder.fetchDeliveryPersonProfileAPI(deliveryPersonMobileNumber, new AppResponseListener<DeliveryPersonResponse>(DeliveryPersonResponse.class, this) {
             @Override
             public void onSuccess(DeliveryPersonResponse result) {
-                hideProgressBar(findViewById(R.id.tv_contact_us_send));
+                hideProgressBar();
                 setDeliveryPersonData(result.getDeliveryPerson().get(0));
             }
 
             @Override
             public void onError(ErrorObject error) {
-
+                hideProgressBar();
             }
         });
         AppRestClient.getClient().sendRequest(this, request, TAG);

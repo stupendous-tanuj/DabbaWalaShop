@@ -80,7 +80,8 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         holder.orderStatus.setText(orderStatus);
         holder.orderPaymentStatus.setText(orderDetail.getPaymentStatus());
         holder.orderDeliveryAddressIdentifier.setText(orderDetail.getOrderDeliveryAddressIdentifier());
-        holder.tv_deliveryDates.setText(deliveryDates.substring(0, deliveryDates.length() - 2));
+        //holder.tv_deliveryDates.setText(deliveryDates.substring(0, deliveryDates.length() - 2));
+        holder.tv_deliveryDates.setText(deliveryDates);
         holder.tv_orderSubscriptionType.setText(orderDetail.getOrderSubscriptionType());
         holder.tv_amountAdjustmentDone.setText(amountAdjusted.equals("1") ? "Yes" : "No" );
         holder.tv_orderBalanceAmount.setText(orderDetail.getOrderBalanceAmount());

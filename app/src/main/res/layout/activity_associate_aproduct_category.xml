@@ -195,7 +195,7 @@
         android:background="@color/color_base"
         android:gravity="center"
         android:padding="@dimen/dp_10"
-        android:text="Update Delivery Time"
+        android:text="Associate A Product Category"
         android:textColor="@color/white"
         android:textSize="@dimen/sp_16" />
 

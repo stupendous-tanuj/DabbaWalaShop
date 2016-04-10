@@ -41,7 +41,7 @@ public class AssociatedDeliveryLocationsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_associated_delivery_locations);
-        setHeader("Associated Delivery Locations", "");
+        setHeader(getString(R.string.header_associated_delivery_locations), "");
         USER_TYPE = PreferenceKeeper.getInstance().getUserType();
         setUI();
         setRecycler();

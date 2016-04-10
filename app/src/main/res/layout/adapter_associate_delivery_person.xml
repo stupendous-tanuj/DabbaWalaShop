@@ -41,7 +41,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Persone Name"
+                    android:text="Person Name"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_15" />
 
@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1.2"
                     android:gravity="left"
-                    android:text="Manjeet"
+                    android:text=""
                     android:textColor="@color/color_base"
                     android:textSize="@dimen/sp_13" />
 
@@ -83,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1.2"
                     android:gravity="left"
-                    android:text="3470941924"
+                    android:text=""
                     android:textColor="@color/color_base"
                     android:textSize="@dimen/sp_13" />
 

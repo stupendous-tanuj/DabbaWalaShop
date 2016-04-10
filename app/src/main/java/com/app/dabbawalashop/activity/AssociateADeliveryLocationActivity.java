@@ -40,7 +40,7 @@ public class AssociateADeliveryLocationActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_delivery_location);
-        setHeader("Associate A Delivery Location", "");
+        setHeader(getString(R.string.header_associate_a_delivery_location), "");
         USER_TYPE = PreferenceKeeper.getInstance().getUserType();
         setUI();
         fetchAvailableDeliveryLocationsApi();

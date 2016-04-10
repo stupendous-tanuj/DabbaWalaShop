@@ -36,7 +36,7 @@ public class AssociateADeliveryPersonActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_associate_adelivery_person);
-        setHeader("Associate A Delivery Person", "");
+        setHeader(getString(R.string.header_associate_a_delivery_person), "");
         setUI();
         setUIListener();
         fetchAllDeliveryPersonAPI();

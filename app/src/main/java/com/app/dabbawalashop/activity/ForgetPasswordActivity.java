@@ -45,7 +45,7 @@ public class ForgetPasswordActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget_password);
-        setHeader("Forget Password", "");
+        setHeader(getString(R.string.header_forget_password), "");
         setUI();
         setUIListener();
         setUserTypeSpinner();

@@ -62,7 +62,7 @@ public class UpdateOrderDetailActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_order_detail);
         setUI();
-        setHeader("Update Order Detail", "");
+        setHeader(getString(R.string.header_update_order_detail), "");
         setUIListener();
         orderIdValue = getIntent().getExtras().getString(AppConstant.BUNDLE_KEY.ORDER_ID);
         orderStatusValue = getIntent().getExtras().getString(AppConstant.BUNDLE_KEY.ORDER_STATUS);

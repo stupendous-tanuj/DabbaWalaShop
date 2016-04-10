@@ -329,7 +329,6 @@ public class HomeActivity extends BaseActivity {
             linear_bar_deliveryLocation.setVisibility(View.GONE);
             linear_bar_deliveryPerson.setVisibility(View.GONE);
             linear_bar_product.setVisibility(View.GONE);
-            linear_home_associateAProductCategory.setVisibility(View.GONE);
             linear_home_associatedProductCategory.setVisibility(View.GONE);
         }
 

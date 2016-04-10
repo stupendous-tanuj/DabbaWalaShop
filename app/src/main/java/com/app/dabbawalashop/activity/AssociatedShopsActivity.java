@@ -29,7 +29,7 @@ public class AssociatedShopsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_associated_shops);
-        setHeader("Associated Shops", "");
+        setHeader(getString(R.string.header_associated_shops), "");
         setUI();
         setRecycler();
         associateShopsAPI();

@@ -68,7 +68,7 @@ public class TodaysDeliveriesActivity extends BaseActivity {
         getCurrentTime();
         setRecycler();
         setDeliveryStatusSpinner();
-        associateShopIdAPI();
+
 
         //TODO Todays Deliveries Activity
     }
@@ -87,6 +87,7 @@ public class TodaysDeliveriesActivity extends BaseActivity {
             ll_shopId.setVisibility(View.GONE);
         } else {
             ll_shopId.setVisibility(View.VISIBLE);
+            associateShopIdAPI();
         }
 
         tv_deliveryDate.setOnClickListener(this);

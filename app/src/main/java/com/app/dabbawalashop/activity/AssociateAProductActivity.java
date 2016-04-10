@@ -55,6 +55,7 @@ public class AssociateAProductActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_associate_product);
+        setHeader(getString(R.string.header_associate_a_product), "");
         USER_TYPE = PreferenceKeeper.getInstance().getUserType();
         setUI();
         setUIListner();

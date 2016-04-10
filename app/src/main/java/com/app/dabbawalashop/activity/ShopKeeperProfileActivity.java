@@ -61,7 +61,7 @@ public class ShopKeeperProfileActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_keeper_profile);
-        setHeader("Shop Keeper Profile", "");
+        setHeader(getString(R.string.header_seller_keeper_profile), "");
         setUI();
         setUIListener();
         fetchShopKeeperProfileApi();

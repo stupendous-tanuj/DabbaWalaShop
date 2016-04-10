@@ -45,7 +45,7 @@ public class AssociatedProductActivity extends BaseActivity {
         setContentView(R.layout.activity_associated_product);
         setUI();
         USER_TYPE = PreferenceKeeper.getInstance().getUserType();
-        setHeader("Products - "+USER_TYPE, "");
+        setHeader(getString(R.string.header_associated_products)+" - "+USER_TYPE, "");
         if(USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE)) {
             fetchAssociatedProductListApi();
         }
@@ -68,7 +68,7 @@ public class AssociatedProductActivity extends BaseActivity {
             case R.id.iv_add_associated_product:
                 Bundle bundle = new Bundle();
                 bundle.putBoolean(AppConstant.BUNDLE_KEY.IS_ADD_ASSOCIATE_PRODUCT_HOME, true);
-                launchActivity(AssociateAProductActivity.class, bundle);
+                launchActivity(AddProductActivity.class, bundle);
                 break;
         }
     }

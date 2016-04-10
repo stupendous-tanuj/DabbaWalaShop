@@ -61,7 +61,7 @@ public class AddAShopActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_ashop);
         setUI();
-        setHeader("Add A Shop Profile", "");
+        setHeader(getString(R.string.header_add_a_shop), "");
         setUIListener();
         shopReferenceDataAPI();
     }

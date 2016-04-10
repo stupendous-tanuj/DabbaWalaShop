@@ -22,6 +22,7 @@ import com.app.dabbawalashop.network.AppRequestBuilder;
 import com.app.dabbawalashop.network.AppResponseListener;
 import com.app.dabbawalashop.network.AppRestClient;
 import com.app.dabbawalashop.utils.DialogUtils;
+import com.app.dabbawalashop.utils.Logger;
 
 import java.util.List;
 
@@ -70,10 +71,10 @@ public class AssociatedDeliveryPersonAdapter extends RecyclerView.Adapter<Recycl
             @Override
             public void onClick(View view) {
 
-                DialogUtils.showDialogYesNo(activity, activity.getString(R.string.deassociated_product), activity.getString(R.string.yes), activity.getString(R.string.no), new IDialogListener() {
+                DialogUtils.showDialogYesNo(activity, activity.getString(R.string.deassociated_delivery_person), activity.getString(R.string.yes), activity.getString(R.string.no), new IDialogListener() {
                     @Override
                     public void onClickOk() {
-                        deassociatedDeliveryPersoneAPI(data.getDeliveryPersonMobileNumber(), pos);
+                        deassociateDeliveryPersonAPI(data.getDeliveryPersonMobileNumber(), pos);
                     }
 
                     @Override
@@ -85,7 +86,7 @@ public class AssociatedDeliveryPersonAdapter extends RecyclerView.Adapter<Recycl
         });
     }
 
-    private void deassociatedDeliveryPersoneAPI(String deliveryPersonId, final int pos) {
+    private void deassociateDeliveryPersonAPI(String deliveryPersonId, final int pos) {
         activity.showProgressBar();
         AppHttpRequest request = AppRequestBuilder.deAssociateDeliveryPersonAPI(shopIdORSellerHubId, deliveryPersonId, new AppResponseListener<CommonResponse>(CommonResponse.class, activity) {
             @Override
@@ -123,7 +124,7 @@ public class AssociatedDeliveryPersonAdapter extends RecyclerView.Adapter<Recycl
 
         public DeliverPersonHolder(View view) {
             super(view);
-            name = (TextView) view.findViewById(R.id.tv_ass_delivery_mobile_number);
+            name = (TextView) view.findViewById(R.id.tv_ass_delivery_name);
             mobileNumber = (TextView) view.findViewById(R.id.tv_ass_delivery_mobile_number);
             tv_ass_delivery_person_deassociate = (TextView) view.findViewById(R.id.tv_ass_delivery_person_deassociate);
             ll_deliveryPersons = (LinearLayout) view.findViewById(R.id.ll_deliveryPersons);

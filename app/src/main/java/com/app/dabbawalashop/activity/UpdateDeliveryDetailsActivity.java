@@ -63,9 +63,8 @@ public class UpdateDeliveryDetailsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_delivery_details);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setUI();
-        setHeader("Update Delivery Detail", "");
+        setHeader(getString(R.string.header_update_delivery_detail), "");
         setUIListener();
         getIntentData();
         setData(deliveryDate);
