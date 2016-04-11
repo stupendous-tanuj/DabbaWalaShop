@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_5"
-        android:text="Registration Status"
+        android:text="@string/label_Registration_Status"
         android:textColor="@color/black"
         android:textSize="@dimen/sp_13" />
 
@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_5"
-        android:text="Shop ID"
+        android:text="@string/label_Shop_ID"
         android:textColor="@color/black"
         android:textSize="@dimen/sp_13" />
 

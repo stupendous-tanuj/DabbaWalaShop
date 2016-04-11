@@ -16,7 +16,7 @@
         android:id="@+id/tv_main_center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home"
+        android:text="@string/label_Home"
         android:textColor="@color/white"
         android:textSize="@dimen/sp_16"
         android:layout_centerVertical="true"
@@ -31,7 +31,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:padding="@dimen/dp_15"
-        android:text="Home"
+        android:text="@string/label_Home"
         android:textColor="@color/white"
         android:textSize="@dimen/sp_16" />
 

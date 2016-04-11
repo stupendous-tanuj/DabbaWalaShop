@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.7"
-                    android:text="Name"
+                    android:text="@string/label_Name"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -67,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.7"
-                    android:text="Email ID"
+                    android:text="@string/label_Email_Id"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.7"
-                    android:text="Mobile Number"
+                    android:text="@string/label_Mobile_Number"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 

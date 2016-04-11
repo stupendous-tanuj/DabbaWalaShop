@@ -51,7 +51,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="0.5"
-                        android:text="Shop ID"
+                        android:text="@string/label_Shop_ID"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -83,7 +83,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="0.5"
-                        android:text="Shop Name"
+                        android:text="@string/label_Shop_Name"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -93,7 +93,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
                         android:gravity="left"
-                        android:text="Shop Name"
+                        android:text=""
                         android:textColor="@color/color_base"
                         android:textSize="@dimen/sp_13" />
 
@@ -114,7 +114,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="0.5"
-                        android:text="Description"
+                        android:text="@string/label_Description"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -124,7 +124,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
                         android:gravity="left"
-                        android:text="Description"
+                        android:text=""
                         android:textColor="@color/color_base"
                         android:textSize="@dimen/sp_13" />
 
@@ -145,7 +145,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="0.5"
-                        android:text="Shop Address"
+                        android:text="@string/label_Shop_Address"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -155,7 +155,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
                         android:gravity="left"
-                        android:text="Shop Address"
+                        android:text=""
                         android:textColor="@color/color_base"
                         android:textSize="@dimen/sp_13" />
 
@@ -183,7 +183,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/edittext_background"
                     android:padding="@dimen/dp_4"
-                    android:text="Deassociate"
+                    android:text="@string/label_DeAssociate"
                     android:textColor="@color/color_base"
                     android:textSize="@dimen/sp_8"
                     android:textStyle="italic|bold" />
@@ -195,7 +195,7 @@
                     android:layout_marginLeft="@dimen/dp_5"
                     android:background="@drawable/edittext_background"
                     android:padding="@dimen/dp_4"
-                    android:text="Update"
+                    android:text="@string/label_Update"
                     android:textColor="@color/color_base"
                     android:textSize="@dimen/sp_8"
                     android:textStyle="italic|bold" />

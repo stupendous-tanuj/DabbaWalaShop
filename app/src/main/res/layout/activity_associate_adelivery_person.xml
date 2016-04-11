@@ -29,7 +29,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dp_10"
             android:textSize="@dimen/sp_15"
-            android:text="Shop ID"
+            android:text="@string/label_Shop_ID"
             android:textColor="@color/black"
             />
 
@@ -60,7 +60,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dp_10"
             android:textSize="@dimen/sp_15"
-            android:text="Delivery Person"
+            android:text="@string/label_Delivery_Person"
             android:textColor="@color/black"
             />
 
@@ -82,7 +82,7 @@
         android:background="@color/color_base"
         android:gravity="center"
         android:padding="@dimen/dp_15"
-        android:text="Associate A Delivery Person"
+        android:text="@string/label_Associate_A_Delivery_Person"
         android:textColor="@color/white"
         android:textSize="@dimen/sp_19" />
 

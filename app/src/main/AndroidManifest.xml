@@ -198,15 +198,21 @@
         <activity
             android:name=".activity.TodaysDeliveriesActivity"
             android:label="@string/title_activity_todays_deliveries"
-            android:theme="@style/AppTheme" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"  />
         <activity
             android:name=".activity.AssociateAProductCategoryActivity"
             android:label="@string/title_activity_associate_aproduct_category"
-            android:theme="@style/AppTheme" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"  />
         <activity
             android:name=".activity.AssociatedProductCategoriesActivity"
             android:label="@string/title_activity_associated_product_categories"
-            android:theme="@style/AppTheme"></activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize" ></activity>
     </application>
 
 </manifest>

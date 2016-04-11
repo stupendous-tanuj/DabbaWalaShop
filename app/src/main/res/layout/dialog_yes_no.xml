@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/dp_20"
-            android:text="NO"
+            android:text="@string/label_NO"
             android:textColor="@color/blue_button_background" />
 
         <TextView
@@ -36,7 +36,7 @@
             android:layout_marginLeft="@dimen/dp_20"
             android:layout_marginRight="@dimen/dp_10"
             android:paddingLeft="@dimen/dp_20"
-            android:text="YES"
+            android:text="@string/label_YES"
             android:textColor="@color/blue_button_background" />
     </LinearLayout>
 </RelativeLayout>

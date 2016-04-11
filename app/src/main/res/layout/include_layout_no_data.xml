@@ -8,7 +8,7 @@
         android:id="@+id/no_data_available"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="My Cart is not available.\nPlease add a cart"
+        android:text="@string/label_No_Cart"
         android:textColor="@color/color_base"
         android:textSize="@dimen/sp_20"
         android:visibility="visible" />

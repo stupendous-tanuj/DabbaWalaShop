@@ -41,7 +41,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:textSize="@dimen/sp_15"
-                    android:text="Shop ID"
+                    android:text="@string/label_Shop_ID"
                     android:textColor="@color/black"
                     />
 
@@ -68,7 +68,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Shop Category"
+                    android:text="@string/label_Shop_Category"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -95,7 +95,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Product Category"
+                    android:text="@string/label_Product_Category"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -123,7 +123,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="From Delivery Time"
+                    android:text="@string/label_From_Delivery_Time"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -135,7 +135,7 @@
                     android:background="@drawable/edittext_background"
                     android:editable="false"
                     android:gravity="left"
-                    android:hint="From Delivery Time"
+                    android:hint="@string/hint_From_Delivery_Time"
                     android:padding="@dimen/dp_10"
                     android:textColor="@color/color_base"
                     android:textSize="@dimen/sp_13" />
@@ -156,7 +156,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="To Delivery Time"
+                    android:text="@string/label_To_Delivery_Time"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -168,7 +168,7 @@
                     android:background="@drawable/edittext_background"
                     android:editable="false"
                     android:gravity="left"
-                    android:hint="To Delivery Time"
+                    android:hint="@string/hint_To_Delivery_Time"
                     android:padding="@dimen/dp_10"
                     android:textColor="@color/color_base"
                     android:textSize="@dimen/sp_13" />
@@ -195,7 +195,7 @@
         android:background="@color/color_base"
         android:gravity="center"
         android:padding="@dimen/dp_10"
-        android:text="Associate A Product Category"
+        android:text="@string/label_Associate_A_Product_Category"
         android:textColor="@color/white"
         android:textSize="@dimen/sp_16" />
 

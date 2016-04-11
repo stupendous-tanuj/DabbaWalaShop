@@ -41,7 +41,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:textSize="@dimen/sp_15"
-                    android:text="Shop ID"
+                    android:text="@string/label_Shop_ID"
                     android:textColor="@color/black"
                     />
 
@@ -68,7 +68,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Shop Category"
+                    android:text="@string/label_Shop_Category"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -95,7 +95,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Product Category"
+                    android:text="@string/label_Product_Category"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -123,7 +123,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Closing Date"
+                    android:text="@string/label_Closing_Date"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -135,7 +135,7 @@
                     android:background="@drawable/edittext_background"
                     android:editable="false"
                     android:gravity="left"
-                    android:hint="Select closing date"
+                    android:hint="@string/hint_Closing_Date"
                     android:padding="@dimen/dp_10"
                     android:textColor="@color/color_base"
                     android:textSize="@dimen/sp_13" />
@@ -152,7 +152,7 @@
         android:background="@color/color_base"
         android:gravity="center"
         android:padding="@dimen/dp_10"
-        android:text="Shop Operation Time"
+        android:text="@string/label_Shop_Operational_Time"
         android:textColor="@color/white"
         android:textSize="@dimen/sp_16" />
 

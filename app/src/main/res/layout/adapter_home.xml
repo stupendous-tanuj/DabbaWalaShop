@@ -42,7 +42,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="1"
-                        android:text="Order ID"
+                        android:text="@string/label_Order_Id"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -69,7 +69,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="1"
-                        android:text="Order Placed By"
+                        android:text="@string/label_Order_Placed_By"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -96,7 +96,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="1"
-                        android:text="Order Placed To"
+                        android:text="@string/label_Order_Placed_To"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -124,7 +124,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="1"
-                        android:text="Quoted Ammount"
+                        android:text="@string/label_Quoted_Amount"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -152,7 +152,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="1"
-                        android:text="Delivery Type"
+                        android:text="@string/label_Delivery_Type"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -180,7 +180,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="1"
-                        android:text="Payment Method"
+                        android:text="@string/label_Payment_Method"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -208,7 +208,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="1"
-                        android:text="Payment Status"
+                        android:text="@string/label_Payment_Status"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -236,7 +236,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="1"
-                        android:text="Order Status"
+                        android:text="@string/label_Order_Status"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -264,7 +264,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="1"
-                        android:text="Order Creation Time"
+                        android:text="@string/label_Order_Creation_Time"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -293,7 +293,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="1"
-                        android:text="Delivery Address Identifier"
+                        android:text="@string/label_Delivery_Address_Identifier"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -321,7 +321,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="1"
-                        android:text="Delivery Dates"
+                        android:text="@string/label_Delivery_Dates"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -349,7 +349,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="1"
-                        android:text="Subscription Type"
+                        android:text="@string/label_Subscription_Type"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -377,7 +377,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="1"
-                        android:text="Amount Adjusted"
+                        android:text="@string/label_Amount_Adjusted"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -405,7 +405,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="1"
-                        android:text="Balance Amount"
+                        android:text="@string/label_Balance_Amount"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -433,7 +433,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="1"
-                        android:text="Invoice Amount"
+                        android:text="@string/label_Invoice_Amount"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -461,7 +461,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="1"
-                        android:text="Cancellation Reason"
+                        android:text="@string/label_Cancellation_Reason"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -496,7 +496,7 @@
                 android:layout_alignParentTop="true"
                 android:background="@drawable/edittext_background"
                 android:padding="@dimen/dp_4"
-                android:text="Confirm"
+                android:text="@string/label_Confirm"
                 android:textColor="@color/color_base"
                 android:textSize="@dimen/sp_8"
                 android:textStyle="italic|bold" />

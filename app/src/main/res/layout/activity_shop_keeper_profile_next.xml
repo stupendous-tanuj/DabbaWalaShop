@@ -16,7 +16,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_weight="0.7"
-            android:text="Owner Contact Number"
+            android:text="@string/label_Owner_Contact_Number"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_13" />
 
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.3"
             android:background="@drawable/edittext_background"
-            android:hint="Enter contact number"
+            android:hint="@string/hint_Owner_Contact_Number"
             android:inputType="phone"
             android:padding="@dimen/dp_10"
             android:textColor="@color/black"
@@ -44,7 +44,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_weight="0.7"
-            android:text="Support Contact Number"
+            android:text="@string/label_Support_Contact_Number"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_13" />
 
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.3"
             android:background="@drawable/edittext_background"
-            android:hint="Enter contact number"
+            android:hint="@string/hint_Support_Contact_Number"
             android:inputType="phone"
             android:padding="@dimen/dp_10"
             android:textColor="@color/black"
@@ -72,7 +72,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_weight="0.7"
-            android:text="Order Processing Contact Number"
+            android:text="@string/label_Order_Processing_Contact_Number"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_13" />
 
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.3"
             android:background="@drawable/edittext_background"
-            android:hint="Enter contact number"
+            android:hint="@string/hint_Order_Processing_Contact_Number"
             android:inputType="phone"
             android:padding="@dimen/dp_10"
             android:textColor="@color/black"
@@ -100,7 +100,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_weight="0.7"
-            android:text="Email Id"
+            android:text="@string/label_Email_Id"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_13" />
 
@@ -110,7 +110,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.3"
             android:background="@drawable/edittext_background"
-            android:hint="Enter email id"
+            android:hint="@string/hint_Email_Id"
             android:inputType="textEmailAddress"
             android:padding="@dimen/dp_10"
             android:textColor="@color/black"
@@ -128,7 +128,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_weight="0.7"
-            android:text="Minimum Accepted Order"
+            android:text="@string/label_Minimum_Accepted_Order"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_13" />
 
@@ -138,7 +138,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.3"
             android:background="@drawable/edittext_background"
-            android:hint="Enter minimum accepted order"
+            android:hint="@string/hint_Minimum_Accepted_Order"
             android:inputType="number"
             android:padding="@dimen/dp_10"
             android:textColor="@color/black"
@@ -156,7 +156,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_weight="0.7"
-            android:text="Delivery Charge"
+            android:text="@string/label_Delivery_Charges"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_13" />
 
@@ -166,7 +166,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.3"
             android:background="@drawable/edittext_background"
-            android:hint="Enter delivery charge"
+            android:hint="@string/hint_Delivery_Charges"
             android:inputType="number"
             android:padding="@dimen/dp_10"
             android:textColor="@color/black"
@@ -185,7 +185,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_weight="0.7"
-            android:text="Owner Id Type"
+            android:text="@string/label_Owner_Id_Type"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_13" />
 
@@ -211,7 +211,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_weight="0.7"
-            android:text="Owner Id Number"
+            android:text="@string/label_Owner_Id_Number"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_13" />
 
@@ -236,7 +236,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_weight="0.7"
-            android:text="Associated To"
+            android:text="@string/label_Associated_To"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_13" />
 
@@ -261,7 +261,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_weight="0.7"
-            android:text="Delivery Type"
+            android:text="@string/label_Delivery_Type"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_13" />
 
@@ -284,7 +284,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_weight="0.7"
-            android:text="Paymeny Method"
+            android:text="@string/label_Payment_Method"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_13"></TextView>
 
@@ -307,7 +307,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_weight="0.7"
-            android:text="Shop Rating"
+            android:text="@string/label_Shop_Rating"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_13" />
 
@@ -318,7 +318,7 @@
             android:layout_weight="1.3"
             android:background="@color/white"
             android:enabled="false"
-            android:text="9"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="@dimen/sp_13" />
     </LinearLayout>

@@ -29,7 +29,7 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dp_10"
             android:textSize="@dimen/sp_15"
-            android:text="Select Delivery Person"
+            android:text="@string/label_Select_Delivery_Person"
             android:textColor="@color/black"
             />
 

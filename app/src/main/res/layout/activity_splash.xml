@@ -36,8 +36,8 @@
         android:layout_alignRight="@+id/textView"
         android:layout_below="@+id/textView"
         android:layout_marginTop="@dimen/dp_2"
-        android:gravity="right"
-        android:text="Get your dice nearly"
+        android:gravity="left"
+        android:text="@string/label_line1"
         android:textColor="@color/color_base"
         android:textSize="@dimen/sp_13"
         android:textStyle="italic" />
@@ -49,8 +49,8 @@
         android:layout_alignRight="@+id/tt"
         android:layout_below="@+id/tt"
         android:layout_marginTop="@dimen/dp_2"
-        android:gravity="right"
-        android:text="by tiffin service..."
+        android:gravity="left"
+        android:text="@string/label_line2"
         android:textColor="@color/color_base"
         android:textSize="@dimen/sp_10"
         android:textStyle="italic" />

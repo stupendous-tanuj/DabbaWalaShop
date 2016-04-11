@@ -39,7 +39,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.7"
-                    android:text="Shop Category"
+                    android:text="@string/label_Shop_Category"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -70,7 +70,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.7"
-                    android:text="Product Category"
+                    android:text="@string/label_Product_Category"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -100,7 +100,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.7"
-                    android:text="Closing Date"
+                    android:text="@string/label_Closing_Date"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -133,7 +133,7 @@
                 android:layout_alignParentTop="true"
                 android:background="@drawable/edittext_background"
                 android:padding="@dimen/dp_4"
-                android:text="Remove"
+                android:text="@string/label_Remove"
                 android:textColor="@color/color_base"
                 android:textSize="@dimen/sp_8"
                 android:textStyle="italic|bold" />

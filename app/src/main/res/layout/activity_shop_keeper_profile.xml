@@ -34,7 +34,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.7"
-                    android:text="Shop Id"
+                    android:text="@string/label_Shop_ID"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -59,7 +59,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.7"
-                    android:text="Shop Name"
+                    android:text="@string/label_Shop_Name"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -85,7 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.7"
-                    android:text="Registration Status"
+                    android:text="@string/label_Registration_Status"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -110,7 +110,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.7"
-                    android:text="Shop Owner Name"
+                    android:text="@string/label_Shop_Owner_Name"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -135,7 +135,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.7"
-                    android:text="Shop Address"
+                    android:text="@string/label_Shop_Address"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -146,7 +146,7 @@
                     android:layout_weight="1.3"
                     android:background="@drawable/edittext_background"
                     android:gravity="top|left"
-                    android:hint="Enter shop address"
+                    android:hint="@string/hint_Shop_Address"
                     android:lines="2"
                     android:paddingBottom="@dimen/dp_15"
                     android:paddingLeft="@dimen/dp_5"
@@ -166,7 +166,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.7"
-                    android:text="Area Sector"
+                    android:text="@string/label_Area_Sector"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -177,7 +177,7 @@
                     android:layout_weight="1.3"
                     android:background="@drawable/edittext_background"
                     android:gravity="top|left"
-                    android:hint="Enter area sector"
+                    android:hint="@string/hint_Area_Sector"
                     android:padding="@dimen/dp_10"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
@@ -194,7 +194,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.7"
-                    android:text="City"
+                    android:text="@string/label_City"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -219,7 +219,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.7"
-                    android:text="Pincode"
+                    android:text="@string/label_Pincode"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -230,8 +230,7 @@
                     android:layout_weight="1.3"
                     android:background="@color/white"
                     android:enabled="false"
-                    android:hint="Enter pincode"
-
+                    android:hint="@string/hint_Pincode"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
             </LinearLayout>
@@ -247,7 +246,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.7"
-                    android:text="State"
+                    android:text="@string/label_State"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -256,7 +255,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.3"
-                    android:text="Utter Pradesh"
+                    android:text="@string/hint_State"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
             </LinearLayout>
@@ -272,7 +271,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.7"
-                    android:text="Land Mark"
+                    android:text="@string/label_Land_Mark"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -282,7 +281,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1.3"
                     android:background="@drawable/edittext_background"
-                    android:hint="Enter land mark"
+                    android:hint="@string/hint_Land_Mark"
                     android:padding="@dimen/dp_10"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
@@ -300,7 +299,7 @@
         android:background="@color/color_base"
         android:gravity="center"
         android:padding="@dimen/dp_10"
-        android:text="Update Profile"
+        android:text="@string/label_Update_Profile"
         android:textColor="@color/white"
         android:textSize="@dimen/sp_16" />
 

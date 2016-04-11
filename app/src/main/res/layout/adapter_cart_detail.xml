@@ -52,7 +52,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Quantity"
+                        android:text="@string/label_Quantity"
                         android:textColor="@color/color_base"
                         android:textSize="@dimen/sp_13" />
 
@@ -109,7 +109,7 @@
                     android:id="@+id/tv_product_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Product name"
+                    android:text="@string/label_Product_name"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -138,7 +138,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_1"
-                    android:text="Daily : 123, Weekly : 234, Monthly : 323"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_12" />
 

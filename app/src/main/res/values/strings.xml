@@ -117,9 +117,254 @@
     <string name="forget_Password"><u>Forget Password</u></string>
     <string name="title_activity_view_delivery_person">ViewDeliveryPersonActivity</string>
     <string name="title_activity_todays_deliveries">TodaysDeliveriesActivity</string>
-    <string name="title_activity_associate_aproduct_category">AssociateAProductCategoryActivity
-    </string>
-    <string name="title_activity_associated_product_categories">
-        AssociatedProductCategoriesActivity
-    </string>
+    <string name="title_activity_associate_aproduct_category">AssociateAProductCategoryActivity</string>
+    <string name="title_activity_associated_product_categories">AssociatedProductCategoriesActivity</string>
+    <!--Add Address-->
+    <string name="label_Flat_Building_Street">Flat/Building/Street</string>
+    <string name="hint_Flat_Building_Street">Enter Flat/Building/Street</string>
+    <string name="label_Address_Identifier">Address Identifier</string>
+    <string name="hint_Address_Identifier">Enter Address Identifier</string>
+    <string name="label_Locality">Locality</string>
+    <string name="hint_Locality">Locality</string>
+    <string name="label_City">City</string>
+    <string name="hint_City">City</string>
+    <string name="label_State">State</string>
+    <string name="hint_State">State</string>
+    <string name="label_Pincode">Pincode</string>
+    <string name="hint_Pincode">Pincode</string>
+    <string name="label_Add_Address">Add Address</string>
+
+    <!--Add A Delivery Location-->
+    <string name="label_Select_City">Select City</string>
+    <string name="label_Enter_Delivery_Location">Enter Delivery Location</string>
+    <string name="hint_Enter_Delivery_Location">Enter Delivery Location</string>
+    <string name="label_Add_Delivery_Location">Add Delivery Location</string>
+
+    <!--Add A Shop-->
+    <string name="label_Shop_Name">Shop Name</string>
+    <string name="label_Shop_Description">Shop Description</string>
+    <string name="label_Shop_Owner_Name">Shop Owner Name</string>
+    <string name="label_Shop_Address">Shop Address</string>
+    <string name="label_Area_Sector">Area Sector</string>
+    <string name="label_Land_Mark">Land Mark</string>
+    <string name="label_Owner_Contact_Number">Owner Contact Number</string>
+    <string name="label_Support_Contact_Number">Support Contact Number</string>
+    <string name="label_Order_Processing_Contact_Number">Order Processing Contact Number</string>
+    <string name="label_Email_Id">Email Id</string>
+    <string name="label_Minimum_Accepted_Order">Minimum Accepted Order</string>
+    <string name="label_Delivery_Charges">Delivery Charges</string>
+    <string name="hint_Shop_Name">Shop Name</string>
+    <string name="hint_Shop_Description">Shop Description</string>
+    <string name="hint_Shop_Owner_Name">Shop Owner Name</string>
+    <string name="hint_Shop_Address">Shop Address</string>
+    <string name="hint_Area_Sector">Area Sector</string>
+    <string name="hint_Land_Mark">Land Mark</string>
+    <string name="hint_Owner_Contact_Number">Owner Contact Number</string>
+    <string name="hint_Support_Contact_Number">Support Contact Number</string>
+    <string name="hint_Order_Processing_Contact_Number">Order Processing Contact Number</string>
+    <string name="hint_Email_Id">Email Id</string>
+    <string name="hint_Minimum_Accepted_Order">Minimum Accepted Order</string>
+    <string name="hint_Delivery_Charges">Delivery Charges</string>
+    <string name="label_Owner_Id_Type">Owner Id Type</string>
+    <string name="label_Owner_Id_Number">Owner Id Number</string>
+    <string name="hint_Owner_Id_Number">Owner Id Number</string>
+    <string name="label_Delivery_Type">Delivery Type</string>
+    <string name="label_Payment_Method">Payment Method</string>
+    <string name="label_Add_Shop">Add Shop</string>
+    <string name="label_Associated_To">Associated To</string>
+    <string name="label_Shop_Rating">Shop Rating</string>
+
+    <!--add delivery location-->
+    <string name="label_Shop_ID">Shop ID</string>
+    <string name="label_Select_Location_to_Add">Select Location to Add</string>
+    <string name="label_Associate_A_Delivery_Location">Associate A Delivery Location</string>
+
+    <!--add delivery person-->
+    <string name="label_Name">Name</string>
+    <string name="hint_Name">Name</string>
+    <string name="label_Mobile_Number">Mobile Number</string>
+    <string name="hint_Mobile_Number">Mobile Number</string>
+    <string name="label_Residential_Address">Residential Address</string>
+    <string name="hint_Residential_Address">Residential Address</string>
+    <string name="label_ID_Type">ID Type</string>
+    <string name="label_ID_Number">ID Number</string>
+    <string name="hint_ID_Number">ID Number</string>
+    <string name="label_Add_Delivery_Person"></string>
+
+
+    <!--add product-->
+    <string name="label_Shop_Category">Shop Category</string>
+    <string name="label_Product_Category">Product Category</string>
+    <string name="label_English_Name">English Name</string>
+    <string name="hint_English_Name">English Name</string>
+    <string name="label_Marathi_Name">Marathi Name</string>
+    <string name="hint_Marathi_Name">Marathi Name</string>
+    <string name="label_Product_Description">Product Description</string>
+    <string name="hint_Product_Description">Product Description</string>
+    <string name="label_Order_Unit">Order Unit</string>
+    <string name="label_No_of_Unit">No. of Unit</string>
+    <string name="hint_No_of_Unit">No. of Unit</string>
+    <string name="label_Daily_Subscription_Price">Daily Subscription Price</string>
+    <string name="hint_Daily_Subscription_Price">Daily Subscription Price</string>
+    <string name="label_Weekly_Subscription_Price">Weekly Subscription Price</string>
+    <string name="hint_Weekly_Subscription_Price">Weekly Subscription Price</string>
+    <string name="label_Monthly_Subscription_Price">Monthly Subscription Price</string>
+    <string name="hint_Monthly_Subscription_Price">Monthly Subscription Price</string>
+    <string name="label_Availability">Availability</string>
+    <string name="label_Product_Available">Product Available</string>
+    <string name="label_Add_Product">Add Product</string>
+
+    <!--all delivery person-->
+    <string name="label_Select_Delivery_Person">Select Delivery Person</string>
+
+    <!--Associate A Product-->
+    <string name="label_Product">Product</string>
+    <string name="label_SKU_ID">SKU ID</string>
+    <string name="label_Registration_Status">Registration Status</string>
+    <string name="label_Product_Image">Product Image</string>
+    <string name="label_Associate_A_Product">Associate A Product</string>
+    <string name="label_No_product_found">No product found</string>
+
+    <!--Associate A Product Category-->
+    <string name="label_Delivery_Person">Delivery Person</string>
+    <string name="label_Associate_A_Delivery_Person">Associate A Delivery Person</string>
+    <string name="label_From_Delivery_Time">From Delivery Time</string>
+    <string name="label_Associate_A_Product_Category">Associate A Product Category</string>
+    <string name="hint_From_Delivery_Time">From Delivery Time</string>
+    <string name="label_To_Delivery_Time">To Delivery Time</string>
+    <string name="hint_To_Delivery_Time">To Delivery Time</string>
+
+    <!--Change Password-->
+    <string name="label_Old_Password">Old Password</string>
+    <string name="hint_Old_Password">Old Password</string>
+    <string name="label_New_Password">New Password</string>
+    <string name="hint_New_Password">New Password</string>
+    <string name="label_Confirm_New_Password">Confirm New Password</string>
+    <string name="hint_Confirm_New_Password">Confirm New Password</string>
+    <string name="label_Change_Password">Change Password</string>
+
+    <!--Contact Us-->
+    <string name="label_User_ID">User ID</string>
+    <string name="label_Message">Message</string>
+    <string name="hint_Message">Message</string>
+    <string name="label_Send_Message">Send Message</string>
+
+    <!--Forget Password-->
+    <string name="label_Select_User_Type">Select User Type</string>
+    <string name="label_Reset_Password">Reset Password</string>
+
+    <!--Home-->
+    <string name="label_From_Date">From Date</string>
+    <string name="label_To_Date">To Date</string>
+
+    <!--Login-->
+    <string name="hint_User_ID">User ID</string>
+    <string name="label_Password">Password</string>
+    <string name="hint_Password">Password</string>
+    <string name="label_Login">Login</string>
+
+    <!--SellerHub Profile-->
+    <string name="label_Seller_Hub_ID">Seller Hub ID</string>
+    <string name="label_Firm_Name">Firm Name</string>
+    <string name="label_Owner_Name">Owner Name</string>
+    <string name="label_Support_Number">Support Number</string>
+    <string name="hint_Support_Number">Support Number</string>
+    <string name="label_Address">Address</string>
+    <string name="label_Business_Type">Business Type</string>
+    <string name="label_Order_ID_Prefix">Order ID Prefix</string>
+    <string name="label_Application_Status">Application Status</string>
+    <string name="label_Profit_Percentage">Profit Percentage</string>
+    <string name="label_Update_Profile">Update Profile</string>
+
+    <!--Shop Operational Time-->
+    <string name="label_Closing_Date">Closing Date</string>
+    <string name="hint_Closing_Date">Closing Date</string>
+    <string name="label_Shop_Operational_Time">Shop Operational Time</string>
+
+    <string name="label_line1">line1</string>
+    <string name="label_line2">line2</string>
+
+    <string name="label_Delivery_Date">Delivery Date</string>
+    <string name="label_Delivery_Status">Delivery Status</string>
+
+    <string name="label_Order_Id">Order Id</string>
+    <string name="label_Order_Status">Order Status</string>
+    <string name="label_Delivery_Dates">Delivery Dates</string>
+    <string name="label_To_Delivery_Status">To Delivery Status</string>
+    <string name="label_Shipped_By">Shipped By</string>
+    <string name="label_Invoice_Amount">Invoice Amount</string>
+    <string name="label_Balance_Amount">Balance Amount</string>
+    <string name="label_Being_Shipped_By">Being Shipped By</string>
+    <string name="label_Balance_Amount_Adjusted">Balance Amount Adjusted</string>
+    <string name="label_Update_Delivery_Status">Update Delivery Status</string>
+
+    <string name="label_Order_Placed_By">Order Placed By</string>
+    <string name="label_Order_Placed_To">Order Placed To</string>
+    <string name="label_Quoted_Amount">Quoted Amount</string>
+    <string name="label_Payment_Status">Payment Status</string>
+    <string name="label_Subscription_Type">Subscription Type</string>
+    <string name="label_Amount_Adjusted">Amount Adjusted</string>
+    <string name="label_Cancellation_Reason">Cancellation Reason</string>
+    <string name="label_To_Order_Status">To Order Status</string>
+    <string name="label_Select_Delivery_Date">Select Delivery Date</string>
+    <string name="hint_Cancellation_Reason">Cancellation Reason</string>
+    <string name="hint_Invoice_Amount">Invoice Amount</string>
+    <string name="label_Update_Order_Status">Update Order Status</string>
+    <string name="label_Order_Date">Order Date</string>
+    <string name="label_Delivery_Address">Delivery Address</string>
+
+    <string name="label_Upload_Image">Upload_Image</string>
+    <string name="label_Gallery">Gallery</string>
+    <string name="label_Camera">Camera</string>
+
+    <string name="label_DeAssociate">DeAssociate</string>
+    <string name="label_Dabba_Name">Dabba Name</string>
+    <string name="label_Unit">Unit</string>
+    <string name="label_Daily_Price">Daily_Price</string>
+    <string name="label_Weekly_Price">Weekly_Price</string>
+    <string name="label_Monthly_Price">Monthly_Price</string>
+    <string name="label_Status">Status</string>
+    <string name="label_Update">Update</string>
+
+    <string name="label_Home">Home</string>
+
+    <string name="label_No_Cart">My Cart is not available.\nPlease add a cart</string>
+
+    <string name="label_Location_Name">Location Name</string>
+    <string name="label_Remove">Remove</string>
+    <string name="label_Landmark">Landmark</string>
+    <string name="label_Quantity">Quantity</string>
+    <string name="label_Confirm">Confirm</string>
+    <string name="label_Description">Description</string>
+    <string name="label_Error_Code">Error Code</string>
+    <string name="label_Error_Message">Error Message</string>
+    <string name="label_OK">OK</string>
+    <string name="label_NO">NO</string>
+    <string name="label_YES">YES</string>
+    <string name="label_Product_name">Product name</string>
+    <string name="label_Order_Creation_Time">Order Creation Time</string>
+    <string name="label_Delivery_Address_Identifier">Delivery Address Identifier</string>
+
+
+    <string name="menu_My_Profile">My Profile</string>
+    <string name="menu_Seller_Hub_Profile">Seller Hub Profile</string>
+    <string name="menu_Change_Password">Change Password</string>
+    <string name="menu_Associated_Shops">Associated Shops</string>
+    <string name="menu_Add_A_Shop">Add A Shop</string>
+    <string name="menu_Shop_Operational_Time">Shop Operational Time</string>
+    <string name="menu_Associated_Product_Category">Associated Product Category</string>
+    <string name="menu_Orders">Orders</string>
+    <string name="menu_My_Orders">My Orders</string>
+    <string name="menu_Today_Delivery">Today\'s Delivery</string>
+    <string name="menu_Product">Product</string>
+    <string name="menu_Add_a_Product">Add a Product</string>
+    <string name="menu_Delivery_Person">Delivery Person</string>
+    <string name="menu_All_Delivery_Persons">All Delivery Persons</string>
+    <string name="menu_Associated_Delivery_Person">Associated Delivery Person</string>
+    <string name="menu_Add_a_Delivery_Person">Add a Delivery Person</string>
+    <string name="menu_Delivery_Location">Delivery Location</string>
+    <string name="menu_Delivery_Locations">Delivery Locations</string>
+    <string name="menu_Add_A_Delivery_Location">Add A Delivery Location</string>
+    <string name="menu_Products">Products</string>
+
 </resources>

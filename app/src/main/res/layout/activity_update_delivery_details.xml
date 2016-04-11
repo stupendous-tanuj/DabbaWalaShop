@@ -29,7 +29,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/dp_10"
                 android:layout_weight="0.8"
-                android:text="Order Id"
+                android:text="@string/label_Order_Id"
                 android:textColor="@color/black"
                 android:textSize="@dimen/sp_13" />
 
@@ -57,7 +57,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/dp_10"
                 android:layout_weight="0.8"
-                android:text="Order Status"
+                android:text="@string/label_Order_Status"
                 android:textColor="@color/black"
                 android:textSize="@dimen/sp_13" />
 
@@ -85,7 +85,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/dp_10"
                 android:layout_weight="0.8"
-                android:text="Delivery Dates"
+                android:text="@string/label_Delivery_Dates"
                 android:textColor="@color/black"
                 android:textSize="@dimen/sp_13" />
 
@@ -115,7 +115,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Delivery Date"
+                    android:text="@string/label_Delivery_Date"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -143,7 +143,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Delivery Status"
+                    android:text="@string/label_Delivery_Status"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -171,7 +171,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="To Delivery Status"
+                    android:text="@string/label_To_Delivery_Status"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -196,7 +196,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Shipped By"
+                    android:text="@string/label_Shipped_By"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -224,7 +224,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Invoice Amount"
+                    android:text="@string/label_Invoice_Amount"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -252,7 +252,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Balance Amount"
+                    android:text="@string/label_Balance_Amount"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -281,7 +281,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Being Shipped By"
+                    android:text="@string/label_Being_Shipped_By"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -309,7 +309,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Balance Amount Adjusted"
+                    android:text="@string/label_Balance_Amount_Adjusted"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -343,7 +343,7 @@
         android:background="@color/color_base"
         android:gravity="center"
         android:padding="@dimen/dp_15"
-        android:text="Update Delivery Status"
+        android:text="@string/label_Update_Delivery_Status"
         android:textColor="@color/white"
         android:textSize="@dimen/sp_19" />
 

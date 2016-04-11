@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_10"
-            android:text="User ID"
+            android:text="@string/label_User_ID"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_13" />
 
@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_10"
-            android:text="Message"
+            android:text="@string/label_Message"
             android:textColor="@color/black"
             android:textSize="@dimen/sp_13" />
 
@@ -49,7 +49,7 @@
             android:layout_marginTop="@dimen/dp_5"
             android:background="@drawable/edittext_background"
             android:gravity="top"
-            android:hint="Type your message"
+            android:hint="@string/hint_Message"
             android:lines="5"
             android:padding="@dimen/dp_10"
             android:textColor="@color/black"
@@ -67,7 +67,7 @@
         android:layout_marginRight="@dimen/dp_15"
         android:background="@color/color_base"
         android:padding="@dimen/dp_10"
-        android:text="Send Message"
+        android:text="@string/label_Send_Message"
         android:textColor="@color/white"
         android:textSize="@dimen/sp_14" />
 

@@ -47,7 +47,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="1"
-                        android:text="Delivery Date"
+                        android:text="@string/label_Delivery_Date"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_15" />
 
@@ -83,7 +83,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:textSize="@dimen/sp_15"
-                        android:text="Shop ID"
+                        android:text="@string/label_Shop_ID"
                         android:textColor="@color/black"
                         />
 
@@ -115,7 +115,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:textSize="@dimen/sp_15"
-                        android:text="Delivery Status"
+                        android:text="@string/label_Delivery_Status"
                         android:textColor="@color/black"
                         />
 

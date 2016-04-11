@@ -41,7 +41,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:textSize="@dimen/sp_15"
-                    android:text="Shop ID"
+                    android:text="@string/label_Shop_ID"
                     android:textColor="@color/black"
                     />
 
@@ -69,7 +69,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Shop Category"
+                    android:text="@string/label_Shop_Category"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -96,7 +96,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Product Category"
+                    android:text="@string/label_Product_Category"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -123,7 +123,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="English Name"
+                    android:text="@string/label_English_Name"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -134,7 +134,7 @@
                     android:layout_weight="1.2"
                     android:background="@drawable/edittext_background"
                     android:gravity="left"
-                    android:hint="Enter product name english"
+                    android:hint="@string/hint_English_Name"
                     android:padding="@dimen/dp_10"
                     android:textColor="@color/color_base"
                     android:textSize="@dimen/sp_12" />
@@ -155,7 +155,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Marathi Name"
+                    android:text="@string/label_Marathi_Name"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -166,7 +166,7 @@
                     android:layout_weight="1.2"
                     android:background="@drawable/edittext_background"
                     android:gravity="left"
-                    android:hint="Enter product name Marathi"
+                    android:hint="@string/hint_Marathi_Name"
                     android:padding="@dimen/dp_10"
                     android:textColor="@color/color_base"
                     android:textSize="@dimen/sp_12" />
@@ -187,7 +187,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Product Description"
+                    android:text="@string/label_Product_Description"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -198,7 +198,7 @@
                     android:layout_weight="1.2"
                     android:background="@drawable/edittext_background"
                     android:gravity="left"
-                    android:hint="Enter product description"
+                    android:hint="@string/hint_Product_Description"
                     android:lines="2"
                     android:paddingBottom="@dimen/dp_15"
                     android:paddingLeft="@dimen/dp_5"
@@ -223,7 +223,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Order Unit"
+                    android:text="@string/label_Order_Unit"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -251,7 +251,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="No. of Unit"
+                    android:text="@string/label_No_of_Unit"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -262,7 +262,7 @@
                     android:layout_weight="1.2"
                     android:background="@drawable/edittext_background"
                     android:gravity="left"
-                    android:hint="Enter product unit"
+                    android:hint="@string/hint_No_of_Unit"
                     android:inputType="number"
                     android:padding="@dimen/dp_10"
                     android:textColor="@color/color_base"
@@ -284,7 +284,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Daily Subscription Price"
+                    android:text="@string/label_Daily_Subscription_Price"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -295,7 +295,7 @@
                     android:layout_weight="1.2"
                     android:background="@drawable/edittext_background"
                     android:gravity="left"
-                    android:hint="Daily Subscription Price"
+                    android:hint="@string/hint_Daily_Subscription_Price"
                     android:inputType="number"
                     android:padding="@dimen/dp_10"
                     android:textColor="@color/color_base"
@@ -317,7 +317,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Weekly Subscription Price"
+                    android:text="@string/label_Weekly_Subscription_Price"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -328,7 +328,7 @@
                     android:layout_weight="1.2"
                     android:background="@drawable/edittext_background"
                     android:gravity="left"
-                    android:hint="Weekly Subscription Price"
+                    android:hint="@string/hint_Weekly_Subscription_Price"
                     android:inputType="number"
                     android:padding="@dimen/dp_10"
                     android:textColor="@color/color_base"
@@ -350,7 +350,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Monthly Subscription Price"
+                    android:text="@string/label_Monthly_Subscription_Price"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -361,7 +361,7 @@
                     android:layout_weight="1.2"
                     android:background="@drawable/edittext_background"
                     android:gravity="left"
-                    android:hint="Monthly Subscription Price"
+                    android:hint="@string/hint_Monthly_Subscription_Price"
                     android:inputType="number"
                     android:padding="@dimen/dp_10"
                     android:textColor="@color/color_base"
@@ -383,7 +383,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Availability"
+                    android:text="@string/label_Availability"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -393,7 +393,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1.3"
                     android:gravity="center_vertical"
-                    android:text="Product Available"
+                    android:text="@string/label_Product_Available"
                     android:textColor="@color/color_base"
                     android:textSize="@dimen/sp_10" />
             </LinearLayout>
@@ -412,7 +412,7 @@
         android:background="@color/color_base"
         android:gravity="center"
         android:padding="@dimen/dp_10"
-        android:text="Add Product"
+        android:text="@string/label_Add_Product"
         android:textColor="@color/white"
         android:textSize="@dimen/sp_16" />
 

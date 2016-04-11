@@ -41,7 +41,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Person Name"
+                    android:text="@string/label_Name"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_15" />
 
@@ -73,7 +73,7 @@
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.8"
-                    android:text="Mobile Number"
+                    android:text="@string/label_Mobile_Number"
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_15" />
 
@@ -105,7 +105,7 @@
                 android:layout_alignParentTop="true"
                 android:background="@drawable/edittext_background"
                 android:padding="@dimen/dp_4"
-                android:text="Deassociate"
+                android:text="@string/label_DeAssociate"
                 android:textColor="@color/color_base"
                 android:textSize="@dimen/sp_8"
                 android:textStyle="italic|bold" />

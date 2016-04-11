@@ -21,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_10"
-                android:text="Error Code"
+                android:text="@string/label_Error_Code"
                 android:textColor="@color/black"
                 android:textSize="@dimen/sp_14" />
 
@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_10"
-                android:text="Error Message"
+                android:text="@string/label_Error_Message"
                 android:textColor="@color/black"
                 android:textSize="@dimen/sp_14" />
 
@@ -70,7 +70,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_10"
-                android:text="Support Contact Number"
+                android:text="@string/label_Support_Contact_Number"
                 android:textColor="@color/black"
                 android:textSize="@dimen/sp_14" />
 
@@ -95,7 +95,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/linear"
         android:padding="@dimen/dp_15"
-        android:text="OK"
+        android:text="@string/label_OK"
         android:textColor="@color/blue_button_background"
         android:textSize="@dimen/sp_15" />
 </RelativeLayout>

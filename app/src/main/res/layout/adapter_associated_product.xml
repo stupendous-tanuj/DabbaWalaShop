@@ -51,7 +51,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="0.5"
-                        android:text="SKU ID"
+                        android:text="@string/label_SKU_ID"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -61,7 +61,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
                         android:gravity="left"
-                        android:text="SKU1001"
+                        android:text=""
                         android:textColor="@color/color_base"
                         android:textSize="@dimen/sp_13" />
 
@@ -83,7 +83,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="0.5"
-                        android:text="Dabba Name"
+                        android:text="@string/label_Dabba_Name"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -93,7 +93,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
                         android:gravity="left"
-                        android:text="Amul Milk"
+                        android:text=""
                         android:textColor="@color/color_base"
                         android:textSize="@dimen/sp_13" />
 
@@ -114,7 +114,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="0.5"
-                        android:text="Unit"
+                        android:text="@string/label_Unit"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -124,7 +124,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
                         android:gravity="left"
-                        android:text="75 gms"
+                        android:text=""
                         android:textColor="@color/color_base"
                         android:textSize="@dimen/sp_13" />
 
@@ -145,7 +145,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="0.5"
-                        android:text="Daily Price"
+                        android:text="@string/label_Daily_Price"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -155,7 +155,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
                         android:gravity="left"
-                        android:text="100 Rs"
+                        android:text=""
                         android:textColor="@color/color_base"
                         android:textSize="@dimen/sp_13" />
 
@@ -176,7 +176,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="0.5"
-                        android:text="Weekly Price"
+                        android:text="@string/label_Weekly_Price"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -186,7 +186,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
                         android:gravity="left"
-                        android:text="80 Rs"
+                        android:text=""
                         android:textColor="@color/color_base"
                         android:textSize="@dimen/sp_13" />
 
@@ -207,7 +207,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="0.09"
-                        android:text="Monthly Price"
+                        android:text="@string/label_Monthly_Price"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -217,7 +217,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
                         android:gravity="left"
-                        android:text="100 Rs"
+                        android:text=""
                         android:textColor="@color/color_base"
                         android:textSize="@dimen/sp_13" />
 
@@ -238,7 +238,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:layout_weight="0.5"
-                        android:text="Status"
+                        android:text="@string/label_Status"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />
 
@@ -248,7 +248,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
                         android:gravity="left"
-                        android:text="Status"
+                        android:text=""
                         android:textColor="@color/color_base"
                         android:textSize="@dimen/sp_13" />
 
@@ -277,7 +277,7 @@ s
                     android:layout_height="wrap_content"
                     android:background="@drawable/edittext_background"
                     android:padding="@dimen/dp_4"
-                    android:text="Deassociate"
+                    android:text="@string/label_DeAssociate"
                     android:textColor="@color/color_base"
                     android:textSize="@dimen/sp_8"
                     android:textStyle="italic|bold" />
@@ -289,7 +289,7 @@ s
                     android:layout_marginLeft="@dimen/dp_5"
                     android:background="@drawable/edittext_background"
                     android:padding="@dimen/dp_4"
-                    android:text="Update"
+                    android:text="@string/label_Update"
                     android:textColor="@color/color_base"
                     android:textSize="@dimen/sp_8"
                     android:textStyle="italic|bold" />

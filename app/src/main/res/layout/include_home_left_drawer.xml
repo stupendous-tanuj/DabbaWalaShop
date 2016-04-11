@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_3"
             android:gravity="center"
-            android:text="9711887660"
+            android:text=""
             android:textColor="@color/white"
             android:textSize="@dimen/sp_13"
             android:textStyle="bold" />
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:maxLines="3"
-            android:text="11 Sector 22, Noida"
+            android:text=""
             android:textColor="@color/white"
             android:textSize="@dimen/sp_11"
             android:textStyle="italic" />
@@ -90,7 +90,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="My Profile"
+                    android:text="@string/menu_My_Profile"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13" />
 
@@ -114,7 +114,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="Seller Hub Profile"
+                    android:text="@string/menu_Seller_Hub_Profile"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13" />
 
@@ -141,7 +141,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="Change Password"
+                    android:text="@string/menu_Change_Password"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13" />
 
@@ -183,7 +183,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="Associated Shops"
+                    android:text="@string/menu_Associated_Shops"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13" />
 
@@ -208,7 +208,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="Add A Shop"
+                    android:text="@string/menu_Add_A_Shop"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13" />
 
@@ -233,7 +233,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="Shop Operational Time"
+                    android:text="@string/menu_Shop_Operational_Time"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13" />
 
@@ -257,7 +257,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="Associated Product Category"
+                    android:text="@string/menu_Associated_Product_Category"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13" />
 
@@ -274,7 +274,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="Orders"
+                    android:text="@string/menu_Orders"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13"
                     android:textStyle="bold" />
@@ -298,7 +298,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="My Orders"
+                    android:text="@string/menu_My_Orders"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13" />
 
@@ -322,7 +322,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="Today's Delivery"
+                    android:text="@string/menu_Today_Delivery"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13" />
 
@@ -341,7 +341,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="Product"
+                    android:text="@string/menu_Product"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13"
                     android:textStyle="bold" />
@@ -365,7 +365,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="Products"
+                    android:text="@string/menu_Products"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13" />
 
@@ -392,7 +392,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="Add a Product"
+                    android:text="@string/menu_Add_a_Product"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13" />
 
@@ -410,7 +410,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="Delivery Person"
+                    android:text="@string/menu_Delivery_Person"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13"
                     android:textStyle="bold" />
@@ -434,7 +434,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="All Delivery Persons"
+                    android:text="@string/menu_All_Delivery_Persons"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13" />
 
@@ -459,7 +459,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="Associated Delivery Person"
+                    android:text="@string/menu_Associated_Delivery_Person"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13" />
 
@@ -483,7 +483,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="Add a Delivery Person"
+                    android:text="@string/menu_Add_a_Delivery_Person"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13" />
 
@@ -501,7 +501,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="Delivery Location"
+                    android:text="@string/menu_Delivery_Location"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13"
                     android:textStyle="bold" />
@@ -525,7 +525,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="Delivery Locations"
+                    android:text="@string/menu_Delivery_Locations"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13" />
 
@@ -549,7 +549,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:gravity="center_vertical"
-                    android:text="Add A Delivery Location"
+                    android:text="@string/menu_Add_A_Delivery_Location"
                     android:textColor="@color/white"
                     android:textSize="@dimen/sp_13" />
 
