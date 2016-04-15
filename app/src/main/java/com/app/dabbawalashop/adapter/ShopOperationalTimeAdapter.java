@@ -1,21 +1,17 @@
 package com.app.dabbawalashop.adapter;
 
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.app.dabbawalashop.R;
 import com.app.dabbawalashop.activity.BaseActivity;
 import com.app.dabbawalashop.activity.HomeActivity;
-import com.app.dabbawalashop.activity.ViewShopProfileActivity;
 import com.app.dabbawalashop.api.output.CommonResponse;
 import com.app.dabbawalashop.api.output.ErrorObject;
 import com.app.dabbawalashop.api.output.ShopOperationalTime;
-import com.app.dabbawalashop.constant.AppConstant;
 import com.app.dabbawalashop.listner.IDialogListener;
 import com.app.dabbawalashop.network.AppHttpRequest;
 import com.app.dabbawalashop.network.AppRequestBuilder;

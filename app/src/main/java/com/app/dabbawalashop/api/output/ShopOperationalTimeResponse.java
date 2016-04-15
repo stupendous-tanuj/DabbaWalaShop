@@ -5,9 +5,7 @@ package com.app.dabbawalashop.api.output;
  */
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class ShopOperationalTimeResponse {
 

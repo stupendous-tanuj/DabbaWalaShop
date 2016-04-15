@@ -12,6 +12,7 @@ import com.app.dabbawalashop.network.AppHttpRequest;
 import com.app.dabbawalashop.network.AppRequestBuilder;
 import com.app.dabbawalashop.network.AppResponseListener;
 import com.app.dabbawalashop.network.AppRestClient;
+import com.app.dabbawalashop.utils.DialogUtils;
 import com.app.dabbawalashop.utils.PreferenceKeeper;
 
 
@@ -52,6 +53,11 @@ public class ContactUsActivity extends BaseActivity {
 
     private void contactUsSendMessageApi() {
         String message = et_contact_us_message.getText().toString().trim();
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Message), message)) {
+            return;
+        }
+
         showProgressBar(findViewById(R.id.tv_contact_us_send));
         AppHttpRequest request = AppRequestBuilder.contactUsSendMessageApi(message, new AppResponseListener<CommonResponse>(CommonResponse.class, this) {
             @Override

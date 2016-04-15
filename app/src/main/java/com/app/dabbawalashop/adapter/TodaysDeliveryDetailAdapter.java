@@ -12,17 +12,8 @@ import com.app.dabbawalashop.R;
 import com.app.dabbawalashop.activity.BaseActivity;
 import com.app.dabbawalashop.activity.HomeActivity;
 import com.app.dabbawalashop.activity.UpdateDeliveryDetailsActivity;
-import com.app.dabbawalashop.api.output.CommonResponse;
-import com.app.dabbawalashop.api.output.ErrorObject;
 import com.app.dabbawalashop.api.output.DeliveryDetail;
 import com.app.dabbawalashop.constant.AppConstant;
-import com.app.dabbawalashop.listner.IDialogListener;
-import com.app.dabbawalashop.network.AppHttpRequest;
-import com.app.dabbawalashop.network.AppRequestBuilder;
-import com.app.dabbawalashop.network.AppResponseListener;
-import com.app.dabbawalashop.network.AppRestClient;
-import com.app.dabbawalashop.utils.DialogUtils;
-import com.app.dabbawalashop.utils.Logger;
 
 import java.util.List;
 

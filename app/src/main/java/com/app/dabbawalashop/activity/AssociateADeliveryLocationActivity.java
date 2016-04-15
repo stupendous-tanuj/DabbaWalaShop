@@ -20,6 +20,7 @@ import com.app.dabbawalashop.network.AppHttpRequest;
 import com.app.dabbawalashop.network.AppRequestBuilder;
 import com.app.dabbawalashop.network.AppResponseListener;
 import com.app.dabbawalashop.network.AppRestClient;
+import com.app.dabbawalashop.utils.DialogUtils;
 import com.app.dabbawalashop.utils.PreferenceKeeper;
 
 import java.util.ArrayList;
@@ -85,12 +86,10 @@ public class AssociateADeliveryLocationActivity extends BaseActivity {
         spinner_available_delivery_locations.setVisibility(View.GONE);
         if((USER_TYPE.equals(AppConstant.UserType.DELIVERY_PERSON_TYPE)) || (USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE))) {
             ll_shopId.setVisibility(View.GONE);
-            spinner_available_delivery_locations.setVisibility(View.VISIBLE);
             fetchAvailableDeliveryLocationsApi();
         }
         else {
             ll_shopId.setVisibility(View.VISIBLE);
-            spinner_available_delivery_locations.setVisibility(View.VISIBLE);
             fetchShopIdAPI();
         }
 
@@ -109,10 +108,11 @@ public class AssociateADeliveryLocationActivity extends BaseActivity {
         spinner_shopId.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 shopIdValue = shopId.get(pos);
-                if(!shopIdValue.equals(getString(R.string.please_select)))
+                if(!shopIdValue.equals(getString(R.string.please_select))) {
                     tv_available_delivery_locations.setVisibility(View.VISIBLE);
-                spinner_available_delivery_locations.setVisibility(View.VISIBLE);
-                fetchAvailableDeliveryLocationsApi();
+                    spinner_available_delivery_locations.setVisibility(View.VISIBLE);
+                    fetchAvailableDeliveryLocationsApi();
+                }
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
@@ -160,6 +160,10 @@ public class AssociateADeliveryLocationActivity extends BaseActivity {
     }
 
     private void associateADeliveryLocationAPI() {
+
+        if (!DialogUtils.isSpinnerDefaultValue(this, shopIdValue, "Shop ID")) {
+            return;
+        }
 
         if(USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE)) {
             shopIdValue = PreferenceKeeper.getInstance().getUserId();

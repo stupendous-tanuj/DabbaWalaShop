@@ -68,7 +68,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.3"
-                    android:text="Shop Name"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
 
@@ -94,7 +94,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.3"
-                    android:text="Registration Status"
+                    android:text=""
                     android:textColor="@color/black"
                     android:textSize="@dimen/sp_13" />
             </LinearLayout>

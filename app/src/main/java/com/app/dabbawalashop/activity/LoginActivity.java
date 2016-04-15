@@ -8,7 +8,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.app.dabbawalashop.R;
-import com.app.dabbawalashop.api.output.CommonResponse;
 import com.app.dabbawalashop.api.output.ErrorObject;
 import com.app.dabbawalashop.api.output.LoginResponse;
 import com.app.dabbawalashop.constant.AppConstant;
@@ -34,7 +33,6 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         setHeader(getString(R.string.header_user_login), "");
-        setHeader("Login", "");
         setUI();
         setUIListener();
     }

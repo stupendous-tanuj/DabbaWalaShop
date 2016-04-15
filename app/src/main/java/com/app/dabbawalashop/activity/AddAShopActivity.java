@@ -1,10 +1,6 @@
 package com.app.dabbawalashop.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,12 +16,12 @@ import com.app.dabbawalashop.api.output.PaymentMethod;
 import com.app.dabbawalashop.api.output.ShopProfile;
 import com.app.dabbawalashop.api.output.ShopReferenceDataResponse;
 import com.app.dabbawalashop.api.output.SupportedIDType;
-import com.app.dabbawalashop.api.output.SupportedIdTypeResponse;
 import com.app.dabbawalashop.constant.AppConstant;
 import com.app.dabbawalashop.network.AppHttpRequest;
 import com.app.dabbawalashop.network.AppRequestBuilder;
 import com.app.dabbawalashop.network.AppResponseListener;
 import com.app.dabbawalashop.network.AppRestClient;
+import com.app.dabbawalashop.utils.DialogUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,9 +32,9 @@ public class AddAShopActivity extends BaseActivity {
     EditText et_shopOwnerName = null;
     EditText et_shopAddress = null;
     EditText et_shopAreaSector = null;
-    EditText et_shopCity = null;
     EditText et_shopPincode = null;
-    EditText et_shopState = null;
+    Spinner spinner_city = null;
+    Spinner spinner_state = null;
     EditText et_shopLandmark = null;
     EditText et_ownerContactNumber = null;
     EditText et_supportContactNumber = null;
@@ -64,15 +60,14 @@ public class AddAShopActivity extends BaseActivity {
         setHeader(getString(R.string.header_add_a_shop), "");
         setUIListener();
         shopReferenceDataAPI();
+        setStateSpinner();
     }
     private void setUI() {
         et_shopName = (EditText) findViewById(R.id.et_shopName);
         et_shopOwnerName = (EditText) findViewById(R.id.et_shopOwnerName);
         et_shopAddress = (EditText) findViewById(R.id.et_shopAddress);
         et_shopAreaSector = (EditText) findViewById(R.id.et_areaSector);
-        et_shopCity = (EditText) findViewById(R.id.et_city);
         et_shopPincode = (EditText) findViewById(R.id.et_pincode);
-        et_shopState = (EditText) findViewById(R.id.et_state);
         et_shopLandmark = (EditText) findViewById(R.id.et_landmark);
         et_ownerContactNumber = (EditText) findViewById(R.id.et_ownerContactNumber);
         et_supportContactNumber = (EditText) findViewById(R.id.et_supportContactNumber);
@@ -85,6 +80,8 @@ public class AddAShopActivity extends BaseActivity {
         spinner_ownerIdType = (Spinner) findViewById(R.id.spinner_ownerIdType);
         spinner_deliveryType = (Spinner) findViewById(R.id.spinner_deliveryType);
         spinner_paymentMethod = (Spinner) findViewById(R.id.spinner_paymentMethod);
+        spinner_city = (Spinner) findViewById(R.id.spinner_city);
+        spinner_state = (Spinner) findViewById(R.id.spinner_state);
         tv_addShop = (TextView) findViewById(R.id.tv_addShop);
     }
 
@@ -101,6 +98,44 @@ public class AddAShopActivity extends BaseActivity {
         }
     }
 
+    private void setStateSpinner()
+    {
+        final List<String> stateList = AppConstant.fetchState();
+        
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, stateList);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_state.setAdapter(dataAdapter);
+        spinner_state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                setCitySpinner(spinner_state.getSelectedItem().toString());
+            }
+
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+
+
+    private void setCitySpinner(String state)
+    {
+        final List<String> cityList = AppConstant.fetchCities(state);
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, cityList);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_city.setAdapter(dataAdapter);
+        spinner_city.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+
+            }
+
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+
+
     private ShopProfile setData()
     {
         ShopProfile shop = new ShopProfile();
@@ -110,9 +145,9 @@ public class AddAShopActivity extends BaseActivity {
         shop.setShopOwnerName(et_shopOwnerName.getText().toString());
         shop.setShopAddress(et_shopAddress.getText().toString());
         shop.setShopAddressAreaSector(et_shopAreaSector.getText().toString());
-        shop.setShopAddressCity(et_shopCity.getText().toString());
+        shop.setShopAddressCity(spinner_city.getSelectedItem().toString());
         shop.setShopAddressPincode(et_shopPincode.getText().toString());
-        shop.setShopAddressState(et_shopState.getText().toString());
+        shop.setShopAddressState(spinner_state.getSelectedItem().toString());
         shop.setShopAddressCountry(AppConstant.COUNTRY);
         shop.setShopAddressLandmark(et_shopLandmark.getText().toString());
         shop.setShopOwnerContactNumber(et_ownerContactNumber.getText().toString());
@@ -129,23 +164,131 @@ public class AddAShopActivity extends BaseActivity {
     }
 
 
+    private boolean dataValidation(ShopProfile shop)
+    {
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Shop_Name), shop.getShopName())) {
+            return false;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Shop_Description), shop.getShopDescription())) {
+            return false;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Shop_Owner_Name), shop.getShopOwnerName())) {
+            return false;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Shop_Address), shop.getShopAddress())) {
+            return false;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Area_Sector), shop.getShopAddressAreaSector())) {
+            return false;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_City), shop.getShopAddressCity())) {
+            return false;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Pincode), shop.getShopAddressPincode())) {
+            return false;
+        }
+
+        if (!DialogUtils.integerValidator(this, getString(R.string.label_Pincode), shop.getShopAddressPincode())) {
+            return false;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_State), shop.getShopAddressState())) {
+            return false;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Landmark), shop.getShopAddressLandmark())) {
+            return false;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Owner_Contact_Number), shop.getShopOwnerContactNumber())) {
+            return false;
+        }
+
+        if (!DialogUtils.mobileNumberValidator(this, getString(R.string.label_Owner_Contact_Number), shop.getShopOwnerContactNumber())) {
+            return false;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Support_Contact_Number), shop.getShopSupportContactNumber())) {
+            return false;
+        }
+
+        if (!DialogUtils.mobileNumberValidator(this, getString(R.string.label_Support_Contact_Number), shop.getShopSupportContactNumber())) {
+            return false;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Order_Processing_Contact_Number), shop.getShopOrderProcessingContactNumber())) {
+            return false;
+        }
+
+        if (!DialogUtils.mobileNumberValidator(this, getString(R.string.label_Order_Processing_Contact_Number), shop.getShopOrderProcessingContactNumber())) {
+            return false;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Email_Id), shop.getShopEmailId())) {
+            return false;
+        }
+
+        if (!DialogUtils.emailValidator(this, getString(R.string.label_Email_Id), shop.getShopEmailId())) {
+            return false;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Minimum_Accepted_Order), shop.getShopMinimumAcceptedOrder())) {
+            return false;
+        }
+
+        if (!DialogUtils.integerValidator(this, getString(R.string.label_Minimum_Accepted_Order), shop.getShopMinimumAcceptedOrder())) {
+            return false;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Delivery_Charges), shop.getShopDeliveryCharges())) {
+            return false;
+        }
+
+        if (!DialogUtils.integerValidator(this, getString(R.string.label_Delivery_Charges), shop.getShopDeliveryCharges())) {
+            return false;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Owner_Id_Number), shop.getShopOwnerIDNumber())) {
+            return false;
+        }
+
+        return true;
+
+    }
+
+
     private void addAShopAPI() {
 
-        showProgressBar(findViewById(R.id.tv_update_profile));
-        AppHttpRequest request = AppRequestBuilder.addAShopAPI(setData(), new AppResponseListener<CommonResponse>(CommonResponse.class, this) {
-            @Override
-            public void onSuccess(CommonResponse result) {
-                hideProgressBar(findViewById(R.id.tv_addShop));
-                showToast(result.getSuccessMessage());
-                finish();
-            }
+        ShopProfile shopProfile =  setData();
 
-            @Override
-            public void onError(ErrorObject error) {
-                hideProgressBar(findViewById(R.id.tv_addShop));
-            }
-        });
-        AppRestClient.getClient().sendRequest(this, request, TAG);
+        if(!dataValidation(shopProfile)) {
+            return;
+        }
+        else {
+
+            showProgressBar(findViewById(R.id.tv_update_profile));
+            AppHttpRequest request = AppRequestBuilder.addAShopAPI(shopProfile, new AppResponseListener<CommonResponse>(CommonResponse.class, this) {
+                @Override
+                public void onSuccess(CommonResponse result) {
+                    hideProgressBar(findViewById(R.id.tv_addShop));
+                    showToast(result.getSuccessMessage());
+                    finish();
+                }
+
+                @Override
+                public void onError(ErrorObject error) {
+                    hideProgressBar(findViewById(R.id.tv_addShop));
+                }
+            });
+            AppRestClient.getClient().sendRequest(this, request, TAG);
+        }
     }
 
     private void setSpinnerDeliveryMethod(List<DeliveryMethod> deliveryType1) {

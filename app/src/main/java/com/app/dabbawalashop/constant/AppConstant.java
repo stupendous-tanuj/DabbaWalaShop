@@ -1,5 +1,8 @@
 package com.app.dabbawalashop.constant;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by sonia on 18/8/15.
  */
@@ -75,6 +78,39 @@ public class AppConstant {
         String CITY_MUMBAI = "Mumbai";
         String CITY_HYD = "Hyderabad";
         String CITY_BLR = "Banglore";
+    }
+
+
+    public interface STATE {
+        String STATE_MH = "Maharashtra";
+        String STATE_KR = "Karnataka";
+        String STATE_TL = "Telangana";
+    }
+
+    public static List<String> fetchState() {
+        final List<String> stateList = new ArrayList<>();
+        stateList.add(STATE.STATE_MH);
+        stateList.add(STATE.STATE_KR);
+        stateList.add(STATE.STATE_TL);
+        return stateList;
+    }
+
+
+
+    public static List<String> fetchCities(String state)
+    {
+        final List<String> cityList = new ArrayList<>();
+        if(state.equals(STATE.STATE_KR)) {
+            cityList.add(CITY.CITY_BLR);
+        }
+        if(state.equals(STATE.STATE_MH)) {
+            cityList.add(CITY.CITY_PUNE);
+            cityList.add(CITY.CITY_MUMBAI);
+        }
+        if(state.equals(STATE.STATE_TL)) {
+            cityList.add(CITY.CITY_HYD);
+        }
+        return cityList;
     }
 
     public interface STATUS {

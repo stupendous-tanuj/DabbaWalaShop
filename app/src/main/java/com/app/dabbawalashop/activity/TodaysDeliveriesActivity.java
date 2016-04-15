@@ -3,10 +3,7 @@ package com.app.dabbawalashop.activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -19,21 +16,17 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.app.dabbawalashop.R;
-import com.app.dabbawalashop.adapter.HomeAdapter;
 import com.app.dabbawalashop.adapter.TodaysDeliveryDetailAdapter;
 import com.app.dabbawalashop.api.output.AssociatedShopId;
 import com.app.dabbawalashop.api.output.AssociatedShopIdResponse;
 import com.app.dabbawalashop.api.output.DeliveryDetail;
 import com.app.dabbawalashop.api.output.DeliveryDetailResponse;
 import com.app.dabbawalashop.api.output.ErrorObject;
-import com.app.dabbawalashop.api.output.MyOrderDetailResponse;
-import com.app.dabbawalashop.api.output.OrderDetail;
 import com.app.dabbawalashop.constant.AppConstant;
 import com.app.dabbawalashop.network.AppHttpRequest;
 import com.app.dabbawalashop.network.AppRequestBuilder;
 import com.app.dabbawalashop.network.AppResponseListener;
 import com.app.dabbawalashop.network.AppRestClient;
-import com.app.dabbawalashop.utils.AppUtil;
 import com.app.dabbawalashop.utils.DialogUtils;
 import com.app.dabbawalashop.utils.Logger;
 import com.app.dabbawalashop.utils.PreferenceKeeper;
@@ -94,7 +87,7 @@ public class TodaysDeliveriesActivity extends BaseActivity {
     }
 
     private void getCurrentTime() {
-        DateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
+        DateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
         Calendar cal = Calendar.getInstance();
         String fromDate = dateFormat.format(cal.getTime());
         tv_deliveryDate.setText(fromDate);

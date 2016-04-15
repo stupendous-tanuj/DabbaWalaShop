@@ -244,9 +244,10 @@ public class AssociateAProductActivity extends BaseActivity {
         String weeklyPrice = et_ass_product_weekly_subscription_price.getText().toString().trim();
         String monthlyPrice = et_ass_product_monthly_subscription_price.getText().toString().trim();
 
-        if (!DialogUtils.showDialogProduct(this, dailyPrice, weeklyPrice,monthlyPrice)) {
+        if (!DialogUtils.showDialogAddProduct(this, englishName, marathiName, productDes, "noOfUnit", dailyPrice, weeklyPrice, monthlyPrice)) {
             return;
         }
+
         showProgressBar(tv_add_associate_product);
         AppHttpRequest request = AppRequestBuilder.updateAssociatedProductAPI( sku,englishName, marathiName, productDes, productAvailability, dailyPrice, weeklyPrice,monthlyPrice,productStatusValue, new AppResponseListener<CommonResponse>(CommonResponse.class, this) {
             @Override

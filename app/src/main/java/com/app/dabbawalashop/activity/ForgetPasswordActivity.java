@@ -1,10 +1,6 @@
 package com.app.dabbawalashop.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,7 +11,6 @@ import android.widget.TextView;
 import com.app.dabbawalashop.R;
 import com.app.dabbawalashop.api.output.CommonResponse;
 import com.app.dabbawalashop.api.output.ErrorObject;
-import com.app.dabbawalashop.api.output.SupportedIDType;
 import com.app.dabbawalashop.api.output.SupportedIdTypeResponse;
 import com.app.dabbawalashop.constant.AppConstant;
 import com.app.dabbawalashop.network.AppHttpRequest;
@@ -23,7 +18,6 @@ import com.app.dabbawalashop.network.AppRequestBuilder;
 import com.app.dabbawalashop.network.AppResponseListener;
 import com.app.dabbawalashop.network.AppRestClient;
 import com.app.dabbawalashop.utils.DialogUtils;
-import com.app.dabbawalashop.utils.PreferenceKeeper;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -267,11 +267,16 @@ public class AddProductActivity extends BaseActivity {
         String weeklyPrice = et_ass_product_weekly_subscription_price.getText().toString().trim();
         String monthlyPrice = et_ass_product_monthly_subscription_price.getText().toString().trim();
         String productAvailability = cbAvailable.isChecked() == true ? "1" : "0";
-        if (!DialogUtils.showDialogddProduct(this, eName, hName, des, noOfUnit)) {
+
+        if (!DialogUtils.isSpinnerDefaultValue(this, shopIdValue, "Shop ID")) {
             return;
         }
 
-                if(USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE)) {
+        if (!DialogUtils.showDialogAddProduct(this, eName, hName, des, noOfUnit, dailyPrice, weeklyPrice, monthlyPrice)) {
+            return;
+        }
+
+        if(USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE)) {
             shopIdValue = PreferenceKeeper.getInstance().getUserId();
         }
 

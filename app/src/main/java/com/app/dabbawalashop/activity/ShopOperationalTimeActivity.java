@@ -26,6 +26,7 @@ import com.app.dabbawalashop.network.AppHttpRequest;
 import com.app.dabbawalashop.network.AppRequestBuilder;
 import com.app.dabbawalashop.network.AppResponseListener;
 import com.app.dabbawalashop.network.AppRestClient;
+import com.app.dabbawalashop.utils.DialogUtils;
 import com.app.dabbawalashop.utils.PreferenceKeeper;
 
 import java.util.ArrayList;
@@ -117,7 +118,7 @@ public class ShopOperationalTimeActivity extends BaseActivity {
             @Override
             public void onSuccess(ProductCategoryResponse result) {
                 hideProgressBar();
-                setSpinnerProductCtegory(shopCN, result.getProductCategories());
+                setSpinnerProductCategory(shopCN, result.getProductCategories());
             }
 
             @Override
@@ -129,7 +130,7 @@ public class ShopOperationalTimeActivity extends BaseActivity {
     }
 
 
-    private void setSpinnerProductCtegory(final String shopCN, List<ProductCategory> productC) {
+    private void setSpinnerProductCategory(final String shopCN, List<ProductCategory> productC) {
 
         final List<String> categories = new ArrayList<>();
         categories.add("ALL");
@@ -195,7 +196,7 @@ public class ShopOperationalTimeActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.et_shop_time_closing_date:
-                setDte(et_shop_time_closing_date);
+                setDate(et_shop_time_closing_date);
                 break;
             case R.id.tv_shop_time_add:
                 addShopTimeAPI();
@@ -206,7 +207,7 @@ public class ShopOperationalTimeActivity extends BaseActivity {
     }
 
 
-    private void setDte(final EditText tv) {
+    private void setDate(final EditText tv) {
         showDatePickerDialog();
         mDateListner = new DatePickerDialog.OnDateSetListener() {
             //         "fromDate": "2016-02-14",
@@ -244,6 +245,14 @@ public class ShopOperationalTimeActivity extends BaseActivity {
         String closingDate = et_shop_time_closing_date.getText().toString().trim();
         String shopCategory = shopCN;
         String pCategory = productCN;
+
+        if (!DialogUtils.isSpinnerDefaultValue(this, shopIdValue, "Shop ID")) {
+            return;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Closing_Date), closingDate)) {
+            return;
+        }
 
         if(USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE)) {
             shopIdValue = PreferenceKeeper.getInstance().getUserId();

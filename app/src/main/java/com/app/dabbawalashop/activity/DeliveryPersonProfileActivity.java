@@ -16,7 +16,6 @@ import com.app.dabbawalashop.network.AppResponseListener;
 import com.app.dabbawalashop.network.AppRestClient;
 import com.app.dabbawalashop.utils.PreferenceKeeper;
 
-import java.net.URI;
 import java.net.URL;
 
 public class DeliveryPersonProfileActivity extends BaseActivity {

@@ -15,12 +15,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.app.dabbawalashop.R;
-import com.app.dabbawalashop.adapter.AssociatedDeliveryLocationAdapter;
 import com.app.dabbawalashop.adapter.ShopOperationalTimeAdapter;
 import com.app.dabbawalashop.api.output.AssociatedShopId;
 import com.app.dabbawalashop.api.output.AssociatedShopIdResponse;
-import com.app.dabbawalashop.api.output.DeliveryLocation;
-import com.app.dabbawalashop.api.output.DeliveryLocationResponse;
 import com.app.dabbawalashop.api.output.ErrorObject;
 import com.app.dabbawalashop.api.output.ShopOperationalTime;
 import com.app.dabbawalashop.api.output.ShopOperationalTimeResponse;
@@ -32,8 +29,6 @@ import com.app.dabbawalashop.network.AppRestClient;
 import com.app.dabbawalashop.utils.DialogUtils;
 import com.app.dabbawalashop.utils.Logger;
 import com.app.dabbawalashop.utils.PreferenceKeeper;
-
-import org.w3c.dom.Text;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

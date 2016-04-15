@@ -22,6 +22,7 @@ import com.app.dabbawalashop.network.AppHttpRequest;
 import com.app.dabbawalashop.network.AppRequestBuilder;
 import com.app.dabbawalashop.network.AppResponseListener;
 import com.app.dabbawalashop.network.AppRestClient;
+import com.app.dabbawalashop.utils.DialogUtils;
 import com.app.dabbawalashop.utils.PreferenceKeeper;
 
 import java.util.ArrayList;
@@ -109,6 +110,7 @@ public class ShopKeeperProfileActivity extends BaseActivity {
         spinner_profile_delivery_type = (Spinner) findViewById(R.id.spinner_profile_delivery_type);
         spinner_profile_payment_method = (Spinner) findViewById(R.id.spinner_profile_payment_method);
         et_profile_shop_rating = (EditText) findViewById(R.id.et_profile_shop_rating);
+
     }
 
     @Override
@@ -241,10 +243,71 @@ public class ShopKeeperProfileActivity extends BaseActivity {
         String landmark = et_profile_land_mark.getText().toString().trim();
         String ownerNumber = et_profile_owner_contact.getText().toString().trim();
         String supportNumber = et_profile_support_contact.getText().toString().trim();
-        String procesingNumber = et_profile_support_contact.getText().toString().trim();
+        String procesingNumber = et_profile_order_processing_contact.getText().toString().trim();
         String emailId = et_profile_email_id.getText().toString().trim();
         String minimumAccOrder = et_profile_minimum_acc_order.getText().toString().trim();
         String deliveryCharge = et_profile_delivery_charge.getText().toString().trim();
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Shop_Name), shopName)) {
+            return;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Shop_Address), shopAddress)) {
+            return;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Land_Mark), landmark)) {
+            return;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Owner_Contact_Number), ownerNumber)) {
+            return;
+        }
+
+        if (!DialogUtils.mobileNumberValidator(this, getString(R.string.label_Owner_Contact_Number), ownerNumber)) {
+            return;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Support_Contact_Number), supportNumber)) {
+            return;
+        }
+
+        if (!DialogUtils.mobileNumberValidator(this, getString(R.string.label_Support_Contact_Number), supportNumber)) {
+            return;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Order_Processing_Contact_Number), procesingNumber)) {
+            return;
+        }
+
+        if (!DialogUtils.mobileNumberValidator(this, getString(R.string.label_Order_Processing_Contact_Number), procesingNumber)) {
+            return;
+        }
+
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Email_Id), emailId)) {
+            return;
+        }
+
+        if (!DialogUtils.emailValidator(this, getString(R.string.label_Email_Id), emailId)) {
+            return;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Minimum_Accepted_Order), minimumAccOrder)) {
+            return;
+        }
+
+        if (!DialogUtils.integerValidator(this, getString(R.string.label_Minimum_Accepted_Order), minimumAccOrder)) {
+            return;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Delivery_Charges), deliveryCharge)) {
+            return;
+        }
+
+        if (!DialogUtils.integerValidator(this, getString(R.string.label_Delivery_Charges), deliveryCharge)) {
+            return;
+        }
 
         showProgressBar(findViewById(R.id.tv_update_profile));
         AppHttpRequest request = AppRequestBuilder.updateShopKeeperProfileApi(shopID, shopName, shopAddress, city, pincode, state, landmark, ownerNumber, supportNumber

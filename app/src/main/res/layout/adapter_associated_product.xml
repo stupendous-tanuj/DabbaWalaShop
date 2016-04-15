@@ -201,12 +201,12 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/dp_10"
-                        android:layout_weight="0.09"
+                        android:layout_weight="0.5"
                         android:text="@string/label_Monthly_Price"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp_13" />

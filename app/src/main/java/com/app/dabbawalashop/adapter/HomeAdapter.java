@@ -22,7 +22,6 @@ import com.app.dabbawalashop.network.AppRequestBuilder;
 import com.app.dabbawalashop.network.AppResponseListener;
 import com.app.dabbawalashop.network.AppRestClient;
 import com.app.dabbawalashop.utils.DialogUtils;
-import com.app.dabbawalashop.utils.Logger;
 
 import java.util.List;
 

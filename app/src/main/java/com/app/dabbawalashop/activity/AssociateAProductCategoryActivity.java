@@ -259,6 +259,14 @@ public class AssociateAProductCategoryActivity extends BaseActivity {
             return;
         }
 
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_From_Delivery_Time), fromTime)) {
+            return;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_To_Delivery_Time), toTime)) {
+            return;
+        }
+
         if(USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE)) {
             shopIdValue = PreferenceKeeper.getInstance().getUserId();
         }

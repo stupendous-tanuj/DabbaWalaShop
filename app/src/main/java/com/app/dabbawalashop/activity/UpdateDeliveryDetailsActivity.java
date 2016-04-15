@@ -3,7 +3,6 @@ package com.app.dabbawalashop.activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -48,6 +47,7 @@ public class UpdateDeliveryDetailsActivity extends BaseActivity {
     LinearLayout ll_beingShippedBy;
     LinearLayout ll_shippedBy;
     LinearLayout ll_balanceAmountAdjusted;
+    LinearLayout ll_orderStatus;
     CheckBox cb_balanceAmountAdjusted;
     String orderIdValue = "";
     String orderStatusValue = "";
@@ -91,6 +91,7 @@ public class UpdateDeliveryDetailsActivity extends BaseActivity {
         ll_shippedBy = (LinearLayout) findViewById(R.id.ll_shippedBy);
         ll_balanceAmountAdjusted = (LinearLayout) findViewById(R.id.ll_balanceAmountAdjusted);
         cb_balanceAmountAdjusted = (CheckBox) findViewById(R.id.cb_balanceAmountAdjusted);
+        ll_orderStatus  = (LinearLayout) findViewById(R.id.ll_orderStatus);
         ll_beingShippedBy.setVisibility(View.GONE);
         ll_shippedBy.setVisibility(View.GONE);
         ll_balanceAmountAdjusted.setVisibility(View.GONE);
@@ -117,6 +118,7 @@ public class UpdateDeliveryDetailsActivity extends BaseActivity {
             orderIdValue = getIntent().getExtras().getString(AppConstant.BUNDLE_KEY.ORDER_ID);
             orderStatusValue = getIntent().getExtras().getString(AppConstant.BUNDLE_KEY.ORDER_STATUS);
             deliveryDatesValue = deliveryDate+",";
+            ll_orderStatus.setVisibility(View.GONE);
         }
         else
         {
@@ -125,6 +127,7 @@ public class UpdateDeliveryDetailsActivity extends BaseActivity {
             orderIdValue = getIntent().getExtras().getString(AppConstant.BUNDLE_KEY.ORDER_ID);
             orderStatusValue = getIntent().getExtras().getString(AppConstant.BUNDLE_KEY.ORDER_STATUS);
             deliveryDatesValue = getIntent ().getExtras().getString(AppConstant.BUNDLE_KEY.DeliveryDates);
+            ll_orderStatus.setVisibility(View.VISIBLE);
         }
 
     }

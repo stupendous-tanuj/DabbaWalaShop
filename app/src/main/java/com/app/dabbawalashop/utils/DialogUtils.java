@@ -18,6 +18,9 @@ import com.app.dabbawalashop.activity.BaseActivity;
 import com.app.dabbawalashop.api.output.ErrorObject;
 import com.app.dabbawalashop.listner.IDialogListener;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 /**
  * Created by umesh on 11/9/15.
@@ -31,16 +34,6 @@ public class DialogUtils {
                 .positiveText(context.getString(R.string.ok));
         if (!((BaseActivity) context).isFinishing())
             materialDialog.show();
-    }
-
-
-    public static boolean isMobileVarification(BaseActivity activity, String mobileNumber) {
-        boolean checkmobileNumber = TextUtils.isEmpty(mobileNumber);
-        if (checkmobileNumber) {
-            DialogUtils.showDialog(activity, activity.getString(R.string.enter_mobile_number));
-            return false;
-        }
-        return true;
     }
 
 
@@ -138,10 +131,10 @@ public class DialogUtils {
                             callIntent.setData(Uri.parse("tel:" + number));
                             context.startActivity(callIntent);
                         } catch (android.content.ActivityNotFoundException ex) {
-                            Toast.makeText(context, "Calling functinality is not founded", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, context.getString(R.string.calling_functionality_not_found), Toast.LENGTH_SHORT).show();
                         }
                     } else {
-                        Toast.makeText(context, "Support number getting is null", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, context.getString(R.string.support_number_null), Toast.LENGTH_SHORT).show();
                     }
                 }
             });
@@ -158,20 +151,13 @@ public class DialogUtils {
         }
     }
 
-    public static boolean isLoginVerification(BaseActivity activity, String shopid, String pssword) {
+    public static boolean isLoginVerification(BaseActivity activity, String userId, String password) {
 
-        boolean cname = TextUtils.isEmpty(shopid);
-        boolean cEmail = TextUtils.isEmpty(pssword);
-
-        if (cname) {
-            DialogUtils.showDialog(activity, activity.getString(R.string.enter_name));
+        if(!checkForBlank(activity,activity.getString(R.string.label_User_ID), userId))
             return false;
-        }
-
-        if (cEmail) {
-            DialogUtils.showDialog(activity, activity.getString(R.string.enter_email));
+        if(!checkForBlank(activity,activity.getString(R.string.label_Password), password))
             return false;
-        }
+
         return true;
     }
 
@@ -187,24 +173,12 @@ public class DialogUtils {
 
     public static boolean isChangePasswordVerification(BaseActivity activity, String oldPassword, String newPassword, String confNewPassword) {
 
-        boolean cOldPassword = TextUtils.isEmpty(oldPassword);
-        boolean cNewPassword = TextUtils.isEmpty(newPassword);
-        boolean cConfNewPassword = TextUtils.isEmpty(confNewPassword);
-
-        if (cOldPassword) {
-            DialogUtils.showDialog(activity, activity.getString(R.string.enter_oldPassword));
+        if(!checkForBlank(activity,activity.getString(R.string.label_Old_Password), oldPassword))
             return false;
-        }
-
-        if (cNewPassword) {
-            DialogUtils.showDialog(activity, activity.getString(R.string.enter_newPassword));
+        if(!checkForBlank(activity,activity.getString(R.string.label_New_Password), newPassword ))
             return false;
-        }
-
-        if (cConfNewPassword) {
-            DialogUtils.showDialog(activity, activity.getString(R.string.enter_confNewPassword));
+        if(!checkForBlank(activity,activity.getString(R.string.label_Confirm_New_Password), confNewPassword))
             return false;
-        }
 
         if(!newPassword.equals(confNewPassword)){
             DialogUtils.showDialog(activity, activity.getString(R.string.enter_confNewPassword_not_match));
@@ -215,37 +189,20 @@ public class DialogUtils {
 
     public static boolean isResetPasswordVerification(BaseActivity activity, String emailId,String mobileNumber,String userId) {
 
-
-        boolean cemailId = TextUtils.isEmpty(emailId);
-        boolean cmobileNumber = TextUtils.isEmpty(mobileNumber);
-        boolean cuserId = TextUtils.isEmpty(userId);
-
-        if (cemailId) {
-            DialogUtils.showDialog(activity, activity.getString(R.string.enter_emailId));
+        if(!checkForBlank(activity,activity.getString(R.string.label_Email_Id), emailId))
             return false;
-        }
-
-        if (cmobileNumber) {
-            DialogUtils.showDialog(activity, activity.getString(R.string.enter_mobile_number));
+        if(!checkForBlank(activity,activity.getString(R.string.label_Mobile_Number), mobileNumber))
             return false;
-        }
-
-        if (cuserId) {
-            DialogUtils.showDialog(activity, activity.getString(R.string.enter_userId));
+        if(!checkForBlank(activity,activity.getString(R.string.label_User_ID), userId))
             return false;
-        }
 
         return true;
     }
 
     public static boolean isUpdateDeliveryDetailsVerification(BaseActivity activity, String toDeliveryStatusValue) {
 
-        boolean ctoDeliveryStatusValue = TextUtils.isEmpty(toDeliveryStatusValue);
-
-        if (ctoDeliveryStatusValue) {
-            DialogUtils.showDialog(activity, activity.getString(R.string.blank_deliveryStatus));
+        if(!checkForBlank(activity,activity.getString(R.string.label_To_Delivery_Status), toDeliveryStatusValue))
             return false;
-        }
 
         if (toDeliveryStatusValue.equals("NA")) {
             DialogUtils.showDialog(activity, activity.getString(R.string.NA_deliveryStatus));
@@ -256,12 +213,8 @@ public class DialogUtils {
 
     public static boolean isUpdateOrderDetailsVerification(BaseActivity activity, String toOrderStatusValue) {
 
-        boolean ctoOrderStatusValue = TextUtils.isEmpty(toOrderStatusValue);
-
-        if (ctoOrderStatusValue) {
-            DialogUtils.showDialog(activity, activity.getString(R.string.blank_orderStatus));
+        if(!checkForBlank(activity,activity.getString(R.string.label_To_Order_Status), toOrderStatusValue))
             return false;
-        }
 
         if (toOrderStatusValue.equals("NA")) {
             DialogUtils.showDialog(activity, activity.getString(R.string.NA_orderStatus));
@@ -272,12 +225,14 @@ public class DialogUtils {
 
     public static boolean isQuotedAmountVerification(BaseActivity activity, String quotedAmount, String invoiceAmount) {
 
-        boolean ctoInvoiceAmount = TextUtils.isEmpty(invoiceAmount);
-
-        if (ctoInvoiceAmount) {
-            DialogUtils.showDialog(activity, activity.getString(R.string.blank_invoiceAmount));
+        if(!checkForBlank(activity,activity.getString(R.string.label_Quoted_Amount), quotedAmount))
             return false;
-        }
+        if(!checkForBlank(activity,activity.getString(R.string.label_Invoice_Amount), invoiceAmount))
+            return false;
+        if(!integerValidator(activity, activity.getString(R.string.label_Quoted_Amount), quotedAmount))
+            return false;
+        if(!integerValidator(activity, activity.getString(R.string.label_Invoice_Amount), invoiceAmount))
+            return false;
 
         int quoted = Integer.parseInt(quotedAmount);
         int invoice = Integer.parseInt(invoiceAmount);
@@ -291,106 +246,132 @@ public class DialogUtils {
 
 
     public static boolean showDialogProduct(BaseActivity activity, String dailyPrice,String weeklyPrice, String monthlyPrice) {
-        boolean cname = TextUtils.isEmpty(dailyPrice);
-        boolean cEmail = TextUtils.isEmpty(weeklyPrice);
-        boolean cMonthlyPrice = TextUtils.isEmpty(monthlyPrice);
-        if (cname) {
-            DialogUtils.showDialog(activity, "Daily Price should not be empty.");
+        if(!checkForBlank(activity,activity.getString(R.string.label_Daily_Subscription_Price), dailyPrice))
             return false;
-        }
-        if (cEmail) {
-            DialogUtils.showDialog(activity, "Weekly Price should not be empty.");
+        if(!checkForBlank(activity,activity.getString(R.string.label_Weekly_Subscription_Price), weeklyPrice))
             return false;
-        }
-        if (cMonthlyPrice) {
-            DialogUtils.showDialog(activity, "Monthly Price should not be empty.");
+        if(!checkForBlank(activity,activity.getString(R.string.label_Monthly_Subscription_Price), monthlyPrice))
             return false;
-        }
+
         return true;
     }
 
-    public static boolean showDialogShopOpertion(BaseActivity activity, String closingDate, String openingTime, String closingTime) {
-        boolean cname = TextUtils.isEmpty(closingDate);
-        boolean copeningTime = TextUtils.isEmpty(openingTime);
-        boolean cclosingTime = TextUtils.isEmpty(closingTime);
 
-        if (cname) {
-            DialogUtils.showDialog(activity, "Closing date is not empty");
-            return false;
-        }
-        if (copeningTime) {
-            DialogUtils.showDialog(activity, "Opening time is not empty");
-            return false;
-        }
-        if (cclosingTime) {
-            DialogUtils.showDialog(activity, "Closing time is not empty");
-            return false;
-        }
-        int open = AppUtil.getTotlTime(openingTime);
-        int close = AppUtil.getTotlTime(closingTime);
-        if (open > close) {
-            DialogUtils.showDialog(activity, "OpeningTime cannot be greater than Closing time");
+    public static boolean checkForBlank(BaseActivity activity, String fieldName, String fieldValue)
+    {
+        boolean ret = TextUtils.isEmpty(fieldValue);
+        if(ret) {
+            DialogUtils.showDialog(activity, fieldName+" is Blank.");
             return false;
         }
         return true;
+
     }
 
-    public static boolean showDialogddProduct(BaseActivity activity, String eName, String hName, String des, String noOfUnit) {
-        boolean ceName = TextUtils.isEmpty(eName);
-        boolean chName = TextUtils.isEmpty(hName);
-        boolean cdes = TextUtils.isEmpty(des);
-        boolean cnoOfUnit = TextUtils.isEmpty(noOfUnit);
+    public static boolean emailValidator(BaseActivity activity, String field,String email)
+    {
+        boolean ret = false;
+        final String EMAIL_PATTERN = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+        Matcher matcher = pattern.matcher(email);
+        ret = matcher.matches();
+        if(ret == false) {
+            DialogUtils.showDialog(activity, "Invalid " + field + ".");
+        }
+        return ret;
+
+    }
+
+    public static boolean integerValidator(BaseActivity activity, String field, String input)
+    {
+        boolean ret = false;
+        try
+        {
+            Integer.parseInt( input );
+            ret = true;
+        }
+        catch(Exception e)
+        {
+            ret = false;
+        }
+
+        if(ret == false) {
+            DialogUtils.showDialog(activity, "Invalid " + field + ".");
+        }
+        return ret;
 
 
-        if (ceName && chName) {
-            DialogUtils.showDialog(activity, "Product name is not empty");
-            return false;
+    }
+
+
+    public static boolean rangeValidator(BaseActivity activity, String field,String input,int min,int max)
+    {
+        boolean ret = false;
+            int intAge=0;
+            intAge = Integer.parseInt(input);
+            if(intAge>=min && intAge<=max)
+                ret =  true;
+            else
+                ret =  false;
+
+        if(ret == false) {
+            DialogUtils.showDialog(activity, "Invalid " + field + ".");
         }
-        if (cdes) {
-            DialogUtils.showDialog(activity, "Description is not empty");
-            return false;
+        return ret;
+    }
+
+    public static boolean mobileNumberValidator(BaseActivity activity, String field, String input)
+    {
+        boolean ret = false;
+            final String NUMBER_PATTERN = "\\d{10}";
+            Pattern pattern = Pattern.compile(NUMBER_PATTERN);
+            Matcher matcher = pattern.matcher(input);
+            ret = matcher.matches();
+        if(ret == false) {
+            DialogUtils.showDialog(activity, "Invalid " + field + ".");
         }
-        if (cnoOfUnit) {
-            DialogUtils.showDialog(activity, "No. of unit is not empty");
+        return ret;
+    }
+
+    public static boolean showDialogAddProduct(BaseActivity activity, String eName, String hName, String des, String noOfUnit, String dailyPrice, String weeklyPrice, String monthlyPrice) {
+
+        if(!checkForBlank(activity,activity.getString(R.string.label_English_Name), eName))
             return false;
-        }
+        if(!checkForBlank(activity,activity.getString(R.string.label_Marathi_Name), hName))
+            return false;
+        if(!checkForBlank(activity,activity.getString(R.string.label_Product_Description), des))
+            return false;
+        if(!checkForBlank(activity,activity.getString(R.string.label_No_of_Unit), noOfUnit))
+            return false;
+        if(!checkForBlank(activity,activity.getString(R.string.label_Daily_Subscription_Price), dailyPrice))
+            return false;
+        if(!checkForBlank(activity,activity.getString(R.string.label_Weekly_Subscription_Price), weeklyPrice))
+            return false;
+        if(!checkForBlank(activity,activity.getString(R.string.label_Monthly_Subscription_Price), monthlyPrice))
+            return false;
 
         return true;
 
     }
 
     public static boolean showDialogDeliveryPerson(BaseActivity activity, String name, String mobileNumber, String address, String idType, String idNumber, String emailId) {
-        boolean ceName = TextUtils.isEmpty(name);
-        boolean cmobileNumber = TextUtils.isEmpty(mobileNumber);
-        boolean caddress = TextUtils.isEmpty(address);
-        boolean cidType = TextUtils.isEmpty(idType);
-        boolean cidNumber = TextUtils.isEmpty(idNumber);
-        boolean cemailId = TextUtils.isEmpty(emailId);
 
-        if (ceName) {
-            DialogUtils.showDialog(activity, "Please enter Delivery Person name.");
+        if(!checkForBlank(activity,activity.getString(R.string.label_Name) ,name))
             return false;
-        }
-        if (cemailId) {
-            DialogUtils.showDialog(activity, "Please enter Email ID.");
+        if(!checkForBlank(activity,activity.getString(R.string.label_Mobile_Number) ,mobileNumber))
             return false;
-        }
-        if (cmobileNumber) {
-            DialogUtils.showDialog(activity, "Please enter Mobile number.");
+        if(!mobileNumberValidator(activity, activity.getString(R.string.label_Mobile_Number), mobileNumber))
             return false;
-        }
-        if (caddress) {
-            DialogUtils.showDialog(activity, "Please enter Residential Address.");
+        if(!checkForBlank(activity, activity.getString(R.string.label_Email_Id), emailId))
             return false;
-        }
-        if (cidType) {
-            DialogUtils.showDialog(activity, "Please select ID Type.");
+        if(!emailValidator(activity, activity.getString(R.string.label_Email_Id), emailId))
             return false;
-        }
-        if (cidNumber) {
-            DialogUtils.showDialog(activity, "Please enter ID Number.");
+        if(!checkForBlank(activity, activity.getString(R.string.label_Address), address))
             return false;
-        }
+        if(!checkForBlank(activity, activity.getString(R.string.label_Owner_Id_Type), idType))
+            return false;
+        if(!checkForBlank(activity, activity.getString(R.string.label_Owner_Id_Number), idNumber))
+            return false;
 
         return true;
     }

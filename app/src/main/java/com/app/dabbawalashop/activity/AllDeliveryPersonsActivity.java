@@ -16,12 +16,10 @@ import com.app.dabbawalashop.api.output.AssociatedShopsResponse;
 import com.app.dabbawalashop.api.output.DeliveryPerson;
 import com.app.dabbawalashop.api.output.DeliveryPersonResponse;
 import com.app.dabbawalashop.api.output.ErrorObject;
-import com.app.dabbawalashop.constant.AppConstant;
 import com.app.dabbawalashop.network.AppHttpRequest;
 import com.app.dabbawalashop.network.AppRequestBuilder;
 import com.app.dabbawalashop.network.AppResponseListener;
 import com.app.dabbawalashop.network.AppRestClient;
-import com.app.dabbawalashop.utils.PreferenceKeeper;
 
 import java.util.ArrayList;
 import java.util.List;

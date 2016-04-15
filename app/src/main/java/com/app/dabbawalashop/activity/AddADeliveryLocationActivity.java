@@ -1,10 +1,6 @@
 package com.app.dabbawalashop.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,7 +9,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.app.dabbawalashop.R;
-import com.app.dabbawalashop.api.output.AssociatedShopIdResponse;
 import com.app.dabbawalashop.api.output.CommonResponse;
 import com.app.dabbawalashop.api.output.ErrorObject;
 import com.app.dabbawalashop.constant.AppConstant;
@@ -21,6 +16,7 @@ import com.app.dabbawalashop.network.AppHttpRequest;
 import com.app.dabbawalashop.network.AppRequestBuilder;
 import com.app.dabbawalashop.network.AppResponseListener;
 import com.app.dabbawalashop.network.AppRestClient;
+import com.app.dabbawalashop.utils.DialogUtils;
 import com.app.dabbawalashop.utils.PreferenceKeeper;
 
 import java.util.ArrayList;
@@ -87,6 +83,10 @@ public class AddADeliveryLocationActivity extends BaseActivity {
     private void addADeliveryLocationAPI() {
 
         String deliveryLocation = et_deliveryLocation.getText().toString();
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Enter_Delivery_Location), deliveryLocation)) {
+            return;
+        }
 
         showProgressBar();
         AppHttpRequest request = AppRequestBuilder.addADeliveryLocationAPI(deliveryLocation,city,new AppResponseListener<CommonResponse>(CommonResponse.class, this) {

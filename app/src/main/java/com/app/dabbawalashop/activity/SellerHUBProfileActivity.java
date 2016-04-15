@@ -17,6 +17,7 @@ import com.app.dabbawalashop.network.AppHttpRequest;
 import com.app.dabbawalashop.network.AppRequestBuilder;
 import com.app.dabbawalashop.network.AppResponseListener;
 import com.app.dabbawalashop.network.AppRestClient;
+import com.app.dabbawalashop.utils.DialogUtils;
 import com.app.dabbawalashop.utils.PreferenceKeeper;
 
 public class SellerHUBProfileActivity extends BaseActivity {
@@ -131,11 +132,48 @@ public class SellerHUBProfileActivity extends BaseActivity {
         }
     }
 
-    private void updateSellerHubProfileAPI() {
+    String mobileNumber = "";
+    String supportNumber = "";
+    String emailId = "";
 
-        String mobileNumber = et_mobileNumber.getText().toString().trim();
-        String supportNumber = et_supportContactNumber.getText().toString().trim();
-        String emailId = et_emailId.getText().toString().trim();
+    private boolean dataValidation() {
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Mobile_Number), mobileNumber)) {
+            return false;
+        }
+
+        if (!DialogUtils.mobileNumberValidator(this, getString(R.string.label_Mobile_Number), mobileNumber)) {
+            return false;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Support_Contact_Number), supportNumber)) {
+            return false;
+        }
+
+        if (!DialogUtils.mobileNumberValidator(this, getString(R.string.label_Support_Contact_Number), supportNumber)) {
+            return false;
+        }
+
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Email_Id), emailId)) {
+            return false;
+        }
+
+        if (!DialogUtils.emailValidator(this, getString(R.string.label_Email_Id), emailId)) {
+            return false;
+        }
+
+        return true;
+    }
+
+        private void updateSellerHubProfileAPI() {
+
+        mobileNumber = et_mobileNumber.getText().toString().trim();
+        supportNumber = et_supportContactNumber.getText().toString().trim();
+        emailId = et_emailId.getText().toString().trim();
+
+        if(!dataValidation()) {
+            return;
+        }
 
         showProgressBar(findViewById(R.id.tv_update_profile));
         AppHttpRequest request = AppRequestBuilder.updateSellerHubProfileAPI(mobileNumber, supportNumber,

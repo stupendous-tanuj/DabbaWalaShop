@@ -1,46 +1,30 @@
 package com.app.dabbawalashop.activity;
 
-import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.app.dabbawalashop.R;
-import com.app.dabbawalashop.adapter.AssociatedDeliveryLocationAdapter;
 import com.app.dabbawalashop.adapter.AssociatedProductCategoryAdapter;
-import com.app.dabbawalashop.api.output.AssociatedProductCategoryResponse;
-import com.app.dabbawalashop.api.output.AssociatedProductResponse;
-import com.app.dabbawalashop.api.output.AssociatedShopId;
-import com.app.dabbawalashop.api.output.AssociatedShopIdResponse;
-import com.app.dabbawalashop.api.output.DeliveryLocation;
-import com.app.dabbawalashop.api.output.DeliveryLocationResponse;
-import com.app.dabbawalashop.api.output.ErrorObject;
 import com.app.dabbawalashop.api.output.AssociatedProductCategory;
 import com.app.dabbawalashop.api.output.AssociatedProductCategoryResponse;
+import com.app.dabbawalashop.api.output.AssociatedShopId;
+import com.app.dabbawalashop.api.output.AssociatedShopIdResponse;
+import com.app.dabbawalashop.api.output.ErrorObject;
 import com.app.dabbawalashop.constant.AppConstant;
 import com.app.dabbawalashop.network.AppHttpRequest;
 import com.app.dabbawalashop.network.AppRequestBuilder;
 import com.app.dabbawalashop.network.AppResponseListener;
 import com.app.dabbawalashop.network.AppRestClient;
 import com.app.dabbawalashop.utils.DialogUtils;
-import com.app.dabbawalashop.utils.Logger;
 import com.app.dabbawalashop.utils.PreferenceKeeper;
 
-import org.w3c.dom.Text;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 public class AssociatedProductCategoriesActivity extends BaseActivity {
