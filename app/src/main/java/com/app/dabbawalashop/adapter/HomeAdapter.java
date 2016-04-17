@@ -160,7 +160,9 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         AppHttpRequest request = AppRequestBuilder.updateOrderStatusAPI(orderIdValue, orderStatusValue, toOrderStatusValue, additionalFieldValue, new AppResponseListener<CommonResponse>(CommonResponse.class, activity) {
             @Override
             public void onSuccess(CommonResponse result) {
+                activity.hideProgressBar();
                 activity.showToast(result.getSuccessMessage());
+                notifyDataSetChanged();
             }
 
             @Override

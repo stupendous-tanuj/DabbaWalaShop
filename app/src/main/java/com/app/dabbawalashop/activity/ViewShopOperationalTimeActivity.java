@@ -19,6 +19,7 @@ import com.app.dabbawalashop.adapter.ShopOperationalTimeAdapter;
 import com.app.dabbawalashop.api.output.AssociatedShopId;
 import com.app.dabbawalashop.api.output.AssociatedShopIdResponse;
 import com.app.dabbawalashop.api.output.ErrorObject;
+import com.app.dabbawalashop.api.output.OrderDetail;
 import com.app.dabbawalashop.api.output.ShopOperationalTime;
 import com.app.dabbawalashop.api.output.ShopOperationalTimeResponse;
 import com.app.dabbawalashop.constant.AppConstant;
@@ -43,6 +44,7 @@ public class ViewShopOperationalTimeActivity extends BaseActivity {
     private Spinner spinner_shopId;
     private TextView tv_closingDate;
     private LinearLayout linear_closingDate;
+    private TextView no_data_available;
     LinearLayout ll_shopId;
     String shopIdValue = "";
     String USER_TYPE = "";
@@ -64,6 +66,7 @@ public class ViewShopOperationalTimeActivity extends BaseActivity {
     private void setUI() {
         recycleView = (RecyclerView) findViewById(R.id.recycle_view_shop_operational_time);
         tv_closingDate = (TextView) findViewById(R.id.tv_closingDate);
+        no_data_available = (TextView) findViewById(R.id.no_data_available);
         findViewById(R.id.iv_add_shopOperationalTime).setOnClickListener(this);
         spinner_shopId = (Spinner) findViewById(R.id.spinner_shopId);
         ll_shopId = (LinearLayout) findViewById(R.id.ll_shopId);
@@ -97,6 +100,18 @@ public class ViewShopOperationalTimeActivity extends BaseActivity {
         closingDate = dateFormat.format(cal.getTime());
         tv_closingDate.setText(closingDate);
         fetchShopOperationalTimeAPI();
+    }
+
+    private void setVisibleUI(List<ShopOperationalTime> shopOperationalTime) {
+        if (shopOperationalTime == null || shopOperationalTime.size() == 0) {
+            recycleView.setVisibility(View.GONE);
+            no_data_available.setVisibility(View.VISIBLE);
+            no_data_available.setText(getString(R.string.no_record_found));
+        } else {
+            recycleView.setVisibility(View.VISIBLE);
+            no_data_available.setVisibility(View.GONE);
+            fetchShopOperationalTimeAPI();
+        }
     }
 
     private void setRecycler() {
@@ -200,11 +215,13 @@ public class ViewShopOperationalTimeActivity extends BaseActivity {
             public void onSuccess(ShopOperationalTimeResponse result) {
                 hideProgressBar();
                 setAdapterData(result.getShopOperationalTime());
+                setVisibleUI(result.getShopOperationalTime());
             }
 
             @Override
             public void onError(ErrorObject error) {
                 hideProgressBar();
+                setVisibleUI(null);
             }
         });
         AppRestClient.getClient().sendRequest(this, request, TAG);

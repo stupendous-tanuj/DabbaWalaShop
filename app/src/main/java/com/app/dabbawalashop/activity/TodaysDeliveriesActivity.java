@@ -62,8 +62,6 @@ public class TodaysDeliveriesActivity extends BaseActivity {
         setRecycler();
         setDeliveryStatusSpinner();
 
-
-        //TODO Todays Deliveries Activity
     }
 
     private void initUI() {

@@ -69,7 +69,7 @@ public class UpdateDeliveryDetailsActivity extends BaseActivity {
         getIntentData();
         setData(deliveryDate);
         setRecycler();
-        if(!PreferenceKeeper.getInstance().getUserType().equals(AppConstant.UserType.DELIVERY_PERSON_TYPE))
+        if(PreferenceKeeper.getInstance().getUserType().equals(AppConstant.UserType.SHOP_TYPE))
         fetchDeliveryPersonAPI();
     }
 
@@ -95,6 +95,8 @@ public class UpdateDeliveryDetailsActivity extends BaseActivity {
         ll_beingShippedBy.setVisibility(View.GONE);
         ll_shippedBy.setVisibility(View.GONE);
         ll_balanceAmountAdjusted.setVisibility(View.GONE);
+        if(!PreferenceKeeper.getInstance().getUserType().equals(AppConstant.UserType.SHOP_TYPE))
+            tv_update_delivery.setVisibility(View.GONE);
     }
 
     private void setUIListener() {
@@ -105,6 +107,7 @@ public class UpdateDeliveryDetailsActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_update_delivery:
+                if(PreferenceKeeper.getInstance().getUserType().equals(AppConstant.UserType.SHOP_TYPE))
                 updateDeliveryStatusAPI();
                 break;
         }

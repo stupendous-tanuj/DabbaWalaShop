@@ -199,6 +199,10 @@ public class AddAShopActivity extends BaseActivity {
             return false;
         }
 
+        if (!DialogUtils.lengthValidator(this, getString(R.string.label_Pincode), shop.getShopAddressPincode(),6 )) {
+            return false;
+        }
+
         if (!DialogUtils.checkForBlank(this, getString(R.string.label_State), shop.getShopAddressState())) {
             return false;
         }

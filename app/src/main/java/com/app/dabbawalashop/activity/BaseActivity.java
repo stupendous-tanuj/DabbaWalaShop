@@ -64,7 +64,7 @@ public class BaseActivity extends FragmentActivity implements View.OnClickListen
     public String getData(int i) {
         return String.valueOf((i > 9 ? i : "0" + i));
     }
-//TODO Fix it.
+    //TODO Fix it.
     public String getMonth(int i) {
         if(i == 1)
             return "Jan";

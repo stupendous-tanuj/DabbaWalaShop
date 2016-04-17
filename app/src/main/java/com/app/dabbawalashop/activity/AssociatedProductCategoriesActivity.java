@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.app.dabbawalashop.R;
 import com.app.dabbawalashop.adapter.AssociatedProductCategoryAdapter;
@@ -16,6 +17,7 @@ import com.app.dabbawalashop.api.output.AssociatedProductCategoryResponse;
 import com.app.dabbawalashop.api.output.AssociatedShopId;
 import com.app.dabbawalashop.api.output.AssociatedShopIdResponse;
 import com.app.dabbawalashop.api.output.ErrorObject;
+import com.app.dabbawalashop.api.output.ShopOperationalTime;
 import com.app.dabbawalashop.constant.AppConstant;
 import com.app.dabbawalashop.network.AppHttpRequest;
 import com.app.dabbawalashop.network.AppRequestBuilder;
@@ -32,6 +34,7 @@ public class AssociatedProductCategoriesActivity extends BaseActivity {
 
     private RecyclerView recycleView;
     private Spinner spinner_shopId;
+    private TextView no_data_available;
     LinearLayout ll_shopId;
     String shopIdValue = "";
     String USER_TYPE = "";
@@ -48,6 +51,7 @@ public class AssociatedProductCategoriesActivity extends BaseActivity {
     }
 
     private void setUI() {
+        no_data_available = (TextView) findViewById(R.id.no_data_available);
         recycleView = (RecyclerView) findViewById(R.id.recycle_view_associated_product_catgories);
         findViewById(R.id.iv_associateAProductCategory).setOnClickListener(this);
         spinner_shopId = (Spinner) findViewById(R.id.spinner_shopId);
@@ -75,6 +79,18 @@ public class AssociatedProductCategoriesActivity extends BaseActivity {
         recycleView.setHasFixedSize(true);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         recycleView.setLayoutManager(mLayoutManager);
+    }
+
+    private void setVisibleUI(List<AssociatedProductCategory> associatedProductCategory) {
+        if (associatedProductCategory == null || associatedProductCategory.size() == 0) {
+            recycleView.setVisibility(View.GONE);
+            no_data_available.setVisibility(View.VISIBLE);
+            no_data_available.setText(getString(R.string.no_record_found));
+        } else {
+            recycleView.setVisibility(View.VISIBLE);
+            no_data_available.setVisibility(View.GONE);
+            fetchAssociatedProductCategoriesAPI();
+        }
     }
 
     private void setShopIdSpinner(List<AssociatedShopId> associatedShopId)
@@ -134,11 +150,14 @@ public class AssociatedProductCategoriesActivity extends BaseActivity {
             public void onSuccess(AssociatedProductCategoryResponse result) {
                 hideProgressBar();
                 setAdapterData(result.getAssociatedProductCategory());
+                setVisibleUI(result.getAssociatedProductCategory());
             }
 
             @Override
             public void onError(ErrorObject error) {
+
                 hideProgressBar();
+                setVisibleUI(null);
             }
         });
         AppRestClient.getClient().sendRequest(this, request, TAG);

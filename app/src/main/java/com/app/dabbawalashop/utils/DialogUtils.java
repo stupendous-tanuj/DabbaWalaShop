@@ -193,7 +193,7 @@ public class DialogUtils {
             return false;
         if(!checkForBlank(activity,activity.getString(R.string.label_Mobile_Number), mobileNumber))
             return false;
-        if(!checkForBlank(activity,activity.getString(R.string.label_User_ID), userId))
+        if(!checkForBlank(activity, activity.getString(R.string.label_User_ID), userId))
             return false;
 
         return true;
@@ -299,9 +299,36 @@ public class DialogUtils {
             DialogUtils.showDialog(activity, "Invalid " + field + ".");
         }
         return ret;
-
-
     }
+
+    public static boolean lengthValidator(BaseActivity activity, String field, String input, int length)
+    {
+        boolean ret = false;
+        try
+        {
+            if(input.length() == length) {
+                ret = true;
+                return ret;
+            }
+            else if(input.length() > length) {
+                ret = false;
+                DialogUtils.showDialog(activity, "Length of " + field + " is greater than "+length+".");
+                return ret;
+            }
+            else if(input.length() < length) {
+                ret = false;
+                DialogUtils.showDialog(activity, "Length of " + field + " is less than "+length+".");
+                return ret;
+            }
+        }
+        catch(Exception e)
+        {
+            ret = false;
+        }
+
+        return ret;
+    }
+
 
 
     public static boolean rangeValidator(BaseActivity activity, String field,String input,int min,int max)

@@ -97,7 +97,7 @@ public class AssociatedProductAdapter extends BaseAdapter {
                 DialogUtils.showDialogYesNo(activity, activity.getString(R.string.deassociated_product), activity.getString(R.string.yes), activity.getString(R.string.no), new IDialogListener() {
                     @Override
                     public void onClickOk() {
-                        deassociatedProductAPI(product.getProductSKUID(), shopId, pos);
+                        deassociateProductAPI(product.getProductSKUID(), shopId, pos);
                     }
 
                     @Override
@@ -128,7 +128,7 @@ public class AssociatedProductAdapter extends BaseAdapter {
         });
     }
 
-    private void deassociatedProductAPI(String productSKU, String shopId, final int pos) {
+    private void deassociateProductAPI(String productSKU, String shopId, final int pos) {
         activity.showProgressBar();
 
         AppHttpRequest request = AppRequestBuilder.deassociatedProductAPI(shopId, productSKU, new AppResponseListener<CommonResponse>(CommonResponse.class, activity) {

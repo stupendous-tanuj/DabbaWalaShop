@@ -64,6 +64,7 @@
     <string name="enter_confNewPassword_not_match">New Password and Confirm New Password Does Not Match.</string>
     <string name="enter_shop_id">Enter shop Id.</string>
     <string name="no_order_found">No Order Found.</string>
+    <string name="no_record_found">No Record Found.</string>
     <string name="upload_image_confirmation">Do you want to upload image.</string>
     <string name="calling_functionality_not_found">Calling functionality is not found.</string>
     <string name="support_number_null">Support number is Null.</string>
@@ -90,11 +91,11 @@
     <string name="header_user_login">User Login</string>
     <string name="header_seller_hub_profile">Seller Hub Profile</string>
     <string name="header_seller_keeper_profile">Shop Keeper Profile</string>
-    <string name="header_shop_operational_time">Shop Operational Time</string>
+    <string name="header_shop_operational_time">Shop Closing Time</string>
     <string name="header_update_delivery_detail">Update Delivery Detail</string>
     <string name="header_update_order_detail">Update Order Detail</string>
     <string name="header_upload_product_image">Upload Product Image</string>
-    <string name="header_view_shop_operational_time">Shop Operational Time</string>
+    <string name="header_view_shop_operational_time">Shop Closing Time</string>
     <string name="header_view_shop_profile">View Shop Profile</string>
 
     <string name="title_activity_associated_delivery_locations">Delivery Locations</string>
@@ -281,7 +282,7 @@
     <!--Shop Operational Time-->
     <string name="label_Closing_Date">Closing Date</string>
     <string name="hint_Closing_Date">Closing Date</string>
-    <string name="label_Shop_Operational_Time">Shop Operational Time</string>
+    <string name="label_Shop_Operational_Time">Shop Closing Time</string>
 
     <string name="label_line1">line1</string>
     <string name="label_line2">line2</string>
@@ -353,7 +354,7 @@
     <string name="menu_Change_Password">Change Password</string>
     <string name="menu_Associated_Shops">Associated Shops</string>
     <string name="menu_Add_A_Shop">Add A Shop</string>
-    <string name="menu_Shop_Operational_Time">Shop Operational Time</string>
+    <string name="menu_Shop_Operational_Time">Shop Closing Time</string>
     <string name="menu_Associated_Product_Category">Associated Product Category</string>
     <string name="menu_Orders">Orders</string>
     <string name="menu_My_Orders">My Orders</string>
