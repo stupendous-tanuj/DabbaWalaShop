@@ -148,6 +148,8 @@ public class UpdateDeliveryDetailsActivity extends BaseActivity {
             additionalFieldValue = spinner_beingShippedBy.getSelectedItem().toString().split(" ")[0];
         if(toDeliveryStatusValue.equals(AppConstant.STATUS.STATUS_CLOSED))
             additionalFieldValue = cb_balanceAmountAdjusted.isChecked() == true ? getString(R.string.yes) :  getString(R.string.no);
+        if(toDeliveryStatusValue.equals(AppConstant.STATUS.STATUS_CANCELLED))
+            additionalFieldValue = "None";
 
         if (!DialogUtils.isUpdateDeliveryDetailsVerification(this, toDeliveryStatusValue)) {
             return;

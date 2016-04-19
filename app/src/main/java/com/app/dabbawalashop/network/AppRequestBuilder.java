@@ -322,10 +322,12 @@ public class AppRequestBuilder {
         map.put("deliveryDate", deliveryDate);
         map.put("toDeliveryStatus", toDeliveryStatus);
         map.put("fromDeliveryStatus", fromDeliveryStatus);
-        if(toDeliveryStatus.equals("Closed"))
+        if(toDeliveryStatus.equals(AppConstant.STATUS.STATUS_CLOSED))
             map.put("amountAdjustmentDone", additionalField);
-        if(toDeliveryStatus.equals("Prepared"))
+        if(toDeliveryStatus.equals(AppConstant.STATUS.STATUS_PREPARED))
             map.put("orderBeingShippedBy", additionalField);
+        if(toDeliveryStatus.equals(AppConstant.STATUS.STATUS_CANCELLED))
+            map.put("deliveryCancellationReason", additionalField);
         request.addParam("input", setRequestBody(map));
         return request;
     }

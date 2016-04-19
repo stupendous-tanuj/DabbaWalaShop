@@ -12,6 +12,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -117,10 +118,10 @@ public class HomeActivity extends BaseActivity {
         Calendar cal = Calendar.getInstance();
         String fromDate = dateFormat.format(cal.getTime());
         String toDate = dateFormat.format(cal.getTime());
-        tv_from_dte_home.setText(fromDate);
-        tv_to_dte_home.setText(toDate);
-        from = tv_from_dte_home.getText().toString();
-        to = tv_to_dte_home.getText().toString();
+        tv_from_dte_home.setText(Html.fromHtml("<u>"+fromDate+"</u>"));
+        tv_to_dte_home.setText(Html.fromHtml("<u>"+toDate+"</u>"));
+        from = fromDate;
+        to = toDate;
         if(!shopIdValue.equals(getString(R.string.please_select)))
         fetchMyOrderDetailApi(from, to);
     }
@@ -176,11 +177,19 @@ public class HomeActivity extends BaseActivity {
             public void onDateSet(final DatePicker datePicker, int year, int month, int day) {
                 if (datePicker.isShown()) {
                     Logger.INFO(TAG, "listner ");
-                    tv.setText(year + "-" + getData(++month) + "-" + getData(day));
                     from = tv_from_dte_home.getText().toString();
                     to = tv_to_dte_home.getText().toString();
-                    if(!shopIdValue.equals(getString(R.string.please_select)))
-                    fetchMyOrderDetailApi(from, to);
+                    long fromLong = AppUtil.getMillisFromDate(from);
+                    long toLong = AppUtil.getMillisFromDate(to);
+
+                    if (fromLong > toLong) {
+                        showToast(getString(R.string.from_date_greater));
+                    }
+                    else {
+                        tv.setText(Html.fromHtml("<u>" + year + "-" + getData(++month) + "-" + getData(day) + "</u>"));
+                        if (!shopIdValue.equals(getString(R.string.please_select)))
+                            fetchMyOrderDetailApi(from, to);
+                    }
                 }
             }
         };
@@ -395,6 +404,7 @@ public class HomeActivity extends BaseActivity {
             public void onSuccess(AssociatedShopIdResponse result) {
                 hideProgressBar();
                 setShopIdSpinner(result.getAssociatedShops());
+                //PreferenceKeeper.getInstance().setAssociatedShopId(result.getAssociatedShops());
             }
 
             @Override

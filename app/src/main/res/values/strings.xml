@@ -257,8 +257,8 @@
     <string name="label_Reset_Password">Reset Password</string>
 
     <!--Home-->
-    <string name="label_From_Date">From Date</string>
-    <string name="label_To_Date">To Date</string>
+    <string name="label_From_Date">Select From Date</string>
+    <string name="label_To_Date">Select To Date</string>
 
     <!--Login-->
     <string name="hint_User_ID">User ID</string>
@@ -280,14 +280,14 @@
     <string name="label_Update_Profile">Update Profile</string>
 
     <!--Shop Operational Time-->
-    <string name="label_Closing_Date">Closing Date</string>
-    <string name="hint_Closing_Date">Closing Date</string>
+    <string name="label_Closing_Date">Select Closing Date</string>
+    <string name="hint_Closing_Date">Select Closing Date</string>
     <string name="label_Shop_Operational_Time">Shop Closing Time</string>
 
     <string name="label_line1">line1</string>
     <string name="label_line2">line2</string>
 
-    <string name="label_Delivery_Date">Delivery Date</string>
+    <string name="label_Delivery_Date">Select Delivery Date</string>
     <string name="label_Delivery_Status">Delivery Status</string>
 
     <string name="label_Order_Id">Order Id</string>

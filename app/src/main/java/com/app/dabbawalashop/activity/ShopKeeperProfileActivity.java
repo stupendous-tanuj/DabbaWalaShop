@@ -117,20 +117,6 @@ public class ShopKeeperProfileActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         if (isLocClick) {
-            String flatNumber = PreferenceKeeper.getInstance().getflatNumber();
-            String area = PreferenceKeeper.getInstance().getArea();
-            String locality = PreferenceKeeper.getInstance().getLocality();
-            String city = PreferenceKeeper.getInstance().getCity();
-            String state = PreferenceKeeper.getInstance().getState();
-            String pincode = PreferenceKeeper.getInstance().getPincode();
-
-            et_profile_shop_address.setText(flatNumber + " " + area);
-            et_profile_area_sector.setText(area);
-            tv_profile_city.setText(city);
-            et_profile_pincode.setText(pincode);
-            tv_profile_state.setText(state);
-            et_profile_land_mark.setText(locality);
-
             isLocClick = false;
         }
     }

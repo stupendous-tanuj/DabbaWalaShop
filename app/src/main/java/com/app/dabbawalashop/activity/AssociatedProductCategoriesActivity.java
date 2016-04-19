@@ -89,7 +89,7 @@ public class AssociatedProductCategoriesActivity extends BaseActivity {
         } else {
             recycleView.setVisibility(View.VISIBLE);
             no_data_available.setVisibility(View.GONE);
-            fetchAssociatedProductCategoriesAPI();
+            setAdapterData(associatedProductCategory);
         }
     }
 
@@ -149,7 +149,6 @@ public class AssociatedProductCategoriesActivity extends BaseActivity {
             @Override
             public void onSuccess(AssociatedProductCategoryResponse result) {
                 hideProgressBar();
-                setAdapterData(result.getAssociatedProductCategory());
                 setVisibleUI(result.getAssociatedProductCategory());
             }
 

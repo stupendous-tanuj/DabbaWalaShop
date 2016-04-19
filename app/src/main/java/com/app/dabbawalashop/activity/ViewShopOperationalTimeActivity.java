@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -57,7 +58,6 @@ public class ViewShopOperationalTimeActivity extends BaseActivity {
         setHeader(getString(R.string.header_view_shop_operational_time), "");
         USER_TYPE = PreferenceKeeper.getInstance().getUserType();
         setUI();
-
         setRecycler();
         getCurrentTime();
 
@@ -98,8 +98,10 @@ public class ViewShopOperationalTimeActivity extends BaseActivity {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Calendar cal = Calendar.getInstance();
         closingDate = dateFormat.format(cal.getTime());
-        tv_closingDate.setText(closingDate);
-        fetchShopOperationalTimeAPI();
+        tv_closingDate.setText(Html.fromHtml("<u>" + closingDate + "</u>"));
+        if(!shopIdValue.equals(getString(R.string.please_select)) || (!shopIdValue.equals("")))
+            fetchShopOperationalTimeAPI();
+
     }
 
     private void setVisibleUI(List<ShopOperationalTime> shopOperationalTime) {
@@ -110,7 +112,7 @@ public class ViewShopOperationalTimeActivity extends BaseActivity {
         } else {
             recycleView.setVisibility(View.VISIBLE);
             no_data_available.setVisibility(View.GONE);
-            fetchShopOperationalTimeAPI();
+            setAdapterData(shopOperationalTime);
         }
     }
 
@@ -144,20 +146,21 @@ public class ViewShopOperationalTimeActivity extends BaseActivity {
 
     private void fetchShopIdAPI() {
 
-        showProgressBar();
-        AppHttpRequest request = AppRequestBuilder.associatedShopId(new AppResponseListener<AssociatedShopIdResponse>(AssociatedShopIdResponse.class, this) {
-            @Override
-            public void onSuccess(AssociatedShopIdResponse result) {
-                hideProgressBar();
-                setShopIdSpinner(result.getAssociatedShops());
-            }
+            showProgressBar();
+            AppHttpRequest request = AppRequestBuilder.associatedShopId(new AppResponseListener<AssociatedShopIdResponse>(AssociatedShopIdResponse.class, this) {
+                @Override
+                public void onSuccess(AssociatedShopIdResponse result) {
+                    hideProgressBar();
+                    setShopIdSpinner(result.getAssociatedShops());
+                }
 
-            @Override
-            public void onError(ErrorObject error) {
-                hideProgressBar();
-            }
-        });
-        AppRestClient.getClient().sendRequest(this, request, TAG);
+                @Override
+                public void onError(ErrorObject error) {
+                    hideProgressBar();
+                }
+            });
+            AppRestClient.getClient().sendRequest(this, request, TAG);
+
     }
 
 
@@ -189,7 +192,7 @@ public class ViewShopOperationalTimeActivity extends BaseActivity {
             public void onDateSet(final DatePicker datePicker, int year, int month, int day) {
                 if (datePicker.isShown()) {
                     Logger.INFO(TAG, "listner ");
-                    tv.setText(year + "-" + getData(++month) + "-" + getData(day));
+                    tv.setText(Html.fromHtml("<u>" + year + "-" + getData(++month) + "-" + getData(day)+"</u>"));
                     closingDate = year + "-" + getData(++month) + "-" + getData(day);
                     fetchShopOperationalTimeAPI();
                 }
@@ -214,7 +217,7 @@ public class ViewShopOperationalTimeActivity extends BaseActivity {
             @Override
             public void onSuccess(ShopOperationalTimeResponse result) {
                 hideProgressBar();
-                setAdapterData(result.getShopOperationalTime());
+
                 setVisibleUI(result.getShopOperationalTime());
             }
 

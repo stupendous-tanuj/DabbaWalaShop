@@ -54,15 +54,10 @@ public class AppConstant {
 
     public interface PreferenceKeeperNames {
         String LOGIN = "user_login";
-        String FLAT_NUMBER = "flat_number";
-        String PINCODE = "pincode";
-        String STATE = "state";
-        String CITY = "city";
-        String LOCALITY = "locality";
-        String AREA = "area";
         String USER_ID = "user_id";
         String USER_TYPE = "user_type";
         String GCM_REG_ID = "gcm_id";
+        String ASSOCIATED_SHOP_ID = "ASSOCIATED_SHOP_ID";
 
     }
 

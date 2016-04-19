@@ -7,6 +7,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -88,8 +89,8 @@ public class TodaysDeliveriesActivity extends BaseActivity {
         DateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
         Calendar cal = Calendar.getInstance();
         String fromDate = dateFormat.format(cal.getTime());
-        tv_deliveryDate.setText(fromDate);
-        deliveryDate = tv_deliveryDate.getText().toString();
+        tv_deliveryDate.setText(Html.fromHtml("<u>" +fromDate+"</u>"));
+        deliveryDate = fromDate;
         if(!shopIdValue.equals(getString(R.string.please_select)))
             fetchTodaysDeliveryAPI();
     }
@@ -141,7 +142,7 @@ public class TodaysDeliveriesActivity extends BaseActivity {
             public void onDateSet(final DatePicker datePicker, int year, int month, int day) {
                 if (datePicker.isShown()) {
                     Logger.INFO(TAG, "listner ");
-                    tv.setText(getData(day) + "-" + getMonth(++month)+ "-" + year);
+                    tv.setText(Html.fromHtml("<u>" + getData(day) + "-" + getMonth(++month) + "-" + year+"</u>"));
                     deliveryDate = tv_deliveryDate.getText().toString();
                     if(!shopIdValue.equals(getString(R.string.please_select)))
                         fetchTodaysDeliveryAPI();

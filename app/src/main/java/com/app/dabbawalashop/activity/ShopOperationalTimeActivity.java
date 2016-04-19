@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.text.Html;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -214,7 +215,7 @@ public class ShopOperationalTimeActivity extends BaseActivity {
             @Override
             public void onDateSet(final DatePicker datePicker, int year, int month, int day) {
                 if (datePicker.isShown()) {
-                    tv.setText(year + "-" + getData(++month) + "-" + getData(day));
+                    tv.setText(Html.fromHtml("<u>" + year + "-" + getData(++month) + "-" + getData(day)+"</u>"));
                 }
             }
         };
