@@ -13,7 +13,7 @@ public class AppConstant {
     public static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     public static final String GCM_ID = "187896396066";
     public static final String COUNTRY = "India";
-    public static final String VERSION = "1.0";
+    public static final String DEFAULT_LOCALE = "en";
 
     public interface BUNDLE_KEY {
 
@@ -65,6 +65,7 @@ public class AppConstant {
         String SELLER_HUB_TYPE = "SellerHub";
         String SHOP_TYPE = "Shop";
         String DELIVERY_PERSON_TYPE = "DeliveryPerson";
+        String ADMIN_TYPE = "Admin";
         String CUSTOMER_TYPE = "Customer";
     }
 

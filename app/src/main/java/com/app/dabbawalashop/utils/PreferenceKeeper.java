@@ -2,6 +2,7 @@ package com.app.dabbawalashop.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
 import android.preference.PreferenceManager;
 
 import com.app.dabbawalashop.api.output.AssociatedShopId;
@@ -22,6 +23,18 @@ public class PreferenceKeeper {
             keeper = new PreferenceKeeper(context);
         }
         return keeper;
+    }
+
+    public String getApplicationVersion() {
+        try {
+            PackageInfo pInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+            return pInfo.versionName;
+        }
+        catch(Exception e)
+        {
+
+        }
+        return "";
     }
 
     private PreferenceKeeper(Context context) {
@@ -69,7 +82,11 @@ public class PreferenceKeeper {
     }
 
     public String getLocale() {
-        return prefs.getString(AppConstant.PreferenceKeeperNames.LOCALE, "");
+        String locale = prefs.getString(AppConstant.PreferenceKeeperNames.LOCALE, "");
+        if(locale.equals("") || locale==null)
+        return AppConstant.DEFAULT_LOCALE;
+        else
+           return locale;
     }
 
     public void setLocale(String locale) {

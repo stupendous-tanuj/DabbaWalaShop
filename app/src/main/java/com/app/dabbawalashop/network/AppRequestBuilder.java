@@ -39,8 +39,8 @@ import java.util.Map;
 public class AppRequestBuilder {
 
     public static String TAG = HomeActivity.class.getSimpleName();
-    private static final String BASE_URL = "http://shopthefortune.com/shopthefortune/api/nutrichef";
-    private static final String ROOT_URL = "http://shopthefortune.com/shopthefortune/api/nutrichef";
+    private static final String BASE_URL = "http://stupendoustanuj.co.nf/Dabbawala";
+    private static final String ROOT_URL = "http://stupendoustanuj.co.nf/Dabbawala";
     public static String USER_TYPE = "";
     public static String USER_ID = "";
 
@@ -55,14 +55,13 @@ public class AppRequestBuilder {
         map.put("applicationId", AppConstant.APPLICATION_ID);
         USER_ID = PreferenceKeeper.getInstance().getUserId();
         if((USER_ID.equals("")) || (USER_ID == null) || (USER_ID.equals("Admin"))) {
-            map.put("userId", "Admin");
+            map.put("userId", AppConstant.UserType.ADMIN_TYPE);
         }
         else {
             map.put("userId", USER_ID);
         }
+        map.put("locale", PreferenceKeeper.getInstance().getLocale());
         USER_TYPE = PreferenceKeeper.getInstance().getUserType();
-
-
     }
 
     private static String setRequestBody(Map<String, String> map) {
@@ -107,7 +106,7 @@ public class AppRequestBuilder {
         AppHttpRequest request = AppHttpRequest.getPostRequest(ROOT_URL + "/Fetch_Base_URL.php", appResponseListener);
         Map<String, String> map = new LinkedHashMap<String, String>();
         setUserHeader(map);
-        map.put("version", AppConstant.VERSION);
+        map.put("version", PreferenceKeeper.getInstance().getApplicationVersion());
         request.addParam("input", setRequestBody(map));
         return request;
     }
@@ -665,6 +664,7 @@ public class AppRequestBuilder {
         AppHttpRequest request = AppHttpRequest.getPostRequest(BASE_URL + "/Verify_ApplicationID.php", appResponseListener);
         Map<String, String> map = new LinkedHashMap<String, String>();
         setUserHeader(map);
+        map.put("userType", USER_TYPE);
         request.addParam("input", setRequestBody(map));
         return request;
     }

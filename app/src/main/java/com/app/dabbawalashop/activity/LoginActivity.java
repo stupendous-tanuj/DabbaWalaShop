@@ -94,12 +94,14 @@ public class LoginActivity extends BaseActivity {
                     PreferenceKeeper.getInstance().setIsLogin(true);
                     PreferenceKeeper.getInstance().setUserId(userId);
                     PreferenceKeeper.getInstance().setUserType(userType);
+                    PreferenceKeeper.getInstance().setLocale(AppConstant.DEFAULT_LOCALE);
 
                 } else if (result.getFirstLogin().equals("0")) {
                     launchActivity(HomeActivity.class);
                     PreferenceKeeper.getInstance().setIsLogin(true);
                     PreferenceKeeper.getInstance().setUserId(userId);
                     PreferenceKeeper.getInstance().setUserType(userType);
+                    PreferenceKeeper.getInstance().setLocale(AppConstant.DEFAULT_LOCALE);
                 }
 
                 hideProgressBar(findViewById(R.id.tv_login_login));
