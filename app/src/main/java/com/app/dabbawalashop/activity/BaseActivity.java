@@ -3,6 +3,7 @@ package com.app.dabbawalashop.activity;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
@@ -17,8 +18,10 @@ import android.widget.Toast;
 
 import com.app.dabbawalashop.R;
 import com.app.dabbawalashop.listner.IRightListner;
+import com.app.dabbawalashop.utils.PreferenceKeeper;
 
 import java.util.Calendar;
+import java.util.Locale;
 
 public class BaseActivity extends FragmentActivity implements View.OnClickListener {
 
@@ -59,6 +62,21 @@ public class BaseActivity extends FragmentActivity implements View.OnClickListen
             return new TimePickerDialog(getActivity(), mTimeListner, hour, minute,
                     DateFormat.is24HourFormat(getActivity()));
         }
+    }
+
+    public void applyLocale()
+    {
+        String lang = PreferenceKeeper.getInstance().getLocale();
+        if(lang==null) {
+            lang = "en";
+            PreferenceKeeper.getInstance().setLocale(lang);
+        }
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
     }
 
     public String getData(int i) {
@@ -114,7 +132,16 @@ public class BaseActivity extends FragmentActivity implements View.OnClickListen
                 }
             });
         }
+
+
     }
+
+    public void setContentView(int layoutResID) {
+        applyLocale();
+        super.setContentView(layoutResID);
+
+    }
+
 
     public void setHeader(String center, String right, final IRightListner listner) {
         setHeader(center, right);

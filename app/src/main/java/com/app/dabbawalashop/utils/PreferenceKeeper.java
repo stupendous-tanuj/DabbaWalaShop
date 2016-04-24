@@ -68,6 +68,14 @@ public class PreferenceKeeper {
         prefs.edit().putString(AppConstant.PreferenceKeeperNames.USER_TYPE, userType).commit();
     }
 
+    public String getLocale() {
+        return prefs.getString(AppConstant.PreferenceKeeperNames.LOCALE, "");
+    }
+
+    public void setLocale(String locale) {
+        prefs.edit().putString(AppConstant.PreferenceKeeperNames.LOCALE, locale).commit();
+    }
+
     public List<AssociatedShopId> getAssociatedShopId() {
         Gson gson = new Gson();
         String json = prefs.getString(AppConstant.PreferenceKeeperNames.ASSOCIATED_SHOP_ID, "");

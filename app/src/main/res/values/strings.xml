@@ -22,6 +22,7 @@
     <string name="app_rate">App Rate</string>
     <string name="share_app">Share App</string>
     <string name="contact_us">Contact us</string>
+    <string name="menu_settings">Settings</string>
     <string name="shop_detail">Shop Detail</string>
     <string name="other">Other</string>
     <string name="deassociated_product">Are you sure to De-Associate this product.</string>
@@ -87,6 +88,7 @@
     <string name="header_change_password">Change Password</string>
     <string name="header_contact_us">Contact us</string>
     <string name="header_delivery_person_profile">Delivery Person Profile</string>
+    <string name="header_App_Settings">App Settings</string>
     <string name="header_forget_password">Forget Password</string>
     <string name="header_user_login">User Login</string>
     <string name="header_seller_hub_profile">Seller Hub Profile</string>
@@ -177,6 +179,11 @@
     <string name="label_Associated_To">Associated To</string>
     <string name="label_Shop_Rating">Shop Rating</string>
 
+    <string name="label_change_Language">Change Language</string>
+    <string name="label_Select_Language">Select Language</string>
+    <string name="label_Current_Language">Current Language</string>
+
+
     <!--add delivery location-->
     <string name="label_Shop_ID">Shop ID</string>
     <string name="label_Select_Location_to_Add">Select Location to Add</string>
@@ -236,6 +243,8 @@
     <string name="hint_From_Delivery_Time">From Delivery Time</string>
     <string name="label_To_Delivery_Time">To Delivery Time</string>
     <string name="hint_To_Delivery_Time">To Delivery Time</string>
+    <string name="label_Order_Time">Order Time (Same Day)</string>
+    <string name="hint_Order_Time">Order Time (Same Day)</string>
 
     <!--Change Password-->
     <string name="label_Old_Password">Old Password</string>
@@ -265,6 +274,7 @@
     <string name="label_Password">Password</string>
     <string name="hint_Password">Password</string>
     <string name="label_Login">Login</string>
+    <string name="label_apply_settings">Apply Settings</string>
 
     <!--SellerHub Profile-->
     <string name="label_Seller_Hub_ID">Seller Hub ID</string>
@@ -347,7 +357,7 @@
     <string name="label_Product_name">Product name</string>
     <string name="label_Order_Creation_Time">Order Creation Time</string>
     <string name="label_Delivery_Address_Identifier">Delivery Address Identifier</string>
-
+    <string name="msg_settings_update_success">Settings Successfully updated.</string>
 
     <string name="menu_My_Profile">My Profile</string>
     <string name="menu_Seller_Hub_Profile">Seller Hub Profile</string>
@@ -369,5 +379,11 @@
     <string name="menu_Delivery_Locations">Delivery Locations</string>
     <string name="menu_Add_A_Delivery_Location">Add A Delivery Location</string>
     <string name="menu_Products">Products</string>
+    <string name="title_activity_settings">SettingsActivity</string>
 
+    <string name="user_SellerHub">SellerHub</string>
+    <string name="user_Shop">Shop</string>
+    <string name="user_DeliveryPerson">DeliveryPerson</string>
+    <string name="user_Customer">Customer</string>
+    <string name="default_Select_Date">Select Date...</string>
 </resources>

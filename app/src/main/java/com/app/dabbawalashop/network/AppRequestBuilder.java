@@ -5,6 +5,7 @@ import com.app.dabbawalashop.api.output.AssociatedProductCategoryResponse;
 import com.app.dabbawalashop.api.output.AssociatedProductResponse;
 import com.app.dabbawalashop.api.output.AssociatedShopIdResponse;
 import com.app.dabbawalashop.api.output.AssociatedShopsResponse;
+import com.app.dabbawalashop.api.output.BaseURLResponse;
 import com.app.dabbawalashop.api.output.CommonResponse;
 import com.app.dabbawalashop.api.output.DeliveryDetailResponse;
 import com.app.dabbawalashop.api.output.DeliveryLocationResponse;
@@ -38,7 +39,8 @@ import java.util.Map;
 public class AppRequestBuilder {
 
     public static String TAG = HomeActivity.class.getSimpleName();
-    private static final String BASE_URL = "http://stupendoustanuj.co.nf/Dabbawala";
+    private static final String BASE_URL = "http://shopthefortune.com/shopthefortune/api/nutrichef";
+    private static final String ROOT_URL = "http://shopthefortune.com/shopthefortune/api/nutrichef";
     public static String USER_TYPE = "";
     public static String USER_ID = "";
 
@@ -99,6 +101,17 @@ public class AppRequestBuilder {
         request.addParam("input", setRequestBody(map));
         return request;
     }
+
+    // http://stupendoustanuj.co.nf/Dabbawala/User_Login.php\
+    public static AppHttpRequest fetchBaseURLAPI(AppResponseListener<BaseURLResponse> appResponseListener) {
+        AppHttpRequest request = AppHttpRequest.getPostRequest(ROOT_URL + "/Fetch_Base_URL.php", appResponseListener);
+        Map<String, String> map = new LinkedHashMap<String, String>();
+        setUserHeader(map);
+        map.put("version", AppConstant.VERSION);
+        request.addParam("input", setRequestBody(map));
+        return request;
+    }
+
 
     // http://stupendoustanuj.co.nf/Dabbawala/User_Login.php\
     public static AppHttpRequest changePasswordAPI(String oldPassword,String newPassword, AppResponseListener<CommonResponse> appResponseListener) {
@@ -777,7 +790,7 @@ public class AppRequestBuilder {
 
 
     // http://stupendoustanuj.co.nf/Dabbawala/Update_Shop_Timings.php
-    public static AppHttpRequest associateAProductCategoryAPI(String shopId, String fromTime, String toTime,
+    public static AppHttpRequest associateAProductCategoryAPI(String shopId, String fromTime, String toTime, String orderTime,
                                                               String shopCategory, String pCategory,
                                                               AppResponseListener<CommonResponse> appResponseListener) {
         AppHttpRequest request = AppHttpRequest.getPostRequest(BASE_URL + "/Associate_A_ProductCategory.php", appResponseListener);
@@ -786,6 +799,7 @@ public class AppRequestBuilder {
         map.put("shopId", shopId);
         map.put("fromDeliveryTime", fromTime);
         map.put("toDeliveryTime", toTime);
+        map.put("orderTime", orderTime);
         map.put("shopCategoryName", shopCategory);
         map.put("productCategoryName", pCategory);
         map.put("updatedBy",USER_ID);

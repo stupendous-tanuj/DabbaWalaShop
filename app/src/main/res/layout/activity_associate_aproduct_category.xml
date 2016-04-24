@@ -14,7 +14,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/tv_shop_time_add"
+        android:layout_above="@+id/tv_updateDeliveryTime"
         android:layout_below="@+id/toolbar_root_layout">
 
         <LinearLayout
@@ -35,13 +35,14 @@
 
                 <TextView
                     android:id="@+id/tv_shopId"
+                    android:text="@string/label_Shop_ID"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:textSize="@dimen/sp_15"
-                    android:text="@string/label_Shop_ID"
+
                     android:textColor="@color/black"
                     />
 
@@ -118,7 +119,7 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
@@ -151,7 +152,7 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/dp_10"
@@ -174,8 +175,47 @@
                     android:textSize="@dimen/sp_13" />
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_weight="2"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:layout_weight="0.8"
+                    android:text="@string/label_Order_Time"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp_13" />
+
+                <EditText
+                    android:id="@+id/et_orderTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.2"
+                    android:background="@drawable/edittext_background"
+                    android:editable="false"
+                    android:gravity="left"
+                    android:hint="@string/hint_Order_Time"
+                    android:padding="@dimen/dp_10"
+                    android:textColor="@color/color_base"
+                    android:textSize="@dimen/sp_13" />
+            </LinearLayout>
+
+
             <TimePicker
                 android:id="@+id/tp_fromTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TimePicker
+                android:id="@+id/tp_orderTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 

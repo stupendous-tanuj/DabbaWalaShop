@@ -5,6 +5,17 @@ package com.app.dabbawalashop.api.output;
  */
 public class ErrorObject {
 
+    private String additionalFields;
+
+    public String getAdditionalFields() {
+        return additionalFields;
+    }
+
+    public void setAdditionalFields(String additionalFields) {
+        this.additionalFields = additionalFields;
+    }
+
+
     private Integer errorCode;
     private String errorMessage;
     private String supportContactNumber;

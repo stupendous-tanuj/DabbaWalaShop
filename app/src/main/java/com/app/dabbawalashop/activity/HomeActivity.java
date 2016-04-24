@@ -46,6 +46,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 public class HomeActivity extends BaseActivity {
 
@@ -86,6 +87,7 @@ public class HomeActivity extends BaseActivity {
     LinearLayout linear_home_associateAProductCategory = null;
     LinearLayout linear_home_todays_delivery = null;
     LinearLayout linear_home_associatedProductCategory = null;
+    LinearLayout linear_home_settings = null;
     private TextView tv_orderStatus;
     private TextView tv_shopId;
     private Spinner spinner_orderStatus;
@@ -102,7 +104,7 @@ public class HomeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         USER_TYPE = PreferenceKeeper.getInstance().getUserType();
-        setHeader(getString(R.string.header_my_orders)+" - " + USER_TYPE, "");
+        setHeader(getString(R.string.header_my_orders) + " - " + USER_TYPE, "");
         initUI();// initialized component
         setRecycler();
         initUIListner();
@@ -111,6 +113,8 @@ public class HomeActivity extends BaseActivity {
         verifyApplicationIDAPI();
         getGCMRegId();
 
+
+
     }
 
     private void getCurrentTime() {
@@ -118,8 +122,8 @@ public class HomeActivity extends BaseActivity {
         Calendar cal = Calendar.getInstance();
         String fromDate = dateFormat.format(cal.getTime());
         String toDate = dateFormat.format(cal.getTime());
-        tv_from_dte_home.setText(Html.fromHtml("<u>"+fromDate+"</u>"));
-        tv_to_dte_home.setText(Html.fromHtml("<u>"+toDate+"</u>"));
+        tv_from_dte_home.setText(Html.fromHtml("<u>" + fromDate + "</u>"));
+        tv_to_dte_home.setText(Html.fromHtml("<u>" + toDate + "</u>"));
         from = fromDate;
         to = toDate;
         if(!shopIdValue.equals(getString(R.string.please_select)))
@@ -169,7 +173,7 @@ public class HomeActivity extends BaseActivity {
         AppRestClient.getClient().sendRequest(this, request, TAG);
     }
 
-    private void setDte(final TextView tv) {
+    private void setFromDate(final TextView tv) {
         showDatePickerDialog();
         mDateListner = new DatePickerDialog.OnDateSetListener() {
             //         "fromDate": "2016-02-14",
@@ -177,8 +181,7 @@ public class HomeActivity extends BaseActivity {
             public void onDateSet(final DatePicker datePicker, int year, int month, int day) {
                 if (datePicker.isShown()) {
                     Logger.INFO(TAG, "listner ");
-                    from = tv_from_dte_home.getText().toString();
-                    to = tv_to_dte_home.getText().toString();
+                    from = year + "-" + getData(++month) + "-" + getData(day);
                     long fromLong = AppUtil.getMillisFromDate(from);
                     long toLong = AppUtil.getMillisFromDate(to);
 
@@ -186,7 +189,7 @@ public class HomeActivity extends BaseActivity {
                         showToast(getString(R.string.from_date_greater));
                     }
                     else {
-                        tv.setText(Html.fromHtml("<u>" + year + "-" + getData(++month) + "-" + getData(day) + "</u>"));
+                        tv.setText(Html.fromHtml("<u>" + from + "</u>"));
                         if (!shopIdValue.equals(getString(R.string.please_select)))
                             fetchMyOrderDetailApi(from, to);
                     }
@@ -194,6 +197,32 @@ public class HomeActivity extends BaseActivity {
             }
         };
     }
+
+    private void setToDate(final TextView tv) {
+        showDatePickerDialog();
+        mDateListner = new DatePickerDialog.OnDateSetListener() {
+            //         "fromDate": "2016-02-14",
+            @Override
+            public void onDateSet(final DatePicker datePicker, int year, int month, int day) {
+                if (datePicker.isShown()) {
+                    Logger.INFO(TAG, "listner ");
+                    to = year + "-" + getData(++month) + "-" + getData(day);
+                    long fromLong = AppUtil.getMillisFromDate(from);
+                    long toLong = AppUtil.getMillisFromDate(to);
+
+                    if (fromLong > toLong) {
+                        showToast(getString(R.string.from_date_greater));
+                    }
+                    else {
+                        tv.setText(Html.fromHtml("<u>" + to + "</u>"));
+                        if (!shopIdValue.equals(getString(R.string.please_select)))
+                            fetchMyOrderDetailApi(from, to);
+                    }
+                }
+            }
+        };
+    }
+
 
     public void showDatePickerDialog() {
         DialogFragment newFragment = new DatePickerFragment();
@@ -295,7 +324,7 @@ public class HomeActivity extends BaseActivity {
         linear_home_associated_delivery_person = (LinearLayout) findViewById(R.id.linear_home_associated_delivery_person);
         linear_home_add_delivery_person = (LinearLayout) findViewById(R.id.linear_home_add_delivery_person);
         linear_home_shop_operation_time = (LinearLayout) findViewById(R.id.linear_home_shop_operation_time);
-
+        linear_home_settings = (LinearLayout) findViewById(R.id.linear_home_settings);
         linear_home_contactus = (LinearLayout) findViewById(R.id.linear_home_contactus);
         linear_home_logout = (LinearLayout) findViewById(R.id.linear_home_logout);
         linear_home_from_dte = (LinearLayout) findViewById(R.id.linear_home_from_dte);
@@ -461,6 +490,7 @@ public class HomeActivity extends BaseActivity {
         linear_home_addADeliveryLocation.setOnClickListener(this);
         linear_home_all_delivery_person.setOnClickListener(this);
         linear_home_todays_delivery.setOnClickListener(this);
+        linear_home_settings.setOnClickListener(this);
         //linear_home_associateAProductCategory.setOnClickListener(this);
         linear_home_associatedProductCategory.setOnClickListener(this);
     }
@@ -518,10 +548,10 @@ public class HomeActivity extends BaseActivity {
                 startActivity(intent);
                 break;
             case R.id.linear_home_from_dte:
-                setDte(tv_from_dte_home);
+                setFromDate(tv_from_dte_home);
                 break;
             case R.id.linear_home_to_dte:
-                setDte(tv_to_dte_home);
+                setToDate(tv_to_dte_home);
                 break;
             case R.id.linear_change_password:
                 launchActivity(ChangePasswordActivity.class);
@@ -539,8 +569,12 @@ public class HomeActivity extends BaseActivity {
             case R.id.linear_home_associatedProductCategory:
                 launchActivity(AssociatedProductCategoriesActivity.class);
                 break;
+
             case R.id.linear_home_todays_delivery:
                 launchActivity(TodaysDeliveriesActivity.class);
+                break;
+            case R.id.linear_home_settings:
+                launchActivity(SettingsActivity.class);
                 break;
 
 

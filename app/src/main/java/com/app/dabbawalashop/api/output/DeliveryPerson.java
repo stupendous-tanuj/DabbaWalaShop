@@ -2,6 +2,17 @@ package com.app.dabbawalashop.api.output;
 
 public class DeliveryPerson {
 
+    private String additionalFields;
+
+    public String getAdditionalFields() {
+        return additionalFields;
+    }
+
+    public void setAdditionalFields(String additionalFields) {
+        this.additionalFields = additionalFields;
+    }
+
+
     private String deliveryPersonName;
     private String deliveryPersonMobileNumber;
 

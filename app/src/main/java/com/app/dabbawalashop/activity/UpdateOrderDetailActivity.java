@@ -137,9 +137,9 @@ public class UpdateOrderDetailActivity extends BaseActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 toOrderStatusValue = toOrderStatus.get(pos);
 
-                if (toOrderStatusValue.equals("Subscribed"))
+                if (toOrderStatusValue.equals(AppConstant.STATUS.STATUS_SUBSCRIBED))
                     et_orderInvoiceAmount.setVisibility(View.VISIBLE);
-                else if (toOrderStatusValue.equals("Cancelled"))
+                else if (toOrderStatusValue.equals(AppConstant.STATUS.STATUS_CANCELLED))
                     et_orderCancellationReason.setVisibility(View.VISIBLE);
                 else {
                     et_orderInvoiceAmount.setVisibility(View.GONE);
@@ -155,7 +155,7 @@ public class UpdateOrderDetailActivity extends BaseActivity {
         final String deliveryDatesValue = orderDetail.getDeliveryDates();
         String deliveryDates[] = deliveryDatesValue.split(",");
         final List<String> deliveryDateList = new ArrayList<>();
-        deliveryDateList.add("Select Date..");
+        deliveryDateList.add(getString(R.string.default_Select_Date));
         for (int i = 0; i < deliveryDates.length; i++)
             deliveryDateList.add(deliveryDates[i]);
 
@@ -166,7 +166,7 @@ public class UpdateOrderDetailActivity extends BaseActivity {
         spinner_deliveryDates.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 deliveryDate = deliveryDateList.get(pos);
-                if (!deliveryDate.equals("Select Date..")) {
+                if (!deliveryDate.equals(getString(R.string.default_Select_Date))) {
                     Bundle bundle = new Bundle();
                     bundle.putString(AppConstant.BUNDLE_KEY.ORDER_ID, orderIdValue);
                     bundle.putString(AppConstant.BUNDLE_KEY.DELIVERY_DATE, deliveryDate);
@@ -184,13 +184,13 @@ public class UpdateOrderDetailActivity extends BaseActivity {
         });
 
 
-        if(orderStatusValue.equals("Cancelled")){
+        if(orderStatusValue.equals(AppConstant.STATUS.STATUS_CANCELLED)){
             ll_orderInvoiceAmount.setVisibility(View.VISIBLE);
             ll_balanceAmount.setVisibility(View.VISIBLE);
             ll_amountAdjusted.setVisibility(View.VISIBLE);
             ll_orderCancellationReason.setVisibility(View.VISIBLE);
         }
-        if(orderStatusValue.equals("Subscribed") || orderStatus.equals("Closed") || orderStatus.equals("Delivered")){
+        if(orderStatusValue.equals(AppConstant.STATUS.STATUS_SUBSCRIBED) || orderStatus.equals(AppConstant.STATUS.STATUS_CLOSED) || orderStatus.equals(AppConstant.STATUS.STATUS_DELIVERED)){
             ll_orderInvoiceAmount.setVisibility(View.VISIBLE);
             ll_balanceAmount.setVisibility(View.VISIBLE);
             ll_amountAdjusted.setVisibility(View.VISIBLE);
@@ -235,7 +235,7 @@ public class UpdateOrderDetailActivity extends BaseActivity {
     private void updateOrderStatusApi() {
 
         String additionalFieldValue = "";
-        if(toOrderStatusValue.equals("Subscribed")) {
+        if(toOrderStatusValue.equals(AppConstant.STATUS.STATUS_SUBSCRIBED)) {
             additionalFieldValue = et_orderInvoiceAmount.getText().toString().trim();
             Logger.INFO("TAG", quotedAmount);
             Logger.INFO("TAG", additionalFieldValue);
@@ -243,7 +243,7 @@ public class UpdateOrderDetailActivity extends BaseActivity {
                 return;
             }
         }
-        if(toOrderStatusValue.equals("Cancelled"))
+        if(toOrderStatusValue.equals(AppConstant.STATUS.STATUS_CANCELLED))
             additionalFieldValue = et_orderCancellationReason.getText().toString();
 
         if (!DialogUtils.isUpdateOrderDetailsVerification(this, toOrderStatusValue)) {

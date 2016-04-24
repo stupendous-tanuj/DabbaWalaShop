@@ -14,7 +14,7 @@
         android:id="@+id/scrollview_shop_keeper"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/tv_update_profile"
+        android:layout_above="@+id/tv_addShop"
         android:layout_below="@+id/toolbar_root_layout">
 
         <LinearLayout
@@ -91,7 +91,7 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.7"
                     android:text="@string/label_Shop_Owner_Name"
@@ -149,7 +149,7 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.7"
                     android:text="@string/label_Area_Sector"
@@ -497,7 +497,7 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.7"
                     android:text="@string/label_Owner_Id_Number"
@@ -527,7 +527,7 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.7"
                     android:text="@string/label_Delivery_Type"
@@ -550,7 +550,7 @@
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_weight="0.7"
                     android:text="@string/label_Payment_Method"

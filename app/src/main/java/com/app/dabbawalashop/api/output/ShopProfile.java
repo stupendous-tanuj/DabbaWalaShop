@@ -28,6 +28,15 @@ public class ShopProfile {
     private String shopPaymentMethodSupported;
     private String shopRating;
 
+    private String additionalFields;
+
+    public String getAdditionalFields() {
+        return additionalFields;
+    }
+
+    public void setAdditionalFields(String additionalFields) {
+        this.additionalFields = additionalFields;
+    }
 
     public String getShopDescription() {
         return shopDescription;

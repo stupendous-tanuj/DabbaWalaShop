@@ -18,6 +18,17 @@ public class DeliveryDetail {
     private String orderPlacedTo;
     private String orderPlacedBy;
 
+    private String additionalFields;
+
+    public String getAdditionalFields() {
+        return additionalFields;
+    }
+
+    public void setAdditionalFields(String additionalFields) {
+        this.additionalFields = additionalFields;
+    }
+
+
     public String getOrderPlacedTo() {
         return orderPlacedTo;
     }

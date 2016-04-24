@@ -10,6 +10,17 @@ public class AssociatedProductCategory {
     private String shopId;
     private String fromDeliveryTime;
     private String toDeliveryTime;
+    private String additionalFields;
+
+    public String getAdditionalFields() {
+        return additionalFields;
+    }
+
+    public void setAdditionalFields(String additionalFields) {
+        this.additionalFields = additionalFields;
+    }
+
+
 
     public String getShopCategoryName() {
         return shopCategoryName;

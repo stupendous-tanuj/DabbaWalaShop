@@ -19,6 +19,16 @@ public class OrderDetail {
     private String orderInvoiceAmount;
     private String orderCancellationReason;
 
+    private String additionalFields;
+
+    public String getAdditionalFields() {
+        return additionalFields;
+    }
+
+    public void setAdditionalFields(String additionalFields) {
+        this.additionalFields = additionalFields;
+    }
+
     public String getToOrderValues() {
         return toOrderValues;
     }

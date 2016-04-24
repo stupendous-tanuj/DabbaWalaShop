@@ -1,0 +1,384 @@
+<resources>
+    <string name="app_name"> MR Nutrichef Shop</string>
+    <string name="navigation_drawer_open"> MR Open navigation drawer</string>
+    <string name="navigation_drawer_close"> MR Close navigation drawer</string>
+    <string name="action_settings"> MR Settings</string>
+    <string name="text"> MR Dabbawala Shop</string>
+    <string name="ok"> MR Ok</string>
+    <string name="enter_mobile_number"> MR Please Enter Mobile Number.</string>
+    <string name="enter_opt_number"> MR Enter OTP number</string>
+    <string name="enter_opt_number_validate"> MR Entered OTP number is not correct.</string>
+    <string name="profile"> MR Profile</string>
+    <string name="menu_shop"> MR Shop</string>
+    <string name="my_profile"> MR My Profile</string>
+    <string name="shop"> MR Shop</string>
+    <string name="favorate_shop"> MR Favorite Shop</string>
+    <string name="my_order"> MR My Order</string>
+    <string name="my_cart"> MR My Cart</string>
+    <string name="track_my_order"> MR Track my recent order</string>
+    <string name="address"> MR Address</string>
+    <string name="my_address"> MR My Address</string>
+    <string name="update_address"> MR Update Address</string>
+    <string name="app_rate"> MR App Rate</string>
+    <string name="share_app"> MR Share App</string>
+    <string name="contact_us"> MR Contact us</string>
+    <string name="menu_settings"> MR Settings</string>
+    <string name="shop_detail"> MR Shop Detail</string>
+    <string name="other"> MR Other</string>
+    <string name="deassociated_product"> MR Are you sure to De-Associate this product.</string>
+    <string name="deassociated_delivery_person"> MR Are you sure to De-Associate this Delivery Person.</string>
+    <string name="remove_shop_closing_record"> MR Are you sure to Remove this record.</string>
+    <string name="order_confirmation"> MR Do you want to confirm the order.</string>
+    <string name="deassociated_location"> MR Are you sure to De-Associate this location.</string>
+    <string name="yes"> MR Yes</string>
+    <string name="no"> MR No</string>
+    <string name="not_network"> MR Please check your internet connection.</string>
+    <string name="upload_product_image"> MR Do you want to upload product image.</string>
+    <string name="logout"> MR Logout</string>
+    <string name="please_select"> MR Please select...</string>
+    <string name="msg_logout"> MR Are you sure you want to logout?</string>
+    <string name="msg_settings_update_success"> MR Settings Successfully updated.</string>
+    <string name="enter_name"> MR Please enter your Name.</string>
+    <string name="enter_email"> MR Please enter your Email</string>
+    <string name="enter_valid_email"> MR Please enter valid email</string>
+    <string name="enter_flat_number"> MR Please enter Flat number</string>
+    <string name="enter_area"> MR Please enter Area</string>
+    <string name="enter_locality"> MR Please enter Locality.</string>
+    <string name="enter_city"> MR Please enter City.</string>
+    <string name="enter_state"> MR Please enter State.</string>
+    <string name="enter_pincode"> MR Please enter Pincode.</string>
+    <string name="enter_term_condition"> MR Please accept Term and Condition.</string>
+    <string name="enter_password"> MR Enter Password.</string>
+    <string name="from_date_greater"> MR From Date cannot be greater than To Date.</string>
+    <string name="enter_mobileNumber"> MR Enter Mobile Number.</string>
+    <string name="enter_emailId"> MR Enter Email Id.</string>
+    <string name="enter_idNumber"> MR Enter ID Number.</string>
+    <string name="enter_userId"> MR Enter User ID.</string>
+    <string name="blank_deliveryStatus"> MR Delivery Status is blank.</string>
+    <string name="blank_orderStatus"> MR Order Status is blank.</string>
+    <string name="blank_invoiceAmount"> MR Invoice Amount is blank.</string>
+    <string name="notEqual_quotedInvoice"> MR Quoted and Invoice Amount is not equal.</string>
+    <string name="NA_deliveryStatus"> MR Delivery Status cannot be NA.</string>
+    <string name="NA_orderStatus"> MR Order Status cannot be NA.</string>
+    <string name="enter_newPassword"> MR Enter New Password.</string>
+    <string name="enter_oldPassword"> MR Enter Old Password.</string>
+    <string name="enter_confNewPassword"> MR Enter Confirm New Password.</string>
+    <string name="enter_confNewPassword_not_match"> MR New Password and Confirm New Password Does Not Match.</string>
+    <string name="enter_shop_id"> MR Enter shop Id.</string>
+    <string name="no_order_found"> MR No Order Found.</string>
+    <string name="no_record_found"> MR No Record Found.</string>
+    <string name="upload_image_confirmation"> MR Do you want to upload image.</string>
+    <string name="calling_functionality_not_found"> MR Calling functionality is not found.</string>
+    <string name="support_number_null"> MR Support number is Null.</string>
+    <string name="header_my_orders"> MR My Orders</string>
+    <string name="header_my_deliveries"> MR Deliveries</string>
+    <string name="header_add_a_delivery_location"> MR Add A Delivery Location</string>
+    <string name="header_add_a_shop"> MR Add A Shop Profile</string>
+    <string name="header_add_a_delivery_person"> MR Add A Delivery Person</string>
+    <string name="header_add_product"> MR Add Product</string>
+    <string name="header_all_delivery_persons"> MR All Delivery Persons</string>
+    <string name="header_associate_a_delivery_location"> MR Associate A Delivery Location</string>
+    <string name="header_associate_a_delivery_person"> MR Associate A Delivery Person</string>
+    <string name="header_associate_a_product"> MR Associate A Product</string>
+    <string name="header_associate_a_product_category"> MR Associate A Product Category</string>
+    <string name="header_associated_delivery_locations"> MR Associated Delivery Locations</string>
+    <string name="header_associated_delivery_person"> MR Associated Delivery Person</string>
+    <string name="header_associated_products"> MR Associated Products</string>
+    <string name="header_associated_products_categories"> MR Associated Product Categories</string>
+    <string name="header_associated_shops"> MR Associated Shops</string>
+    <string name="header_change_password"> MR Change Password</string>
+    <string name="header_contact_us"> MR us Contact</string>
+    <string name="header_delivery_person_profile"> MR Delivery Person Profile</string>
+    <string name="header_App_Settings"> MR App Settings</string>
+    <string name="header_forget_password"> MR Forget Password</string>
+    <string name="header_user_login"> MR User Login</string>
+    <string name="header_seller_hub_profile"> MR Seller Hub Profile</string>
+    <string name="header_seller_keeper_profile"> MR Shop Keeper Profile</string>
+    <string name="header_shop_operational_time"> MR Shop Closing Time</string>
+    <string name="header_update_delivery_detail"> MR Update Delivery Detail</string>
+    <string name="header_update_order_detail"> MR Update Order Detail</string>
+    <string name="header_upload_product_image"> MR Upload Product Image</string>
+    <string name="header_view_shop_operational_time"> MR Shop Closing Time</string>
+    <string name="header_view_shop_profile"> MR View Shop Profile</string>
+
+    <string name="title_activity_associated_delivery_locations"> MR Delivery Locations</string>
+    <string name="title_activity_associate_a_product"> MR Associate A Product</string>
+    <string name="title_activity_update_associated__product"> MR Update Associated Product</string>
+    <string name="title_activity_add_delivery_location"> MR Add Delivery Location</string>
+    <string name="title_activity_update_delivery_details"> MR Update Delivery Details</string>
+    <string name="title_activity_upload_product_image"> MR Upload Product Image</string>
+    <string name="title_activity_change_password"> MR Change Password</string>
+    <string name="title_activity_delivery_person"> MR Delivery Person</string>
+    <string name="title_activity_associated_shops"> MR Associated Shops</string>
+    <string name="title_activity_view_shop_profile"> MR View Shop Profile</string>
+    <string name="title_activity_update_seller_hub_profile"> MR Update SellerHub Profile</string>
+    <string name="title_activity_add_adelivery_location"> MR Add A Delivery Location</string>
+    <string name="title_activity_add_ashop"> MR AddAShopActivity</string>
+    <string name="title_activity_associate_adelivery_person"> MR AssociateADeliveryPersonActivity
+    </string>
+    <string name="title_activity_view_shop_operational_time"> MR ViewShopOperationalTimeActivity
+    </string>
+    <string name="title_activity_all_delivery_persons"> MR AllDeliveryPersonsActivity</string>
+    <string name="title_activity_forget_password"> MR Forget Password Activity</string>
+    <string name="forget_Password"> MR <u>Forget Password</u></string>
+    <string name="title_activity_view_delivery_person"> MR ViewDeliveryPersonActivity</string>
+    <string name="title_activity_todays_deliveries"> MR TodaysDeliveriesActivity</string>
+    <string name="title_activity_associate_aproduct_category"> MR AssociateAProductCategoryActivity</string>
+    <string name="title_activity_associated_product_categories"> MR AssociatedProductCategoriesActivity</string>
+    <!--Add Address-->
+    <string name="label_Flat_Building_Street"> MR Flat/Building/Street</string>
+    <string name="hint_Flat_Building_Street"> MR Enter Flat/Building/Street</string>
+    <string name="label_Address_Identifier"> MR Address Identifier</string>
+    <string name="hint_Address_Identifier"> MR Enter Address Identifier</string>
+    <string name="label_Locality"> MR Locality</string>
+    <string name="hint_Locality"> MR Locality</string>
+    <string name="label_City"> MR City</string>
+    <string name="hint_City"> MR City</string>
+    <string name="label_State"> MR State</string>
+    <string name="hint_State"> MR State</string>
+    <string name="label_Pincode"> MR Pincode</string>
+    <string name="hint_Pincode"> MR Pincode</string>
+    <string name="label_Add_Address"> MR Add Address</string>
+
+    <!--Add A Delivery Location-->
+    <string name="label_Select_City"> MR Select City</string>
+    <string name="label_Enter_Delivery_Location"> MR Enter Delivery Location</string>
+    <string name="hint_Enter_Delivery_Location"> MR Enter Delivery Location</string>
+    <string name="label_Add_Delivery_Location"> MR Add Delivery Location</string>
+
+    <!--Add A Shop-->
+    <string name="label_Shop_Name"> MR Shop Name</string>
+    <string name="label_Shop_Description"> MR Shop Description</string>
+    <string name="label_Shop_Owner_Name"> MR Shop Owner Name</string>
+    <string name="label_Shop_Address"> MR Shop Address</string>
+    <string name="label_Area_Sector"> MR Area Sector</string>
+    <string name="label_Land_Mark"> MR Land Mark</string>
+    <string name="label_Owner_Contact_Number"> MR Owner Contact Number</string>
+    <string name="label_Support_Contact_Number"> MR Support Contact Number</string>
+    <string name="label_Order_Processing_Contact_Number"> MR Order Processing Contact Number</string>
+    <string name="label_Email_Id"> MR Email Id</string>
+    <string name="label_Minimum_Accepted_Order"> MR Minimum Accepted Order</string>
+    <string name="label_Delivery_Charges"> MR Delivery Charges</string>
+    <string name="hint_Shop_Name"> MR Shop Name</string>
+    <string name="hint_Shop_Description"> MR Shop Description</string>
+    <string name="hint_Shop_Owner_Name"> MR Shop Owner Name</string>
+    <string name="hint_Shop_Address"> MR Shop Address</string>
+    <string name="hint_Area_Sector"> MR Area Sector</string>
+    <string name="hint_Land_Mark"> MR Land Mark</string>
+    <string name="hint_Owner_Contact_Number"> MR Owner Contact Number</string>
+    <string name="hint_Support_Contact_Number"> MR Support Contact Number</string>
+    <string name="hint_Order_Processing_Contact_Number"> MR Order Processing Contact Number</string>
+    <string name="hint_Email_Id"> MR Email Id</string>
+    <string name="hint_Minimum_Accepted_Order"> MR Minimum Accepted Order</string>
+    <string name="hint_Delivery_Charges"> MR Delivery Charges</string>
+    <string name="label_Owner_Id_Type"> MR Owner Id Type</string>
+    <string name="label_Owner_Id_Number"> MR Owner Id Number</string>
+    <string name="hint_Owner_Id_Number"> MR Owner Id Number</string>
+    <string name="label_Delivery_Type"> MR Delivery Type</string>
+    <string name="label_Payment_Method"> MR Payment Method</string>
+    <string name="label_Add_Shop"> MR Add Shop</string>
+    <string name="label_Associated_To"> MR Associated To</string>
+    <string name="label_Shop_Rating"> MR Shop Rating</string>
+
+    <string name="label_change_Language"> MR Change Language</string>
+    <string name="label_Select_Language"> MR Select Language</string>
+    <string name="label_Current_Language"> MR Current Language</string>
+
+    <!--add delivery location-->
+    <string name="label_Shop_ID"> MR Shop ID</string>
+    <string name="label_Select_Location_to_Add"> MR Select Location to Add</string>
+    <string name="label_Associate_A_Delivery_Location"> MR Associate A Delivery Location</string>
+
+    <!--add delivery person-->
+    <string name="label_Name"> MR Name</string>
+    <string name="hint_Name"> MR Name</string>
+    <string name="label_Mobile_Number"> MR Mobile Number</string>
+    <string name="hint_Mobile_Number"> MR Mobile Number</string>
+    <string name="label_Residential_Address"> MR Residential Address</string>
+    <string name="hint_Residential_Address"> MR Residential Address</string>
+    <string name="label_ID_Type"> MR ID Type</string>
+    <string name="label_ID_Number"> MR ID Number</string>
+    <string name="hint_ID_Number"> MR ID Number</string>
+    <string name="label_Add_Delivery_Person"> MR Add Delivery Person</string>
+
+
+    <!--add product-->
+    <string name="label_Shop_Category"> MR Shop Category</string>
+    <string name="label_Product_Category"> MR Product Category</string>
+    <string name="label_English_Name"> MR English Name</string>
+    <string name="hint_English_Name"> MR English Name</string>
+    <string name="label_Marathi_Name"> MR Marathi Name</string>
+    <string name="hint_Marathi_Name"> MR Marathi Name</string>
+    <string name="label_Product_Description"> MR Product Description</string>
+    <string name="hint_Product_Description"> MR Product Description</string>
+    <string name="label_Order_Unit"> MR Order Unit</string>
+    <string name="label_No_of_Unit"> MR No. of Unit</string>
+    <string name="hint_No_of_Unit"> MR No. of Unit</string>
+    <string name="label_Daily_Subscription_Price"> MR Daily Subscription Price</string>
+    <string name="hint_Daily_Subscription_Price"> MR Daily Subscription Price</string>
+    <string name="label_Weekly_Subscription_Price"> MR Weekly Subscription Price</string>
+    <string name="hint_Weekly_Subscription_Price"> MR Weekly Subscription Price</string>
+    <string name="label_Monthly_Subscription_Price"> MR Monthly Subscription Price</string>
+    <string name="hint_Monthly_Subscription_Price"> MR Monthly Subscription Price</string>
+    <string name="label_Availability"> MR Availability</string>
+    <string name="label_Product_Available"> MR Product Available</string>
+    <string name="label_Add_Product"> MR Add Product</string>
+
+    <!--all delivery person-->
+    <string name="label_Select_Delivery_Person"> MR Select Delivery Person</string>
+
+    <!--Associate A Product-->
+    <string name="label_Product"> MR Product</string>
+    <string name="label_SKU_ID"> MR SKU ID</string>
+    <string name="label_Registration_Status"> MR Registration Status</string>
+    <string name="label_Product_Image"> MR Product Image</string>
+    <string name="label_Associate_A_Product"> MR Associate A Product</string>
+    <string name="label_No_product_found"> MR No product found</string>
+
+    <!--Associate A Product Category-->
+    <string name="label_Delivery_Person"> MR Delivery Person</string>
+    <string name="label_Associate_A_Delivery_Person"> MR Associate A Delivery Person</string>
+    <string name="label_From_Delivery_Time"> MR From Delivery Time</string>
+    <string name="label_Associate_A_Product_Category"> MR Associate A Product Category</string>
+    <string name="hint_From_Delivery_Time"> MR From Delivery Time</string>
+    <string name="label_To_Delivery_Time"> MR To Delivery Time</string>
+    <string name="hint_To_Delivery_Time"> MR To Delivery Time</string>
+    <string name="label_Order_Time"> MR Order Time (Same Day)</string>
+    <string name="hint_Order_Time"> MR Order Time (Same Day)</string>
+
+    <!--Change Password-->
+    <string name="label_Old_Password"> MR Old Password</string>
+    <string name="hint_Old_Password"> MR Old Password</string>
+    <string name="label_New_Password"> MR New Password</string>
+    <string name="hint_New_Password"> MR New Password</string>
+    <string name="label_Confirm_New_Password"> MR Confirm New Password</string>
+    <string name="hint_Confirm_New_Password"> MR Confirm New Password</string>
+    <string name="label_Change_Password"> MR Change Password</string>
+
+    <!--Contact Us-->
+    <string name="label_User_ID"> MR User ID</string>
+    <string name="label_Message"> MR Message</string>
+    <string name="hint_Message"> MR Message</string>
+    <string name="label_Send_Message"> MR Send Message</string>
+
+    <!--Forget Password-->
+    <string name="label_Select_User_Type"> MR Select User Type</string>
+    <string name="label_Reset_Password"> MR Reset Password</string>
+
+    <!--Home-->
+    <string name="label_From_Date"> MR Select From Date</string>
+    <string name="label_To_Date"> MR Select To Date</string>
+
+    <!--Login-->
+    <string name="hint_User_ID"> MR User ID</string>
+    <string name="label_Password"> MR Password</string>
+    <string name="hint_Password"> MR Password</string>
+    <string name="label_Login"> MR Login</string>
+    <string name="label_apply_settings"> MR Apply Settings</string>
+
+    <!--SellerHub Profile-->
+    <string name="label_Seller_Hub_ID"> MR Seller Hub ID</string>
+    <string name="label_Firm_Name"> MR Firm Name</string>
+    <string name="label_Owner_Name"> MR Owner Name</string>
+    <string name="label_Support_Number"> MR Support Number</string>
+    <string name="hint_Support_Number"> MR Support Number</string>
+    <string name="label_Address"> MR Address</string>
+    <string name="label_Business_Type"> MR Business Type</string>
+    <string name="label_Order_ID_Prefix"> MR Order ID Prefix</string>
+    <string name="label_Application_Status"> MR Application Status</string>
+    <string name="label_Profit_Percentage"> MR Profit Percentage</string>
+    <string name="label_Update_Profile"> MR Update Profile</string>
+
+    <!--Shop Operational Time-->
+    <string name="label_Closing_Date"> MR Select Closing Date</string>
+    <string name="hint_Closing_Date"> MR Select Closing Date</string>
+    <string name="label_Shop_Operational_Time"> MR Shop Closing Time</string>
+
+    <string name="label_line1"> MR line1</string>
+    <string name="label_line2"> MR line2</string>
+
+    <string name="label_Delivery_Date"> MR Select Delivery Date</string>
+    <string name="label_Delivery_Status"> MR Delivery Status</string>
+
+    <string name="label_Order_Id"> MR Order Id</string>
+    <string name="label_Order_Status"> MR Order Status</string>
+    <string name="label_Delivery_Dates"> MR Delivery Dates</string>
+    <string name="label_To_Delivery_Status"> MR To Delivery Status</string>
+    <string name="label_Shipped_By"> MR Shipped By</string>
+    <string name="label_Invoice_Amount"> MR Invoice Amount</string>
+    <string name="label_Balance_Amount"> MR Balance Amount</string>
+    <string name="label_Being_Shipped_By"> MR Being Shipped By</string>
+    <string name="label_Balance_Amount_Adjusted"> MR Balance Amount Adjusted</string>
+    <string name="label_Update_Delivery_Status"> MR Update Delivery Status</string>
+
+    <string name="label_Order_Placed_By"> MR Order Placed By</string>
+    <string name="label_Order_Placed_To"> MR Order Placed To</string>
+    <string name="label_Quoted_Amount"> MR Quoted Amount</string>
+    <string name="label_Payment_Status"> MR Payment Status</string>
+    <string name="label_Subscription_Type"> MR Subscription Type</string>
+    <string name="label_Amount_Adjusted"> MR Amount Adjusted</string>
+    <string name="label_Cancellation_Reason"> MR Cancellation Reason</string>
+    <string name="label_To_Order_Status"> MR To Order Status</string>
+    <string name="label_Select_Delivery_Date"> MR Select Delivery Date</string>
+    <string name="hint_Cancellation_Reason"> MR Cancellation Reason</string>
+    <string name="hint_Invoice_Amount"> MR Invoice Amount</string>
+    <string name="label_Update_Order_Status"> MR Update Order Status</string>
+    <string name="label_Order_Date"> MR Order Date</string>
+    <string name="label_Delivery_Address"> MR Delivery Address</string>
+
+    <string name="label_Upload_Image"> MR Upload Image</string>
+    <string name="label_Gallery"> MR Gallery</string>
+    <string name="label_Camera"> MR Camera</string>
+
+    <string name="label_DeAssociate"> MR DeAssociate</string>
+    <string name="label_Dabba_Name"> MR Dabba Name</string>
+    <string name="label_Unit"> MR Unit</string>
+    <string name="label_Daily_Price"> MR Daily Price</string>
+    <string name="label_Weekly_Price"> MR Weekly Price</string>
+    <string name="label_Monthly_Price"> MR Monthly Price</string>
+    <string name="label_Status"> MR Status</string>
+    <string name="label_Update"> MR Update</string>
+
+    <string name="label_Home"> MR Home</string>
+
+    <string name="label_No_Cart"> MR My Cart is not available.\nPlease add a cart</string>
+
+    <string name="label_Location_Name"> MR Location Name</string>
+    <string name="label_Remove"> MR Remove</string>
+    <string name="label_Landmark"> MR Landmark</string>
+    <string name="label_Quantity"> MR Quantity</string>
+    <string name="label_Confirm"> MR Confirm</string>
+    <string name="label_Description"> MR Description</string>
+    <string name="label_Error_Code"> MR Error Code</string>
+    <string name="label_Error_Message"> MR Error Message</string>
+    <string name="label_OK"> MR OK</string>
+    <string name="label_NO"> MR NO</string>
+    <string name="label_YES"> MR YES</string>
+    <string name="label_Product_name"> MR Product name</string>
+    <string name="label_Order_Creation_Time"> MR Order Creation Time</string>
+    <string name="label_Delivery_Address_Identifier"> MR Delivery Address Identifier</string>
+
+
+    <string name="menu_My_Profile"> MR My Profile</string>
+    <string name="menu_Seller_Hub_Profile"> MR Seller Hub Profile</string>
+    <string name="menu_Change_Password"> MR Change Password</string>
+    <string name="menu_Associated_Shops"> MR Associated Shops</string>
+    <string name="menu_Add_A_Shop"> MR Add A Shop</string>
+    <string name="menu_Shop_Operational_Time"> MR Shop Closing Time</string>
+    <string name="menu_Associated_Product_Category"> MR Associated Product Category</string>
+    <string name="menu_Orders"> MR Orders</string>
+    <string name="menu_My_Orders"> MR My Orders</string>
+    <string name="menu_Today_Delivery"> MR Today\'s Delivery</string>
+    <string name="menu_Product"> MR Product</string>
+    <string name="menu_Add_a_Product"> MR Add a Product</string>
+    <string name="menu_Delivery_Person"> MR Delivery Person</string>
+    <string name="menu_All_Delivery_Persons"> MR All Delivery Persons</string>
+    <string name="menu_Associated_Delivery_Person"> MR Associated Delivery Person</string>
+    <string name="menu_Add_a_Delivery_Person"> MR Add a Delivery Person</string>
+    <string name="menu_Delivery_Location"> MR Delivery Location</string>
+    <string name="menu_Delivery_Locations"> MR Delivery Locations</string>
+    <string name="menu_Add_A_Delivery_Location"> MR Add A Delivery Location</string>
+    <string name="menu_Products"> MR Products</string>
+    <string name="title_activity_settings"> MR SettingsActivity</string>
+
+</resources>

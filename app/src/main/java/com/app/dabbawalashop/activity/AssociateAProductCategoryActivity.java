@@ -37,8 +37,10 @@ public class AssociateAProductCategoryActivity extends BaseActivity {
 
     private EditText et_fromDeliveryTime;
     private EditText et_toDeliveryTime;
+    private EditText et_orderTime;
     TimePicker tp_fromTime;
     TimePicker tp_toTime;
+    TimePicker tp_orderTime;
     private Spinner spinner_add_product_category;
     private Spinner spinner_add_product_shop_category;
     private String shopCN;
@@ -60,17 +62,21 @@ public class AssociateAProductCategoryActivity extends BaseActivity {
     private void setUI() {
         et_fromDeliveryTime = (EditText) findViewById(R.id.et_fromDeliveryTime);
         et_toDeliveryTime = (EditText) findViewById(R.id.et_toDeliveryTime);
+        et_orderTime = (EditText) findViewById(R.id.et_orderTime);
         tp_fromTime = (TimePicker) findViewById(R.id.tp_fromTime);
         tp_toTime = (TimePicker) findViewById(R.id.tp_toTime);
+        tp_orderTime = (TimePicker) findViewById(R.id.tp_orderTime);
         spinner_add_product_category = (Spinner) findViewById(R.id.spinner_add_product_category);
         spinner_add_product_shop_category = (Spinner) findViewById(R.id.spinner_add_product_shop_category);
         findViewById(R.id.tv_updateDeliveryTime).setOnClickListener(this);
         et_fromDeliveryTime.setOnClickListener(this);
         et_toDeliveryTime.setOnClickListener(this);
+        et_orderTime.setOnClickListener(this);
         spinner_shopId = (Spinner) findViewById(R.id.spinner_shopId);
         ll_shopId = (LinearLayout) findViewById(R.id.ll_shopId);
         tp_fromTime.setVisibility(View.GONE);
         tp_toTime.setVisibility(View.GONE);
+        tp_orderTime.setVisibility(View.GONE);
         if((USER_TYPE.equals(AppConstant.UserType.DELIVERY_PERSON_TYPE)) || (USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE))) {
             ll_shopId.setVisibility(View.GONE);
         }
@@ -209,6 +215,9 @@ public class AssociateAProductCategoryActivity extends BaseActivity {
             case R.id.et_toDeliveryTime:
                 setTime(et_toDeliveryTime);
                 break;
+            case R.id.et_orderTime:
+                setTime(et_orderTime);
+                break;
             case R.id.tv_updateDeliveryTime:
                 updateDeliveryTimeAPI();
                 break;
@@ -252,10 +261,11 @@ public class AssociateAProductCategoryActivity extends BaseActivity {
 
         String fromTime = et_fromDeliveryTime.getText().toString().trim();
         String toTime = et_toDeliveryTime.getText().toString().trim();
+        String orderTime = et_orderTime.getText().toString().trim();
         String shopCategory = shopCN;
         String pCategory = productCN;
 
-        if (!DialogUtils.isSpinnerDefaultValue(this, shopIdValue, "Shop ID")) {
+        if (!DialogUtils.isSpinnerDefaultValue(this, shopIdValue, getString(R.string.label_Shop_ID))) {
             return;
         }
 
@@ -267,12 +277,16 @@ public class AssociateAProductCategoryActivity extends BaseActivity {
             return;
         }
 
+        if (!DialogUtils.checkForBlank(this, getString(R.string.label_Order_Time), orderTime)) {
+            return;
+        }
+
         if(USER_TYPE.equals(AppConstant.UserType.SHOP_TYPE)) {
             shopIdValue = PreferenceKeeper.getInstance().getUserId();
         }
 
         showProgressBar(findViewById(R.id.tv_updateDeliveryTime));
-        AppHttpRequest request = AppRequestBuilder.associateAProductCategoryAPI(shopIdValue, fromTime, toTime, shopCategory, pCategory, new AppResponseListener<CommonResponse>(CommonResponse.class, this) {
+        AppHttpRequest request = AppRequestBuilder.associateAProductCategoryAPI(shopIdValue, fromTime, toTime, orderTime, shopCategory, pCategory, new AppResponseListener<CommonResponse>(CommonResponse.class, this) {
             @Override
             public void onSuccess(CommonResponse result) {
                 hideProgressBar(findViewById(R.id.tv_updateDeliveryTime));

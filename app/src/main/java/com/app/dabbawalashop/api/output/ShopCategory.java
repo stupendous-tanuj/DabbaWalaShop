@@ -6,6 +6,16 @@ public class ShopCategory {
     private String popularCategory;
     private String shopCategoryImageURL;
 
+    private String additionalFields;
+
+    public String getAdditionalFields() {
+        return additionalFields;
+    }
+
+    public void setAdditionalFields(String additionalFields) {
+        this.additionalFields = additionalFields;
+    }
+
     /**
      * @return The shopCategoryName
      */

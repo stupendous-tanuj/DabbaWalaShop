@@ -11,9 +11,9 @@ public class AppConstant {
 
     public static final String APPLICATION_ID = "ANDSH1002";
     public static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-    public static final String GCM_ID = "389845974615";
+    public static final String GCM_ID = "187896396066";
     public static final String COUNTRY = "India";
-
+    public static final String VERSION = "1.0";
 
     public interface BUNDLE_KEY {
 
@@ -58,7 +58,7 @@ public class AppConstant {
         String USER_TYPE = "user_type";
         String GCM_REG_ID = "gcm_id";
         String ASSOCIATED_SHOP_ID = "ASSOCIATED_SHOP_ID";
-
+        String LOCALE = "LOCALE";
     }
 
     public interface UserType {
@@ -74,6 +74,21 @@ public class AppConstant {
         String CITY_HYD = "Hyderabad";
         String CITY_BLR = "Banglore";
     }
+
+    public interface LANGUAGE {
+        String LANGUAGE_ENGLISH = "English";
+        String LANGUAGE_MARATHI = "Marathi";
+        String LANGUAGE_HINDI = "Hindi";
+    }
+
+    public static List<String> fetchLanguages() {
+        final List<String> languageList = new ArrayList<>();
+        languageList.add(LANGUAGE.LANGUAGE_ENGLISH);
+        languageList.add(LANGUAGE.LANGUAGE_HINDI);
+        languageList.add(LANGUAGE.LANGUAGE_MARATHI);
+        return languageList;
+    }
+
 
 
     public interface STATE {
@@ -126,14 +141,8 @@ public class AppConstant {
         String STATUS_SUBSCRIBED = "Subscribed";
         String STATUS_INCREASED = "Increased";
         String STATUS_DECREASED = "Decreased";
+        String STATUS_UNKNOWN = "Unknown";
 
     }
 
-    public interface RequestCodes {
-        int UPDATE_LOCATION = 1;
-    }
-
-    public interface ResponseExtra {
-
-    }
 }

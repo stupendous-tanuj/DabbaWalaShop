@@ -6,6 +6,16 @@ public class ProductCategory {
     private String productCategoryDescription;
     private String productCategoryImageName;
 
+    private String additionalFields;
+
+    public String getAdditionalFields() {
+        return additionalFields;
+    }
+
+    public void setAdditionalFields(String additionalFields) {
+        this.additionalFields = additionalFields;
+    }
+
     /**
      * @return The productCategoryName
      */

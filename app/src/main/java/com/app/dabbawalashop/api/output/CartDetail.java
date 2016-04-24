@@ -12,6 +12,17 @@ public class CartDetail {
     private String productDescription;
     private String productImageName;
 
+    private String additionalFields;
+
+    public String getAdditionalFields() {
+        return additionalFields;
+    }
+
+    public void setAdditionalFields(String additionalFields) {
+        this.additionalFields = additionalFields;
+    }
+
+
     public String getProductDescription() {
         return productDescription;
     }

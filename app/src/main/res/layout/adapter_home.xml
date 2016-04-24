@@ -338,6 +338,30 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_3"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:layout_weight="1"
+                        android:text="@string/label_Delivery_Dates"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp_13" />
+
+                    <Spinner
+                        android:id="@+id/spinner_deliveryDates"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.2"></Spinner>
+
+                </LinearLayout>
+
+
+                <LinearLayout
                     android:id="@+id/ll_orderSubscriptionType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

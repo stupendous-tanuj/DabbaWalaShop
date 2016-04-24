@@ -1,9 +1,9 @@
 package com.app.dabbawalashop.api.output;
 
 /**
- * Created by umesh on 15/1/16.
+ * Created by TANUJ on 4/20/2016.
  */
-public class CommonResponse {
+public class BaseURLResponse {
 
     private String additionalFields;
 
@@ -16,13 +16,16 @@ public class CommonResponse {
     }
 
 
-    private String successMessage;
-
-    public String getSuccessMessage() {
-        return successMessage;
+    public String getBaseURL() {
+        return baseURL;
     }
 
-    public void setSuccessMessage(String successMessage) {
-        this.successMessage = successMessage;
+    public void setBaseURL(String baseURL) {
+        this.baseURL = baseURL;
     }
+
+    private String baseURL;
+
+
+
 }

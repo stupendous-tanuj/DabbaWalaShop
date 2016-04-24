@@ -176,7 +176,6 @@ public class UpdateDeliveryDetailsActivity extends BaseActivity {
         DeliveryDetail deliveryDetail = result.getDeliveryDetails().get(0);
         deliveryStatus = deliveryDetail.getDeliveryStatus();
         tv_deliveryStatus.setText(deliveryDetail.getDeliveryStatus());
-
         tv_invoiceAmount.setText(deliveryDetail.getInvoiceAmount());
         tv_balanceAmount.setText(deliveryDetail.getBalanceAmount());
         if(deliveryStatus.equals(AppConstant.STATUS.STATUS_DISPATCHED) || deliveryStatus.equals(AppConstant.STATUS.STATUS_CLOSED))

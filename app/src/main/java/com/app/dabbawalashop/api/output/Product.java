@@ -14,6 +14,16 @@ public class Product {
     private String monthlySubscriptionPrice;
     private String productImageName;
 
+    private String additionalFields;
+
+    public String getAdditionalFields() {
+        return additionalFields;
+    }
+
+    public void setAdditionalFields(String additionalFields) {
+        this.additionalFields = additionalFields;
+    }
+
     public String getProductRegistrationStatus() {
         return productRegistrationStatus;
     }

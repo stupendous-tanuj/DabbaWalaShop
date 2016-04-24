@@ -1,5 +1,6 @@
 package com.app.dabbawalashop.activity;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -11,6 +12,8 @@ import com.app.dabbawalashop.utils.AppUtil;
 import com.app.dabbawalashop.utils.DialogUtils;
 import com.app.dabbawalashop.utils.PreferenceKeeper;
 
+import java.util.Locale;
+
 
 public class SplashActivity extends BaseActivity {
 
@@ -21,6 +24,7 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_splash);
         setDeviceInfo();
        // getGCMRegId();

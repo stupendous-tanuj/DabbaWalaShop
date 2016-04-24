@@ -149,7 +149,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/dp_10"
                         android:textSize="@dimen/sp_15"
-                        android:text="Order Status"
+                        android:text="@string/label_Order_Status"
                         android:textColor="@color/black"
                         />
 

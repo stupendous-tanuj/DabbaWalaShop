@@ -2,6 +2,16 @@ package com.app.dabbawalashop.api.output;
 
 public class OrderUnit {
 
+    private String additionalFields;
+
+    public String getAdditionalFields() {
+        return additionalFields;
+    }
+
+    public void setAdditionalFields(String additionalFields) {
+        this.additionalFields = additionalFields;
+    }
+
     private String orderUnit;
 
     /**

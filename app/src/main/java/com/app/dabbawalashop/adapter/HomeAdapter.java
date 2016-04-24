@@ -5,12 +5,16 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.app.dabbawalashop.R;
 import com.app.dabbawalashop.activity.BaseActivity;
 import com.app.dabbawalashop.activity.HomeActivity;
+import com.app.dabbawalashop.activity.UpdateDeliveryDetailsActivity;
 import com.app.dabbawalashop.activity.UpdateOrderDetailActivity;
 import com.app.dabbawalashop.api.output.CommonResponse;
 import com.app.dabbawalashop.api.output.ErrorObject;
@@ -23,6 +27,7 @@ import com.app.dabbawalashop.network.AppResponseListener;
 import com.app.dabbawalashop.network.AppRestClient;
 import com.app.dabbawalashop.utils.DialogUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -87,6 +92,40 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         holder.tv_orderInvoiceAmount.setText(orderDetail.getOrderInvoiceAmount());
         holder.tv_orderCancellationReason.setText(orderDetail.getOrderCancellationReason());
         holder.tv_my_order_order_time.setText(orderDetail.getOrderCreationTimestamp());
+
+        final String deliveryDatesValue = orderDetail.getDeliveryDates();
+        String deliveryDateArray[] = deliveryDatesValue.split(",");
+        final List<String> deliveryDateList = new ArrayList<>();
+        deliveryDateList.add(activity.getString(R.string.default_Select_Date));
+        for (int i = 0; i < deliveryDateArray.length; i++)
+            deliveryDateList.add(deliveryDateArray[i]);
+
+        ArrayAdapter<String> deliveryDateDataAdapter = new ArrayAdapter<String>(activity, android.R.layout.simple_spinner_item, deliveryDateList);
+        deliveryDateDataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        holder.spinner_deliveryDates.setAdapter(deliveryDateDataAdapter);
+        holder.spinner_deliveryDates.setSelection(0);
+        holder.spinner_deliveryDates.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                String deliveryDate = deliveryDateList.get(pos);
+                if (!deliveryDate.equals(activity.getString(R.string.default_Select_Date))) {
+                    Bundle bundle1 = new Bundle();
+                    bundle1.putString(AppConstant.BUNDLE_KEY.ORDER_ID, orderDetail.getOrderId());
+                    bundle1.putString(AppConstant.BUNDLE_KEY.OrderPlacedTo, orderDetail.getOrderPlacedTo());
+                    bundle1.putString(AppConstant.BUNDLE_KEY.OrderPlacedBy, orderDetail.getOrderPlacedBy());
+                    bundle1.putString(AppConstant.BUNDLE_KEY.TODAYS_DELIVERY_DATE_FLAG, "1");
+                    bundle1.putString(AppConstant.BUNDLE_KEY.DELIVERY_STATUS, AppConstant.STATUS.STATUS_UNKNOWN);
+                    bundle1.putString(AppConstant.BUNDLE_KEY.DELIVERY_DATE, deliveryDate);
+                    activity.launchActivity(UpdateDeliveryDetailsActivity.class, bundle1);
+
+
+                }
+            }
+
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+
 
         /*
         if(orderStatus.equals("Cancelled")){
@@ -211,8 +250,11 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         public LinearLayout ll_my_payment_status;
         public LinearLayout ll_my_order_order_time;
         public LinearLayout ll_orderSubscriptionType;
+        public Spinner spinner_deliveryDates;
+        public LinearLayout ll_deliveryDates;
         public OrderDetailHolder(View convertView) {
             super(convertView);
+            spinner_deliveryDates = (Spinner) convertView.findViewById(R.id.spinner_deliveryDates);
             orderId = (TextView) convertView.findViewById(R.id.tv_my_order_id);
             orderPlacedBy = (TextView) convertView.findViewById(R.id.tv_my_order_place_by);
             orderPlacedTo = (TextView) convertView.findViewById(R.id.tv_my_order_place_to);
@@ -242,7 +284,9 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             ll_my_payment_status = (LinearLayout) convertView.findViewById(R.id.ll_my_payment_status);
             ll_my_order_order_time = (LinearLayout) convertView.findViewById(R.id.ll_my_order_order_time);
             ll_orderSubscriptionType = (LinearLayout) convertView.findViewById(R.id.ll_orderSubscriptionType);
+            ll_deliveryDates = (LinearLayout) convertView.findViewById(R.id.ll_deliveryDates);
             ll_orderCancellationReason.setVisibility(View.GONE);
+            ll_deliveryDates.setVisibility(View.GONE);
             ll_orderInvoiceAmount.setVisibility(View.GONE);
             ll_balanceAmount.setVisibility(View.GONE);
             ll_amountAdjusted.setVisibility(View.GONE);

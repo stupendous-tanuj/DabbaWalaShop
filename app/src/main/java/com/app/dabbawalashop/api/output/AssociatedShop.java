@@ -5,6 +5,16 @@ package com.app.dabbawalashop.api.output;
  */
 public class AssociatedShop {
 
+    private String additionalFields;
+
+    public String getAdditionalFields() {
+        return additionalFields;
+    }
+
+    public void setAdditionalFields(String additionalFields) {
+        this.additionalFields = additionalFields;
+    }
+
     public String getShopID() {
         return shopID;
     }
