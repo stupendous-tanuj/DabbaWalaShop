@@ -75,9 +75,11 @@ public class HomeActivity extends BaseActivity {
     LinearLayout linear_home_logout = null;
     LinearLayout linear_home_from_dte = null;
     LinearLayout linear_home_to_dte = null;
-    LinearLayout linear_change_password = null;
+
     LinearLayout linear_home_my_orders = null;
     LinearLayout linear_home_associated_shops = null;
+    LinearLayout linear_change_password = null;
+    LinearLayout linear_home_settings = null;
     LinearLayout linear_bar_deliveryLocation = null;
     LinearLayout linear_bar_deliveryPerson = null;
     LinearLayout linear_bar_product = null;
@@ -87,7 +89,7 @@ public class HomeActivity extends BaseActivity {
     LinearLayout linear_home_associateAProductCategory = null;
     LinearLayout linear_home_todays_delivery = null;
     LinearLayout linear_home_associatedProductCategory = null;
-    LinearLayout linear_home_settings = null;
+
     private TextView tv_orderStatus;
     private TextView tv_shopId;
     private Spinner spinner_orderStatus;
@@ -483,14 +485,16 @@ public class HomeActivity extends BaseActivity {
         linear_home_logout.setOnClickListener(this);
         linear_home_from_dte.setOnClickListener(this);
         linear_home_to_dte.setOnClickListener(this);
-        linear_change_password.setOnClickListener(this);
+
         linear_home_my_orders.setOnClickListener(this);
-        linear_home_associated_shops.setOnClickListener(this);
-        linear_home_addAShop.setOnClickListener(this);
+
         linear_home_addADeliveryLocation.setOnClickListener(this);
         linear_home_all_delivery_person.setOnClickListener(this);
         linear_home_todays_delivery.setOnClickListener(this);
         linear_home_settings.setOnClickListener(this);
+        linear_change_password.setOnClickListener(this);
+        linear_home_associated_shops.setOnClickListener(this);
+        linear_home_addAShop.setOnClickListener(this);
         //linear_home_associateAProductCategory.setOnClickListener(this);
         linear_home_associatedProductCategory.setOnClickListener(this);
     }

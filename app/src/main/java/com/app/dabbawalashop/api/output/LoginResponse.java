@@ -20,8 +20,8 @@ public class LoginResponse {
     public void setFirstLogin(String firstLogin) {
         this.firstLogin = firstLogin;
     }
-
-    private String successMessage;
     private String firstLogin;
+    private String successMessage;
+
 
 }
