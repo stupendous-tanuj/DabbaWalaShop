@@ -41,6 +41,7 @@ public class AppRequestBuilder {
     public static String TAG = HomeActivity.class.getSimpleName();
     private static final String BASE_URL = "http://stupendoustanuj.co.nf/Dabbawala";
     private static final String ROOT_URL = "http://stupendoustanuj.co.nf/Dabbawala";
+    private static final String BASE_URL = "http://shopthefortune.com/shopthefortune/api/nutrichef/test";
     public static String USER_TYPE = "";
     public static String USER_ID = "";
 
