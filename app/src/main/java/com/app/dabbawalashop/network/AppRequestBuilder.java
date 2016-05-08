@@ -39,9 +39,9 @@ import java.util.Map;
 public class AppRequestBuilder {
 
     public static String TAG = HomeActivity.class.getSimpleName();
-    private static final String BASE_URL = "http://stupendoustanuj.co.nf/Dabbawala";
-    private static final String ROOT_URL = "http://stupendoustanuj.co.nf/Dabbawala";
     private static final String BASE_URL = "http://shopthefortune.com/shopthefortune/api/nutrichef/test";
+    private static final String ROOT_URL = "http://shopthefortune.com/shopthefortune/api/nutrichef/test";
+    //private static final String BASE_URL = "http://shopthefortune.com/shopthefortune/api/nutrichef/test";
     public static String USER_TYPE = "";
     public static String USER_ID = "";
 
@@ -769,6 +769,7 @@ public class AppRequestBuilder {
         Map<String, String> map = new LinkedHashMap<String, String>();
         setUserHeader(map);
         map.put("message", message);
+        map.put("userType", USER_TYPE);
         request.addParam("input", setRequestBody(map));
         return request;
     }
